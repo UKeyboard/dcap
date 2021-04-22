@@ -1,0 +1,242 @@
+import os
+import csv
+import pickle
+import random
+import numpy 
+import itertools
+import torch
+import torch.utils.data as torda
+from PIL import Image
+from dataset.lmdb import VisionLMDBDatabase
+
+#
+__all__ = ['TieredImagenetHorizontal', 'TieredImagenet', 'TieredImagenetLMDBHorizontal', 'TieredImagenetLMDB']
+
+class TieredImagenetVirtual(torda.Dataset):
+    """A virtual class for tieredImagenet dataset.
+
+    Args:  
+    @param root: str, the directory where the meta files and images of tieredImagenet dataset locate.
+    @param imagenet: str, the destination where ImageNet dataset locates, if None, load images from root/images.
+    """
+    def __init__(self, root, imagenet=None):
+        self.root = root
+        self.imagenet = imagenet
+        if imagenet is None:
+            self.image_root = os.path.join(root, 'images')
+        else:
+            assert isinstance(imagenet, str)
+            if not os.path.isdir(imagenet):
+                raise ValueError('Bad ImageNet dataset location: %s' % imagenet)
+            self.image_root = imagenet
+        self.loading()
+
+    def loading(self):
+        self.train_cls_num, self.val_cls_num, self.test_cls_num = 351, 97, 160
+        serialized_meta_file = os.path.join(self.root, 'tieredimagenet.pkl')
+        if os.path.isfile(serialized_meta_file):
+            with open(serialized_meta_file, 'rb') as f:
+                mappings, classes = pickle.load(f)
+        else:
+            mappings = {}
+            classes = []
+            for metafile in map(lambda x: os.path.join(self.root, x), ['train.data.csv', 'val.data.csv', 'test.data.csv']):
+                with open(metafile, mode='r') as csvfin:
+                    csvreadin = csv.reader(csvfin, delimiter=',')
+                    for i, row in enumerate(csvreadin):
+                        items = mappings.get(row[1], None)
+                        if items is None:
+                            mappings[row[1]] = []
+                            items = mappings[row[1]]
+                            classes.append(row[1])
+                        items.append((row[0], row[1]))
+            with open(serialized_meta_file, 'wb') as f:
+                pickle.dump((mappings, classes), f)
+        self.mappings, self.classes = mappings, classes
+        assert len(self.classes) == (self.train_cls_num + self.val_cls_num + self.test_cls_num)
+        self.train_cls, self.val_cls, self.test_cls = self.class_spliting()
+        assert len(self.train_cls) == self.train_cls_num
+        assert len(self.val_cls) == self.val_cls_num
+        assert len(self.test_cls) == self.test_cls_num
+        self.num_of_instances_per_class = dict(zip(self.classes, [len(self.mappings[c]) for c in self.classes]))
+
+    def class_spliting(self):
+        a, b, c = self.train_cls_num, self.train_cls_num+self.val_cls_num, self.train_cls_num+self.val_cls_num+self.test_cls_num
+        return self.classes[:a], self.classes[a:b], self.classes[b:c]
+    
+    def load_image(self,x):
+        """Load PIL image.
+
+        Args:
+        @param x: str, the image name, e.g. 'n01614925_1001.JPEG'
+
+        Return:
+        The corresponding PIL Image object.
+        """
+        label,_ = x.split(".")[0].split("_")
+        filename = os.path.join(self.image_root, label, x) # load image from /path/to/tieredimagenet/images/category/name
+        return Image.open(filename).convert("RGB")
+
+class TieredImagenetHorizontal(TieredImagenetVirtual):
+    """Partitioning tieredImagenet horizontally in instance level, in which some out of the 600 
+    instances (per category) are used for classifier training and the remaining are used for 
+    evaluation. The catetories that can participate this kind of partition is strictlly controlled
+    by "category_pool_name":
+        - "train": use the 351 meta-train categories.
+        - "val": use the 97 meta-val categories.
+        - "test": use the 160 meta-test categories.
+        - "trainval": use both meta-train and meta-val categories.
+        - "notrain": use both meta-val and meta-test categories.
+        - "all": use all 608 categories.
+        - None: use all 608 categories.
+    
+    The dataset is divided into two splits, i.e. "train" and "test". No "val" split is available.
+    The number of training instances per category is #INSTANCE_IN_CLASS*factor.
+
+    Args:
+    @param root: str, the directory where the meta files and images of tieredImagenet dataset locate.
+    @param phase: str, the subset to use, must be one of "train" and "test".
+    @param factor: float, the ratio of instance for training, must in range (0,1.0), default 0.8.
+    @param category_pool_name: str, a choice of the categories to construct this dataset.
+    @param label_indent: int, the reserved label space, default -1 (0 is reserved for background).
+    @param imagenet: str, the destination where ImageNet dataset locates, if None, load images from root/images.
+    """
+    def __init__(self, root, phase, factor=0.8, category_pool_name=None, label_indent=-1, imagenet=None):
+        assert phase in ['train', 'test']
+        assert factor > 0 and factor < 1
+        if category_pool_name is not None:
+            assert category_pool_name in ['train', 'val', 'test', 'trainval', 'notrain', 'all']
+        else:
+            category_pool_name = 'all'
+        assert isinstance(label_indent, int)
+        assert label_indent < 1
+        super().__init__(root, imagenet)
+        self.phase = phase
+        self.factor = factor
+        self.category_pool_name = category_pool_name
+        self.category_pool = self._category_pool
+        self.label_indent = label_indent
+        #
+        instances = []
+        for c in self.category_pool:
+            i = int(self.factor * self.num_of_instances_per_class[c])
+            instances.append(self.mappings[c][:i] if 'train' in self.phase else self.mappings[c][i:])
+        self.indices = dict(zip(self.category_pool, numpy.cumsum([0]+[len(items) for items in instances]).tolist()[:-1]))
+        self.instances = list(itertools.chain.from_iterable(instances))
+        self.num_instances = len(self.instances)
+        self.category2idx = dict(zip(self.category_pool, range(len(self.category_pool))))
+    
+    @property
+    def _category_pool(self):
+        if self.category_pool_name == 'all':
+            return self.classes[:]
+        elif self.category_pool_name == 'train':
+            return self.train_cls[:]
+        elif self.category_pool_name == 'val':
+            return self.val_cls[:]
+        elif self.category_pool_name == 'test':
+            return self.test_cls[:]
+        elif self.category_pool_name == 'trainval':
+            return self.train_cls + self.val_cls
+        elif self.category_pool_name == 'notrain':
+            return self.val_cls + self.test_cls
+        else:
+            raise ValueError('not supported category pool name: %s' % self.category_pool_name)
+
+    def __len__(self):
+        return self.num_instances
+    
+    def __getitem__(self, index):
+        image_name, label = self.instances[index]
+        image = self.load_image(image_name)
+        return image, label, self.category2idx[label] - self.label_indent
+
+
+class TieredImagenet(TieredImagenetVirtual):
+    """
+    Args:
+    @param root: str, the directory where the meta files and images of tieredImagenet dataset locate.
+    @param phase: str, the subset to use, must be one of "train" (351), "val" (97), "trainval" (448) and "test" (160).
+    @param label_indent: int, the reserved label space, default -1 (0 is reserved for background).
+    @param imagenet: str, the destination where ImageNet dataset locates, if None, load images from root/images.
+    """
+    def __init__(self, root, phase, label_indent=-1, imagenet=None):
+        assert phase in ['train', 'val', 'trainval', 'test']
+        assert isinstance(label_indent, int)
+        assert label_indent < 1
+        super().__init__(root, imagenet)
+        self.phase = phase
+        self.category_pool = self._category_pool
+        self.label_indent = label_indent
+        #
+        instances = [self.mappings[c] for c in self.category_pool]
+        self.indices = dict(zip(self.category_pool, numpy.cumsum([0]+[len(items) for items in instances]).tolist()[:-1]))
+        self.instances = list(itertools.chain.from_iterable(instances))
+        self.num_instances = len(self.instances)
+        self.category2idx = dict(zip(self.category_pool, range(len(self.category_pool))))
+    
+    @property
+    def _category_pool(self):
+        if self.phase == 'train':
+            return self.train_cls[:]
+        elif self.phase == 'val':
+            return self.val_cls[:]
+        elif self.phase == 'test':
+            return self.test_cls[:]
+        elif self.phase == 'trainval':
+            return self.train_cls + self.val_cls
+        else:
+            raise ValueError('not supported dataset split: %s' % self.phase)
+    
+    def __len__(self):
+        return self.num_instances
+    
+    def __getitem__(self, index):
+        image_name, label = self.instances[index]
+        image = self.load_image(image_name)
+        return image, label, self.category2idx[label] - self.label_indent
+
+
+
+# LMDB for tieredImagenet
+class TieredImagenetLMDBHorizontal(TieredImagenetHorizontal):
+    """LMDB version of TieredImagenetHorizontal. Assume the tieredImagenet images are
+    serialized in the target `lmdb` database. A valid lmdb database is required.
+    """
+    def __init__(self, root, phase, factor=0.8, category_pool_name=None, label_indent=-1, lmdb=None):
+        super().__init__(root, phase, factor, category_pool_name, label_indent, imagenet=None)
+        self.lmdb = VisionLMDBDatabase(lmdb)
+    
+    def load_image(self, x):
+        """Load PIL image.
+
+        Args:
+        @param x: str, the image name, e.g. 'n01614925_1001.JPEG'
+
+        Return:
+        The corresponding PIL Image object.
+        """
+        label,_ = x.split(".")[0].split("_")
+        key = os.path.join(label, x).encode('ascii')
+        return self.lmdb.getitem_by_key(key)
+
+class TieredImagenetLMDB(TieredImagenet):
+    """LMDB version of TieredImagenet. Assume the tieredImagenet images are
+    serialized in the target `lmdb` database. A valid lmdb database is required.
+    """
+    def __init__(self, root, phase, label_indent=-1, lmdb=None):
+        super().__init__(root, phase, label_indent, imagenet=None)
+        self.lmdb = VisionLMDBDatabase(lmdb)
+
+    def load_image(self, x):
+        """Load PIL image.
+
+        Args:
+        @param x: str, the image name, e.g. 'n01614925_1001.JPEG'
+
+        Return:
+        The corresponding PIL Image object.
+        """
+        label,_ = x.split(".")[0].split("_")
+        key = os.path.join(label, x).encode('ascii')
+        return self.lmdb.getitem_by_key(key)
