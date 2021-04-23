@@ -417,8 +417,8 @@ class Solver():
         for self.curr_epoch in range(self.curr_epoch, self.max_num_epochs):
             if self.is_training_finished: break
             if self._is_main_process and self._is_write_summary: self.summary_writer.add_scalar('lr', self.curr_learning_rate, self.curr_epoch)
-            self.logger.info('Training epoch [%4d / %4d]:' %
-                             (self.curr_epoch + 1, self.max_num_epochs))
+            self.logger.info('Training epoch [%4d / %4d, lr=%.6f]:' %
+                             (self.curr_epoch + 1, self.max_num_epochs, self.curr_learning_rate))
             train_stats = self.train_on_dataset(data_loader_train)
             if self._is_main_process and self._is_write_summary: self.write_stats_summary(train_stats, 'train')
             self.logger.info('==> Training stats [%4d / %4d]: %s' % (self.curr_epoch + 1, self.max_num_epochs, train_stats))
