@@ -9,9 +9,9 @@ is_softlabel = False
 is_augtrain_plus = True
 is_multi_lr_decay = True
 is_transductive_bn = False
-batch_size = 256
+batch_size = 512
 conv_out_dim = 64
-max_num_epochs = 100
+max_num_epochs = 120
 
 # build configure
 config = {}
