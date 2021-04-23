@@ -13,7 +13,7 @@ is_transductive_bn = False
 drop_rate = 0.2
 batch_size = 256
 conv_out_dim = 640
-max_num_epochs = 100
+max_num_epochs = 120
 
 # build configure
 config = {}
