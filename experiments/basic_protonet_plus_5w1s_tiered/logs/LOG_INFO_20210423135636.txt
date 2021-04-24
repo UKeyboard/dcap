@@ -1,0 +1,285 @@
+2021-04-23 13:56:36,178 - ProtoNetProjectionMetricPlusSolver - INFO   - Solver options => {'name': 'basic_protonet_plus_5w1s_tiered_conv64_none_avg_hardlabel_wAC_wBias_woTBN_wFT_project_b4_e50', 'max_num_epochs': 50, 'evaluate_step': 1, 'best_metric': 'Top1Acc', 'episode_train_meta': FewShotEpisodeMeta(n_class=5, n_support=1, n_query=15, n_unlabel=0), 'episode_test_meta': FewShotEpisodeMeta(n_class=5, n_support=1, n_query=15, n_unlabel=0), 'solver': {'package': 'algorithm.fewshot', 'module': 'ProtoNetProjectionMetricPlusSolver', 'min_lr_decay': 0.0001, 'vanilla_classifier_balance_weight': 0.5, 'fewshot_classifier_balance_weight': 1.0}, 'network': {'package': 'model', 'module': 'ConvNet64_wCplus', 'param': {'required_input_size': 84, 'num_classes': 351, 'biased': True, 'avgpool': True, 'transductive_bn': False, 'final_activation': Sequential(
+  (0): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (1): LeakyReLU(negative_slope=0.1)
+)}, 'pretrained': 'experiments/basic_351w_tiered/basic_351w_tiered_conv64_augplus_multi_avg_hardlabel_wAC_wBias_woTBN_b512_e120_ckpt_epoch115.best', 'freeze_pretrained': False}, 'optimizer': {'package': 'torch.optim', 'module': 'SGD', 'param': {'lr': 0.001, 'momentum': 0.9, 'weight_decay': 0.0005, 'nesterov': True}}, 'scheduler': {'package': 'torch.optim.lr_scheduler', 'module': 'MultiStepLR', 'param': {'milestones': [40], 'gamma': 0.1, 'last_epoch': -1}}, 'data': {'package': 'dataset', 'module': 'TieredImagenetLMDBFS', 'train': {'phase': 'train', 'transform_name': 'aug_train', 'label_indent': 0, 'n_batch': 250, 'n_class': 5, 'n_support': 1, 'n_query': 15, 'n_unlabel': 0, 'batch_size': 4, 'lmdb': '/cloud/hejun/dataset/imagenet/ILSVRC2012_img_train_x96.lmdb'}, 'val': {'phase': 'val', 'transform_name': 'basic', 'label_indent': -351, 'n_batch': 250, 'n_class': 5, 'n_support': 1, 'n_query': 15, 'n_unlabel': 0, 'batch_size': 4, 'lmdb': '/cloud/hejun/dataset/imagenet/ILSVRC2012_img_train_x96.lmdb'}, 'test': {'phase': 'test', 'transform_name': 'basic', 'label_indent': -448, 'n_batch': 250, 'n_class': 5, 'n_support': 1, 'n_query': 15, 'n_unlabel': 0, 'batch_size': 4, 'lmdb': '/cloud/hejun/dataset/imagenet/ILSVRC2012_img_train_x96.lmdb'}}, 'exp_dir': './experiments/basic_protonet_plus_5w1s_tiered', 'checkpoint': 0, 'iscuda': True, 'ngpus': 1, 'tqdm': True, 'debug': False, 'noflog': False, 'nosummary': False, 'local_rank': None}
+2021-04-23 13:56:36,187 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Load pretrained parameters from file experiments/basic_351w_tiered/basic_351w_tiered_conv64_augplus_multi_avg_hardlabel_wAC_wBias_woTBN_b512_e120_ckpt_epoch115.best.
+2021-04-23 13:56:36,192 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> total 16 network submodules are initialized with pretrained parameters.
+2021-04-23 13:56:38,515 - ProtoNetProjectionMetricPlusSolver - INFO   - Training epoch [   1 /   50, lr=0.001000]:
+2021-04-23 13:57:05,637 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Training stats [   1 /   50]: {'loss': 2.8755, 'fs_loss': 1.1243, 'cc_loss': 3.5024, 'Top1Acc': 57.088, 'Top5Acc': 100.0}
+2021-04-23 13:57:05,637 - ProtoNetProjectionMetricPlusSolver - INFO   - Save checkpoint @ epoch 1
+2021-04-23 13:59:04,066 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Evaluation stats [   1 /   50]: {'loss': 1.2528, 'fs_loss': 1.2528, 'Top1Acc': 51.036, 'Top5Acc': 100.0, 'Top1Acc_std': 5.9322, 'Top1Acc_cnf95': 0.7354, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 13:59:04,067 - ProtoNetProjectionMetricPlusSolver - INFO   - Save checkpoint @ epoch 1
+2021-04-23 13:59:04,077 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Best results w.r.t. Top1Acc metric @ epoch 1 - {'loss': 1.2528, 'fs_loss': 1.2528, 'Top1Acc': 51.036, 'Top5Acc': 100.0, 'Top1Acc_std': 5.9322, 'Top1Acc_cnf95': 0.7354, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:01:14,772 - ProtoNetProjectionMetricPlusSolver - INFO   - Testing stats [   1 /   50]: {'loss': 1.1957, 'fs_loss': 1.1957, 'Top1Acc': 53.9787, 'Top5Acc': 100.0, 'Top1Acc_std': 5.5085, 'Top1Acc_cnf95': 0.6828, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:01:14,773 - ProtoNetProjectionMetricPlusSolver - INFO   - Training epoch [   2 /   50, lr=0.001000]:
+2021-04-23 14:01:42,163 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Training stats [   2 /   50]: {'loss': 2.8223, 'fs_loss': 1.0782, 'cc_loss': 3.4882, 'Top1Acc': 58.5227, 'Top5Acc': 100.0}
+2021-04-23 14:01:42,164 - ProtoNetProjectionMetricPlusSolver - INFO   - Save checkpoint @ epoch 2
+2021-04-23 14:01:58,809 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Evaluation stats [   2 /   50]: {'loss': 1.2118, 'fs_loss': 1.2118, 'Top1Acc': 51.632, 'Top5Acc': 100.0, 'Top1Acc_std': 5.962, 'Top1Acc_cnf95': 0.7391, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:01:58,810 - ProtoNetProjectionMetricPlusSolver - INFO   - Save checkpoint @ epoch 2
+2021-04-23 14:01:58,824 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Best results w.r.t. Top1Acc metric @ epoch 2 - {'loss': 1.2118, 'fs_loss': 1.2118, 'Top1Acc': 51.632, 'Top5Acc': 100.0, 'Top1Acc_std': 5.962, 'Top1Acc_cnf95': 0.7391, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:02:15,293 - ProtoNetProjectionMetricPlusSolver - INFO   - Testing stats [   2 /   50]: {'loss': 1.1763, 'fs_loss': 1.1763, 'Top1Acc': 54.4733, 'Top5Acc': 100.0, 'Top1Acc_std': 5.5442, 'Top1Acc_cnf95': 0.6873, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:02:15,295 - ProtoNetProjectionMetricPlusSolver - INFO   - Training epoch [   3 /   50, lr=0.001000]:
+2021-04-23 14:02:43,064 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Training stats [   3 /   50]: {'loss': 2.8115, 'fs_loss': 1.0611, 'cc_loss': 3.5008, 'Top1Acc': 58.964, 'Top5Acc': 100.0}
+2021-04-23 14:02:43,065 - ProtoNetProjectionMetricPlusSolver - INFO   - Save checkpoint @ epoch 3
+2021-04-23 14:02:59,643 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Evaluation stats [   3 /   50]: {'loss': 1.2204, 'fs_loss': 1.2204, 'Top1Acc': 51.4747, 'Top5Acc': 100.0, 'Top1Acc_std': 5.6509, 'Top1Acc_cnf95': 0.7005, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:03:16,241 - ProtoNetProjectionMetricPlusSolver - INFO   - Testing stats [   3 /   50]: {'loss': 1.1697, 'fs_loss': 1.1697, 'Top1Acc': 54.2173, 'Top5Acc': 100.0, 'Top1Acc_std': 5.4604, 'Top1Acc_cnf95': 0.6769, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:03:16,242 - ProtoNetProjectionMetricPlusSolver - INFO   - Training epoch [   4 /   50, lr=0.001000]:
+2021-04-23 14:03:43,962 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Training stats [   4 /   50]: {'loss': 2.7848, 'fs_loss': 1.0491, 'cc_loss': 3.4715, 'Top1Acc': 59.4613, 'Top5Acc': 100.0}
+2021-04-23 14:03:43,963 - ProtoNetProjectionMetricPlusSolver - INFO   - Save checkpoint @ epoch 4
+2021-04-23 14:04:00,762 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Evaluation stats [   4 /   50]: {'loss': 1.2116, 'fs_loss': 1.2116, 'Top1Acc': 52.508, 'Top5Acc': 100.0, 'Top1Acc_std': 5.6835, 'Top1Acc_cnf95': 0.7045, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:04:00,764 - ProtoNetProjectionMetricPlusSolver - INFO   - Save checkpoint @ epoch 4
+2021-04-23 14:04:00,779 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Best results w.r.t. Top1Acc metric @ epoch 4 - {'loss': 1.2116, 'fs_loss': 1.2116, 'Top1Acc': 52.508, 'Top5Acc': 100.0, 'Top1Acc_std': 5.6835, 'Top1Acc_cnf95': 0.7045, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:04:17,146 - ProtoNetProjectionMetricPlusSolver - INFO   - Testing stats [   4 /   50]: {'loss': 1.148, 'fs_loss': 1.148, 'Top1Acc': 54.8093, 'Top5Acc': 100.0, 'Top1Acc_std': 5.647, 'Top1Acc_cnf95': 0.7, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:04:17,148 - ProtoNetProjectionMetricPlusSolver - INFO   - Training epoch [   5 /   50, lr=0.001000]:
+2021-04-23 14:04:45,315 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Training stats [   5 /   50]: {'loss': 2.7941, 'fs_loss': 1.0542, 'cc_loss': 3.4799, 'Top1Acc': 58.9373, 'Top5Acc': 100.0}
+2021-04-23 14:04:45,316 - ProtoNetProjectionMetricPlusSolver - INFO   - Save checkpoint @ epoch 5
+2021-04-23 14:05:03,964 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Evaluation stats [   5 /   50]: {'loss': 1.2171, 'fs_loss': 1.2171, 'Top1Acc': 51.5827, 'Top5Acc': 100.0, 'Top1Acc_std': 5.7303, 'Top1Acc_cnf95': 0.7103, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:05:22,889 - ProtoNetProjectionMetricPlusSolver - INFO   - Testing stats [   5 /   50]: {'loss': 1.18, 'fs_loss': 1.18, 'Top1Acc': 54.0373, 'Top5Acc': 100.0, 'Top1Acc_std': 5.6584, 'Top1Acc_cnf95': 0.7014, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:05:22,890 - ProtoNetProjectionMetricPlusSolver - INFO   - Training epoch [   6 /   50, lr=0.001000]:
+2021-04-23 14:05:53,727 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Training stats [   6 /   50]: {'loss': 2.7836, 'fs_loss': 1.0454, 'cc_loss': 3.4764, 'Top1Acc': 59.4253, 'Top5Acc': 100.0}
+2021-04-23 14:05:53,729 - ProtoNetProjectionMetricPlusSolver - INFO   - Save checkpoint @ epoch 6
+2021-04-23 14:06:12,026 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Evaluation stats [   6 /   50]: {'loss': 1.203, 'fs_loss': 1.203, 'Top1Acc': 52.2467, 'Top5Acc': 100.0, 'Top1Acc_std': 5.5912, 'Top1Acc_cnf95': 0.6931, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:06:30,779 - ProtoNetProjectionMetricPlusSolver - INFO   - Testing stats [   6 /   50]: {'loss': 1.1552, 'fs_loss': 1.1552, 'Top1Acc': 55.0973, 'Top5Acc': 100.0, 'Top1Acc_std': 5.4266, 'Top1Acc_cnf95': 0.6727, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:06:30,780 - ProtoNetProjectionMetricPlusSolver - INFO   - Training epoch [   7 /   50, lr=0.001000]:
+2021-04-23 14:07:01,668 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Training stats [   7 /   50]: {'loss': 2.7375, 'fs_loss': 1.0294, 'cc_loss': 3.4161, 'Top1Acc': 60.084, 'Top5Acc': 100.0}
+2021-04-23 14:07:01,669 - ProtoNetProjectionMetricPlusSolver - INFO   - Save checkpoint @ epoch 7
+2021-04-23 14:07:20,746 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Evaluation stats [   7 /   50]: {'loss': 1.2227, 'fs_loss': 1.2227, 'Top1Acc': 51.8467, 'Top5Acc': 100.0, 'Top1Acc_std': 5.5516, 'Top1Acc_cnf95': 0.6882, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:07:39,472 - ProtoNetProjectionMetricPlusSolver - INFO   - Testing stats [   7 /   50]: {'loss': 1.1673, 'fs_loss': 1.1673, 'Top1Acc': 54.7987, 'Top5Acc': 100.0, 'Top1Acc_std': 5.5863, 'Top1Acc_cnf95': 0.6925, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:07:39,473 - ProtoNetProjectionMetricPlusSolver - INFO   - Training epoch [   8 /   50, lr=0.001000]:
+2021-04-23 14:08:10,319 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Training stats [   8 /   50]: {'loss': 2.7412, 'fs_loss': 1.0231, 'cc_loss': 3.4362, 'Top1Acc': 60.152, 'Top5Acc': 100.0}
+2021-04-23 14:08:10,320 - ProtoNetProjectionMetricPlusSolver - INFO   - Save checkpoint @ epoch 8
+2021-04-23 14:08:29,584 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Evaluation stats [   8 /   50]: {'loss': 1.213, 'fs_loss': 1.213, 'Top1Acc': 51.9707, 'Top5Acc': 100.0, 'Top1Acc_std': 5.6888, 'Top1Acc_cnf95': 0.7052, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:08:49,576 - ProtoNetProjectionMetricPlusSolver - INFO   - Testing stats [   8 /   50]: {'loss': 1.1624, 'fs_loss': 1.1624, 'Top1Acc': 54.4893, 'Top5Acc': 100.0, 'Top1Acc_std': 5.5576, 'Top1Acc_cnf95': 0.6889, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:08:49,577 - ProtoNetProjectionMetricPlusSolver - INFO   - Training epoch [   9 /   50, lr=0.001000]:
+2021-04-23 14:09:20,821 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Training stats [   9 /   50]: {'loss': 2.7758, 'fs_loss': 1.0404, 'cc_loss': 3.4708, 'Top1Acc': 59.2373, 'Top5Acc': 100.0}
+2021-04-23 14:09:20,822 - ProtoNetProjectionMetricPlusSolver - INFO   - Save checkpoint @ epoch 9
+2021-04-23 14:09:43,592 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Evaluation stats [   9 /   50]: {'loss': 1.207, 'fs_loss': 1.207, 'Top1Acc': 51.8467, 'Top5Acc': 100.0, 'Top1Acc_std': 5.5921, 'Top1Acc_cnf95': 0.6932, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:10:06,537 - ProtoNetProjectionMetricPlusSolver - INFO   - Testing stats [   9 /   50]: {'loss': 1.1371, 'fs_loss': 1.1371, 'Top1Acc': 55.372, 'Top5Acc': 100.0, 'Top1Acc_std': 5.7232, 'Top1Acc_cnf95': 0.7095, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:10:06,539 - ProtoNetProjectionMetricPlusSolver - INFO   - Training epoch [  10 /   50, lr=0.001000]:
+2021-04-23 14:10:37,778 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Training stats [  10 /   50]: {'loss': 2.7788, 'fs_loss': 1.0356, 'cc_loss': 3.4864, 'Top1Acc': 59.636, 'Top5Acc': 100.0}
+2021-04-23 14:10:37,779 - ProtoNetProjectionMetricPlusSolver - INFO   - Save checkpoint @ epoch 10
+2021-04-23 14:11:00,307 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Evaluation stats [  10 /   50]: {'loss': 1.2, 'fs_loss': 1.2, 'Top1Acc': 52.2387, 'Top5Acc': 100.0, 'Top1Acc_std': 5.5533, 'Top1Acc_cnf95': 0.6884, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:11:23,467 - ProtoNetProjectionMetricPlusSolver - INFO   - Testing stats [  10 /   50]: {'loss': 1.147, 'fs_loss': 1.147, 'Top1Acc': 54.984, 'Top5Acc': 100.0, 'Top1Acc_std': 5.6125, 'Top1Acc_cnf95': 0.6957, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:11:23,469 - ProtoNetProjectionMetricPlusSolver - INFO   - Training epoch [  11 /   50, lr=0.001000]:
+2021-04-23 14:11:54,881 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Training stats [  11 /   50]: {'loss': 2.8116, 'fs_loss': 1.0571, 'cc_loss': 3.509, 'Top1Acc': 58.8787, 'Top5Acc': 100.0}
+2021-04-23 14:11:54,882 - ProtoNetProjectionMetricPlusSolver - INFO   - Save checkpoint @ epoch 11
+2021-04-23 14:12:18,179 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Evaluation stats [  11 /   50]: {'loss': 1.1847, 'fs_loss': 1.1847, 'Top1Acc': 52.808, 'Top5Acc': 100.0, 'Top1Acc_std': 5.8422, 'Top1Acc_cnf95': 0.7242, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:12:18,180 - ProtoNetProjectionMetricPlusSolver - INFO   - Save checkpoint @ epoch 11
+2021-04-23 14:12:18,193 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Best results w.r.t. Top1Acc metric @ epoch 11 - {'loss': 1.1847, 'fs_loss': 1.1847, 'Top1Acc': 52.808, 'Top5Acc': 100.0, 'Top1Acc_std': 5.8422, 'Top1Acc_cnf95': 0.7242, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:12:41,424 - ProtoNetProjectionMetricPlusSolver - INFO   - Testing stats [  11 /   50]: {'loss': 1.1279, 'fs_loss': 1.1279, 'Top1Acc': 55.708, 'Top5Acc': 100.0, 'Top1Acc_std': 5.5556, 'Top1Acc_cnf95': 0.6887, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:12:41,426 - ProtoNetProjectionMetricPlusSolver - INFO   - Training epoch [  12 /   50, lr=0.001000]:
+2021-04-23 14:13:12,846 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Training stats [  12 /   50]: {'loss': 2.759, 'fs_loss': 1.0332, 'cc_loss': 3.4515, 'Top1Acc': 59.908, 'Top5Acc': 100.0}
+2021-04-23 14:13:12,848 - ProtoNetProjectionMetricPlusSolver - INFO   - Save checkpoint @ epoch 12
+2021-04-23 14:13:36,034 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Evaluation stats [  12 /   50]: {'loss': 1.1925, 'fs_loss': 1.1925, 'Top1Acc': 52.48, 'Top5Acc': 100.0, 'Top1Acc_std': 5.7378, 'Top1Acc_cnf95': 0.7113, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:13:58,146 - ProtoNetProjectionMetricPlusSolver - INFO   - Testing stats [  12 /   50]: {'loss': 1.1267, 'fs_loss': 1.1267, 'Top1Acc': 55.7613, 'Top5Acc': 100.0, 'Top1Acc_std': 5.7794, 'Top1Acc_cnf95': 0.7164, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:13:58,148 - ProtoNetProjectionMetricPlusSolver - INFO   - Training epoch [  13 /   50, lr=0.001000]:
+2021-04-23 14:14:29,677 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Training stats [  13 /   50]: {'loss': 2.7407, 'fs_loss': 1.0208, 'cc_loss': 3.4397, 'Top1Acc': 60.2213, 'Top5Acc': 100.0}
+2021-04-23 14:14:29,678 - ProtoNetProjectionMetricPlusSolver - INFO   - Save checkpoint @ epoch 13
+2021-04-23 14:14:52,230 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Evaluation stats [  13 /   50]: {'loss': 1.1979, 'fs_loss': 1.1979, 'Top1Acc': 52.3187, 'Top5Acc': 100.0, 'Top1Acc_std': 5.7382, 'Top1Acc_cnf95': 0.7113, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:15:14,654 - ProtoNetProjectionMetricPlusSolver - INFO   - Testing stats [  13 /   50]: {'loss': 1.1385, 'fs_loss': 1.1385, 'Top1Acc': 55.336, 'Top5Acc': 100.0, 'Top1Acc_std': 5.4259, 'Top1Acc_cnf95': 0.6726, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:15:14,656 - ProtoNetProjectionMetricPlusSolver - INFO   - Training epoch [  14 /   50, lr=0.001000]:
+2021-04-23 14:15:45,969 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Training stats [  14 /   50]: {'loss': 2.7473, 'fs_loss': 1.0211, 'cc_loss': 3.4525, 'Top1Acc': 60.2107, 'Top5Acc': 100.0}
+2021-04-23 14:15:45,970 - ProtoNetProjectionMetricPlusSolver - INFO   - Save checkpoint @ epoch 14
+2021-04-23 14:16:08,705 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Evaluation stats [  14 /   50]: {'loss': 1.1846, 'fs_loss': 1.1846, 'Top1Acc': 52.6467, 'Top5Acc': 100.0, 'Top1Acc_std': 5.8472, 'Top1Acc_cnf95': 0.7248, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:16:30,949 - ProtoNetProjectionMetricPlusSolver - INFO   - Testing stats [  14 /   50]: {'loss': 1.1356, 'fs_loss': 1.1356, 'Top1Acc': 55.3227, 'Top5Acc': 100.0, 'Top1Acc_std': 5.6357, 'Top1Acc_cnf95': 0.6986, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:16:30,950 - ProtoNetProjectionMetricPlusSolver - INFO   - Training epoch [  15 /   50, lr=0.001000]:
+2021-04-23 14:17:02,345 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Training stats [  15 /   50]: {'loss': 2.7902, 'fs_loss': 1.0421, 'cc_loss': 3.4962, 'Top1Acc': 59.5853, 'Top5Acc': 100.0}
+2021-04-23 14:17:02,346 - ProtoNetProjectionMetricPlusSolver - INFO   - Save checkpoint @ epoch 15
+2021-04-23 14:17:24,707 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Evaluation stats [  15 /   50]: {'loss': 1.1956, 'fs_loss': 1.1956, 'Top1Acc': 52.5147, 'Top5Acc': 100.0, 'Top1Acc_std': 5.7721, 'Top1Acc_cnf95': 0.7155, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:17:47,266 - ProtoNetProjectionMetricPlusSolver - INFO   - Testing stats [  15 /   50]: {'loss': 1.1421, 'fs_loss': 1.1421, 'Top1Acc': 55.1493, 'Top5Acc': 100.0, 'Top1Acc_std': 5.6664, 'Top1Acc_cnf95': 0.7024, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:17:47,267 - ProtoNetProjectionMetricPlusSolver - INFO   - Training epoch [  16 /   50, lr=0.001000]:
+2021-04-23 14:18:18,830 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Training stats [  16 /   50]: {'loss': 2.7496, 'fs_loss': 1.0236, 'cc_loss': 3.4518, 'Top1Acc': 60.144, 'Top5Acc': 100.0}
+2021-04-23 14:18:18,831 - ProtoNetProjectionMetricPlusSolver - INFO   - Save checkpoint @ epoch 16
+2021-04-23 14:18:41,523 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Evaluation stats [  16 /   50]: {'loss': 1.1809, 'fs_loss': 1.1809, 'Top1Acc': 52.9253, 'Top5Acc': 100.0, 'Top1Acc_std': 5.9139, 'Top1Acc_cnf95': 0.7331, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:18:41,525 - ProtoNetProjectionMetricPlusSolver - INFO   - Save checkpoint @ epoch 16
+2021-04-23 14:18:41,539 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Best results w.r.t. Top1Acc metric @ epoch 16 - {'loss': 1.1809, 'fs_loss': 1.1809, 'Top1Acc': 52.9253, 'Top5Acc': 100.0, 'Top1Acc_std': 5.9139, 'Top1Acc_cnf95': 0.7331, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:19:03,651 - ProtoNetProjectionMetricPlusSolver - INFO   - Testing stats [  16 /   50]: {'loss': 1.1349, 'fs_loss': 1.1349, 'Top1Acc': 55.4627, 'Top5Acc': 100.0, 'Top1Acc_std': 5.8286, 'Top1Acc_cnf95': 0.7225, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:19:03,653 - ProtoNetProjectionMetricPlusSolver - INFO   - Training epoch [  17 /   50, lr=0.001000]:
+2021-04-23 14:19:31,751 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Training stats [  17 /   50]: {'loss': 2.7327, 'fs_loss': 1.0247, 'cc_loss': 3.4161, 'Top1Acc': 59.932, 'Top5Acc': 100.0}
+2021-04-23 14:19:31,752 - ProtoNetProjectionMetricPlusSolver - INFO   - Save checkpoint @ epoch 17
+2021-04-23 14:19:53,304 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Evaluation stats [  17 /   50]: {'loss': 1.1865, 'fs_loss': 1.1865, 'Top1Acc': 52.7387, 'Top5Acc': 100.0, 'Top1Acc_std': 5.9217, 'Top1Acc_cnf95': 0.7341, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:20:14,126 - ProtoNetProjectionMetricPlusSolver - INFO   - Testing stats [  17 /   50]: {'loss': 1.1392, 'fs_loss': 1.1392, 'Top1Acc': 55.296, 'Top5Acc': 100.0, 'Top1Acc_std': 5.5763, 'Top1Acc_cnf95': 0.6912, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:20:14,128 - ProtoNetProjectionMetricPlusSolver - INFO   - Training epoch [  18 /   50, lr=0.001000]:
+2021-04-23 14:20:42,397 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Training stats [  18 /   50]: {'loss': 2.7423, 'fs_loss': 1.0195, 'cc_loss': 3.4455, 'Top1Acc': 59.9907, 'Top5Acc': 100.0}
+2021-04-23 14:20:42,398 - ProtoNetProjectionMetricPlusSolver - INFO   - Save checkpoint @ epoch 18
+2021-04-23 14:21:03,243 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Evaluation stats [  18 /   50]: {'loss': 1.1805, 'fs_loss': 1.1805, 'Top1Acc': 52.7987, 'Top5Acc': 100.0, 'Top1Acc_std': 5.9043, 'Top1Acc_cnf95': 0.7319, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:21:23,866 - ProtoNetProjectionMetricPlusSolver - INFO   - Testing stats [  18 /   50]: {'loss': 1.1355, 'fs_loss': 1.1355, 'Top1Acc': 55.188, 'Top5Acc': 100.0, 'Top1Acc_std': 5.773, 'Top1Acc_cnf95': 0.7156, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:21:23,867 - ProtoNetProjectionMetricPlusSolver - INFO   - Training epoch [  19 /   50, lr=0.001000]:
+2021-04-23 14:21:51,934 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Training stats [  19 /   50]: {'loss': 2.7319, 'fs_loss': 1.0082, 'cc_loss': 3.4473, 'Top1Acc': 60.828, 'Top5Acc': 100.0}
+2021-04-23 14:21:51,935 - ProtoNetProjectionMetricPlusSolver - INFO   - Save checkpoint @ epoch 19
+2021-04-23 14:22:12,686 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Evaluation stats [  19 /   50]: {'loss': 1.1943, 'fs_loss': 1.1943, 'Top1Acc': 52.5267, 'Top5Acc': 100.0, 'Top1Acc_std': 5.6825, 'Top1Acc_cnf95': 0.7044, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:22:33,137 - ProtoNetProjectionMetricPlusSolver - INFO   - Testing stats [  19 /   50]: {'loss': 1.1377, 'fs_loss': 1.1377, 'Top1Acc': 55.408, 'Top5Acc': 100.0, 'Top1Acc_std': 5.6459, 'Top1Acc_cnf95': 0.6999, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:22:33,138 - ProtoNetProjectionMetricPlusSolver - INFO   - Training epoch [  20 /   50, lr=0.001000]:
+2021-04-23 14:23:01,142 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Training stats [  20 /   50]: {'loss': 2.754, 'fs_loss': 1.0271, 'cc_loss': 3.4539, 'Top1Acc': 60.0627, 'Top5Acc': 100.0}
+2021-04-23 14:23:01,143 - ProtoNetProjectionMetricPlusSolver - INFO   - Save checkpoint @ epoch 20
+2021-04-23 14:23:22,425 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Evaluation stats [  20 /   50]: {'loss': 1.19, 'fs_loss': 1.19, 'Top1Acc': 52.552, 'Top5Acc': 100.0, 'Top1Acc_std': 5.6768, 'Top1Acc_cnf95': 0.7037, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:23:42,960 - ProtoNetProjectionMetricPlusSolver - INFO   - Testing stats [  20 /   50]: {'loss': 1.1357, 'fs_loss': 1.1357, 'Top1Acc': 55.3667, 'Top5Acc': 100.0, 'Top1Acc_std': 5.553, 'Top1Acc_cnf95': 0.6884, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:23:42,961 - ProtoNetProjectionMetricPlusSolver - INFO   - Training epoch [  21 /   50, lr=0.001000]:
+2021-04-23 14:24:11,172 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Training stats [  21 /   50]: {'loss': 2.764, 'fs_loss': 1.0308, 'cc_loss': 3.4665, 'Top1Acc': 59.828, 'Top5Acc': 100.0}
+2021-04-23 14:24:11,173 - ProtoNetProjectionMetricPlusSolver - INFO   - Save checkpoint @ epoch 21
+2021-04-23 14:24:32,059 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Evaluation stats [  21 /   50]: {'loss': 1.1955, 'fs_loss': 1.1955, 'Top1Acc': 52.3027, 'Top5Acc': 100.0, 'Top1Acc_std': 5.8028, 'Top1Acc_cnf95': 0.7193, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:24:53,022 - ProtoNetProjectionMetricPlusSolver - INFO   - Testing stats [  21 /   50]: {'loss': 1.1382, 'fs_loss': 1.1382, 'Top1Acc': 55.272, 'Top5Acc': 100.0, 'Top1Acc_std': 5.7126, 'Top1Acc_cnf95': 0.7081, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:24:53,024 - ProtoNetProjectionMetricPlusSolver - INFO   - Training epoch [  22 /   50, lr=0.001000]:
+2021-04-23 14:25:21,202 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Training stats [  22 /   50]: {'loss': 2.7308, 'fs_loss': 1.0169, 'cc_loss': 3.4277, 'Top1Acc': 60.3653, 'Top5Acc': 100.0}
+2021-04-23 14:25:21,203 - ProtoNetProjectionMetricPlusSolver - INFO   - Save checkpoint @ epoch 22
+2021-04-23 14:25:42,043 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Evaluation stats [  22 /   50]: {'loss': 1.1856, 'fs_loss': 1.1856, 'Top1Acc': 52.9, 'Top5Acc': 100.0, 'Top1Acc_std': 5.798, 'Top1Acc_cnf95': 0.7187, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:26:02,964 - ProtoNetProjectionMetricPlusSolver - INFO   - Testing stats [  22 /   50]: {'loss': 1.1349, 'fs_loss': 1.1349, 'Top1Acc': 55.248, 'Top5Acc': 100.0, 'Top1Acc_std': 5.5763, 'Top1Acc_cnf95': 0.6912, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:26:02,965 - ProtoNetProjectionMetricPlusSolver - INFO   - Training epoch [  23 /   50, lr=0.001000]:
+2021-04-23 14:26:31,007 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Training stats [  23 /   50]: {'loss': 2.7719, 'fs_loss': 1.0246, 'cc_loss': 3.4946, 'Top1Acc': 60.0133, 'Top5Acc': 100.0}
+2021-04-23 14:26:31,008 - ProtoNetProjectionMetricPlusSolver - INFO   - Save checkpoint @ epoch 23
+2021-04-23 14:26:51,525 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Evaluation stats [  23 /   50]: {'loss': 1.1855, 'fs_loss': 1.1855, 'Top1Acc': 52.8213, 'Top5Acc': 100.0, 'Top1Acc_std': 5.9352, 'Top1Acc_cnf95': 0.7357, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:27:12,171 - ProtoNetProjectionMetricPlusSolver - INFO   - Testing stats [  23 /   50]: {'loss': 1.1419, 'fs_loss': 1.1419, 'Top1Acc': 54.7987, 'Top5Acc': 100.0, 'Top1Acc_std': 5.7063, 'Top1Acc_cnf95': 0.7074, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:27:12,172 - ProtoNetProjectionMetricPlusSolver - INFO   - Training epoch [  24 /   50, lr=0.001000]:
+2021-04-23 14:27:40,717 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Training stats [  24 /   50]: {'loss': 2.7729, 'fs_loss': 1.035, 'cc_loss': 3.4758, 'Top1Acc': 59.6293, 'Top5Acc': 100.0}
+2021-04-23 14:27:40,718 - ProtoNetProjectionMetricPlusSolver - INFO   - Save checkpoint @ epoch 24
+2021-04-23 14:28:01,674 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Evaluation stats [  24 /   50]: {'loss': 1.1916, 'fs_loss': 1.1916, 'Top1Acc': 52.8133, 'Top5Acc': 100.0, 'Top1Acc_std': 5.8644, 'Top1Acc_cnf95': 0.727, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:28:23,062 - ProtoNetProjectionMetricPlusSolver - INFO   - Testing stats [  24 /   50]: {'loss': 1.1349, 'fs_loss': 1.1349, 'Top1Acc': 55.4533, 'Top5Acc': 100.0, 'Top1Acc_std': 5.6052, 'Top1Acc_cnf95': 0.6948, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:28:23,063 - ProtoNetProjectionMetricPlusSolver - INFO   - Training epoch [  25 /   50, lr=0.001000]:
+2021-04-23 14:28:51,266 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Training stats [  25 /   50]: {'loss': 2.7465, 'fs_loss': 1.0152, 'cc_loss': 3.4625, 'Top1Acc': 60.2347, 'Top5Acc': 100.0}
+2021-04-23 14:28:51,267 - ProtoNetProjectionMetricPlusSolver - INFO   - Save checkpoint @ epoch 25
+2021-04-23 14:29:12,007 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Evaluation stats [  25 /   50]: {'loss': 1.1836, 'fs_loss': 1.1836, 'Top1Acc': 52.9413, 'Top5Acc': 100.0, 'Top1Acc_std': 5.8269, 'Top1Acc_cnf95': 0.7223, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:29:12,008 - ProtoNetProjectionMetricPlusSolver - INFO   - Save checkpoint @ epoch 25
+2021-04-23 14:29:12,021 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Best results w.r.t. Top1Acc metric @ epoch 25 - {'loss': 1.1836, 'fs_loss': 1.1836, 'Top1Acc': 52.9413, 'Top5Acc': 100.0, 'Top1Acc_std': 5.8269, 'Top1Acc_cnf95': 0.7223, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:29:32,471 - ProtoNetProjectionMetricPlusSolver - INFO   - Testing stats [  25 /   50]: {'loss': 1.1415, 'fs_loss': 1.1415, 'Top1Acc': 55.104, 'Top5Acc': 100.0, 'Top1Acc_std': 5.6711, 'Top1Acc_cnf95': 0.703, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:29:32,472 - ProtoNetProjectionMetricPlusSolver - INFO   - Training epoch [  26 /   50, lr=0.001000]:
+2021-04-23 14:30:00,990 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Training stats [  26 /   50]: {'loss': 2.7757, 'fs_loss': 1.0148, 'cc_loss': 3.5218, 'Top1Acc': 60.4547, 'Top5Acc': 100.0}
+2021-04-23 14:30:00,992 - ProtoNetProjectionMetricPlusSolver - INFO   - Save checkpoint @ epoch 26
+2021-04-23 14:30:21,381 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Evaluation stats [  26 /   50]: {'loss': 1.1891, 'fs_loss': 1.1891, 'Top1Acc': 52.4667, 'Top5Acc': 100.0, 'Top1Acc_std': 5.6973, 'Top1Acc_cnf95': 0.7062, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:30:42,031 - ProtoNetProjectionMetricPlusSolver - INFO   - Testing stats [  26 /   50]: {'loss': 1.133, 'fs_loss': 1.133, 'Top1Acc': 55.5467, 'Top5Acc': 100.0, 'Top1Acc_std': 5.7241, 'Top1Acc_cnf95': 0.7096, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:30:42,032 - ProtoNetProjectionMetricPlusSolver - INFO   - Training epoch [  27 /   50, lr=0.001000]:
+2021-04-23 14:31:10,123 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Training stats [  27 /   50]: {'loss': 2.7314, 'fs_loss': 1.0093, 'cc_loss': 3.4442, 'Top1Acc': 60.824, 'Top5Acc': 100.0}
+2021-04-23 14:31:10,124 - ProtoNetProjectionMetricPlusSolver - INFO   - Save checkpoint @ epoch 27
+2021-04-23 14:31:31,640 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Evaluation stats [  27 /   50]: {'loss': 1.1933, 'fs_loss': 1.1933, 'Top1Acc': 52.4333, 'Top5Acc': 100.0, 'Top1Acc_std': 5.6345, 'Top1Acc_cnf95': 0.6985, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:31:52,826 - ProtoNetProjectionMetricPlusSolver - INFO   - Testing stats [  27 /   50]: {'loss': 1.1324, 'fs_loss': 1.1324, 'Top1Acc': 55.484, 'Top5Acc': 100.0, 'Top1Acc_std': 5.6712, 'Top1Acc_cnf95': 0.703, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:31:52,828 - ProtoNetProjectionMetricPlusSolver - INFO   - Training epoch [  28 /   50, lr=0.001000]:
+2021-04-23 14:32:20,984 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Training stats [  28 /   50]: {'loss': 2.7357, 'fs_loss': 1.0115, 'cc_loss': 3.4482, 'Top1Acc': 60.7827, 'Top5Acc': 100.0}
+2021-04-23 14:32:20,985 - ProtoNetProjectionMetricPlusSolver - INFO   - Save checkpoint @ epoch 28
+2021-04-23 14:32:41,569 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Evaluation stats [  28 /   50]: {'loss': 1.1679, 'fs_loss': 1.1679, 'Top1Acc': 53.2747, 'Top5Acc': 100.0, 'Top1Acc_std': 5.9867, 'Top1Acc_cnf95': 0.7421, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:32:41,571 - ProtoNetProjectionMetricPlusSolver - INFO   - Save checkpoint @ epoch 28
+2021-04-23 14:32:41,585 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Best results w.r.t. Top1Acc metric @ epoch 28 - {'loss': 1.1679, 'fs_loss': 1.1679, 'Top1Acc': 53.2747, 'Top5Acc': 100.0, 'Top1Acc_std': 5.9867, 'Top1Acc_cnf95': 0.7421, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:33:01,500 - ProtoNetProjectionMetricPlusSolver - INFO   - Testing stats [  28 /   50]: {'loss': 1.1279, 'fs_loss': 1.1279, 'Top1Acc': 55.524, 'Top5Acc': 100.0, 'Top1Acc_std': 5.5246, 'Top1Acc_cnf95': 0.6848, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:33:01,501 - ProtoNetProjectionMetricPlusSolver - INFO   - Training epoch [  29 /   50, lr=0.001000]:
+2021-04-23 14:33:29,586 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Training stats [  29 /   50]: {'loss': 2.7371, 'fs_loss': 1.01, 'cc_loss': 3.4543, 'Top1Acc': 60.5547, 'Top5Acc': 100.0}
+2021-04-23 14:33:29,587 - ProtoNetProjectionMetricPlusSolver - INFO   - Save checkpoint @ epoch 29
+2021-04-23 14:33:49,632 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Evaluation stats [  29 /   50]: {'loss': 1.1836, 'fs_loss': 1.1836, 'Top1Acc': 52.6493, 'Top5Acc': 100.0, 'Top1Acc_std': 5.9766, 'Top1Acc_cnf95': 0.7409, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:34:11,005 - ProtoNetProjectionMetricPlusSolver - INFO   - Testing stats [  29 /   50]: {'loss': 1.1346, 'fs_loss': 1.1346, 'Top1Acc': 55.3613, 'Top5Acc': 100.0, 'Top1Acc_std': 5.5594, 'Top1Acc_cnf95': 0.6892, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:34:11,007 - ProtoNetProjectionMetricPlusSolver - INFO   - Training epoch [  30 /   50, lr=0.001000]:
+2021-04-23 14:34:39,231 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Training stats [  30 /   50]: {'loss': 2.7448, 'fs_loss': 1.0169, 'cc_loss': 3.4557, 'Top1Acc': 60.3187, 'Top5Acc': 100.0}
+2021-04-23 14:34:39,232 - ProtoNetProjectionMetricPlusSolver - INFO   - Save checkpoint @ epoch 30
+2021-04-23 14:35:00,516 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Evaluation stats [  30 /   50]: {'loss': 1.1974, 'fs_loss': 1.1974, 'Top1Acc': 52.6027, 'Top5Acc': 100.0, 'Top1Acc_std': 5.9, 'Top1Acc_cnf95': 0.7314, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:35:21,071 - ProtoNetProjectionMetricPlusSolver - INFO   - Testing stats [  30 /   50]: {'loss': 1.1304, 'fs_loss': 1.1304, 'Top1Acc': 55.9293, 'Top5Acc': 100.0, 'Top1Acc_std': 5.765, 'Top1Acc_cnf95': 0.7146, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:35:21,072 - ProtoNetProjectionMetricPlusSolver - INFO   - Training epoch [  31 /   50, lr=0.001000]:
+2021-04-23 14:35:49,247 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Training stats [  31 /   50]: {'loss': 2.7227, 'fs_loss': 1.0027, 'cc_loss': 3.44, 'Top1Acc': 61.1373, 'Top5Acc': 100.0}
+2021-04-23 14:35:49,248 - ProtoNetProjectionMetricPlusSolver - INFO   - Save checkpoint @ epoch 31
+2021-04-23 14:36:09,202 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Evaluation stats [  31 /   50]: {'loss': 1.1889, 'fs_loss': 1.1889, 'Top1Acc': 52.5627, 'Top5Acc': 100.0, 'Top1Acc_std': 5.7436, 'Top1Acc_cnf95': 0.712, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:36:29,410 - ProtoNetProjectionMetricPlusSolver - INFO   - Testing stats [  31 /   50]: {'loss': 1.1334, 'fs_loss': 1.1334, 'Top1Acc': 55.6507, 'Top5Acc': 100.0, 'Top1Acc_std': 5.4096, 'Top1Acc_cnf95': 0.6706, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:36:29,411 - ProtoNetProjectionMetricPlusSolver - INFO   - Training epoch [  32 /   50, lr=0.001000]:
+2021-04-23 14:36:57,680 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Training stats [  32 /   50]: {'loss': 2.726, 'fs_loss': 1.0115, 'cc_loss': 3.4289, 'Top1Acc': 60.6027, 'Top5Acc': 100.0}
+2021-04-23 14:36:57,681 - ProtoNetProjectionMetricPlusSolver - INFO   - Save checkpoint @ epoch 32
+2021-04-23 14:37:18,015 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Evaluation stats [  32 /   50]: {'loss': 1.1861, 'fs_loss': 1.1861, 'Top1Acc': 52.9333, 'Top5Acc': 100.0, 'Top1Acc_std': 6.0081, 'Top1Acc_cnf95': 0.7448, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:37:38,529 - ProtoNetProjectionMetricPlusSolver - INFO   - Testing stats [  32 /   50]: {'loss': 1.118, 'fs_loss': 1.118, 'Top1Acc': 56.316, 'Top5Acc': 100.0, 'Top1Acc_std': 5.7605, 'Top1Acc_cnf95': 0.7141, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:37:38,530 - ProtoNetProjectionMetricPlusSolver - INFO   - Training epoch [  33 /   50, lr=0.001000]:
+2021-04-23 14:38:07,079 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Training stats [  33 /   50]: {'loss': 2.7307, 'fs_loss': 1.013, 'cc_loss': 3.4354, 'Top1Acc': 60.5653, 'Top5Acc': 100.0}
+2021-04-23 14:38:07,080 - ProtoNetProjectionMetricPlusSolver - INFO   - Save checkpoint @ epoch 33
+2021-04-23 14:38:28,779 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Evaluation stats [  33 /   50]: {'loss': 1.1808, 'fs_loss': 1.1808, 'Top1Acc': 52.8707, 'Top5Acc': 100.0, 'Top1Acc_std': 5.7791, 'Top1Acc_cnf95': 0.7164, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:38:49,732 - ProtoNetProjectionMetricPlusSolver - INFO   - Testing stats [  33 /   50]: {'loss': 1.128, 'fs_loss': 1.128, 'Top1Acc': 55.6147, 'Top5Acc': 100.0, 'Top1Acc_std': 5.5025, 'Top1Acc_cnf95': 0.6821, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:38:49,734 - ProtoNetProjectionMetricPlusSolver - INFO   - Training epoch [  34 /   50, lr=0.001000]:
+2021-04-23 14:39:21,093 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Training stats [  34 /   50]: {'loss': 2.7235, 'fs_loss': 1.0054, 'cc_loss': 3.4362, 'Top1Acc': 60.8707, 'Top5Acc': 100.0}
+2021-04-23 14:39:21,093 - ProtoNetProjectionMetricPlusSolver - INFO   - Save checkpoint @ epoch 34
+2021-04-23 14:39:43,818 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Evaluation stats [  34 /   50]: {'loss': 1.1776, 'fs_loss': 1.1776, 'Top1Acc': 53.112, 'Top5Acc': 100.0, 'Top1Acc_std': 5.7972, 'Top1Acc_cnf95': 0.7186, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:40:06,528 - ProtoNetProjectionMetricPlusSolver - INFO   - Testing stats [  34 /   50]: {'loss': 1.1113, 'fs_loss': 1.1113, 'Top1Acc': 56.2493, 'Top5Acc': 100.0, 'Top1Acc_std': 5.7771, 'Top1Acc_cnf95': 0.7161, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:40:06,529 - ProtoNetProjectionMetricPlusSolver - INFO   - Training epoch [  35 /   50, lr=0.001000]:
+2021-04-23 14:40:37,705 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Training stats [  35 /   50]: {'loss': 2.7108, 'fs_loss': 0.9956, 'cc_loss': 3.4303, 'Top1Acc': 61.2787, 'Top5Acc': 100.0}
+2021-04-23 14:40:37,706 - ProtoNetProjectionMetricPlusSolver - INFO   - Save checkpoint @ epoch 35
+2021-04-23 14:41:00,226 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Evaluation stats [  35 /   50]: {'loss': 1.1782, 'fs_loss': 1.1782, 'Top1Acc': 53.0213, 'Top5Acc': 100.0, 'Top1Acc_std': 5.9063, 'Top1Acc_cnf95': 0.7322, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:41:22,864 - ProtoNetProjectionMetricPlusSolver - INFO   - Testing stats [  35 /   50]: {'loss': 1.1235, 'fs_loss': 1.1235, 'Top1Acc': 55.744, 'Top5Acc': 100.0, 'Top1Acc_std': 5.4897, 'Top1Acc_cnf95': 0.6805, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:41:22,865 - ProtoNetProjectionMetricPlusSolver - INFO   - Training epoch [  36 /   50, lr=0.001000]:
+2021-04-23 14:41:54,096 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Training stats [  36 /   50]: {'loss': 2.7189, 'fs_loss': 1.0, 'cc_loss': 3.4378, 'Top1Acc': 60.96, 'Top5Acc': 100.0}
+2021-04-23 14:41:54,097 - ProtoNetProjectionMetricPlusSolver - INFO   - Save checkpoint @ epoch 36
+2021-04-23 14:42:16,240 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Evaluation stats [  36 /   50]: {'loss': 1.2112, 'fs_loss': 1.2112, 'Top1Acc': 51.9907, 'Top5Acc': 100.0, 'Top1Acc_std': 5.6529, 'Top1Acc_cnf95': 0.7007, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:42:38,328 - ProtoNetProjectionMetricPlusSolver - INFO   - Testing stats [  36 /   50]: {'loss': 1.1294, 'fs_loss': 1.1294, 'Top1Acc': 55.5787, 'Top5Acc': 100.0, 'Top1Acc_std': 5.8486, 'Top1Acc_cnf95': 0.725, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:42:38,329 - ProtoNetProjectionMetricPlusSolver - INFO   - Training epoch [  37 /   50, lr=0.001000]:
+2021-04-23 14:43:09,335 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Training stats [  37 /   50]: {'loss': 2.7053, 'fs_loss': 0.9992, 'cc_loss': 3.4122, 'Top1Acc': 61.308, 'Top5Acc': 100.0}
+2021-04-23 14:43:09,336 - ProtoNetProjectionMetricPlusSolver - INFO   - Save checkpoint @ epoch 37
+2021-04-23 14:43:30,768 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Evaluation stats [  37 /   50]: {'loss': 1.1924, 'fs_loss': 1.1924, 'Top1Acc': 52.7973, 'Top5Acc': 100.0, 'Top1Acc_std': 5.6135, 'Top1Acc_cnf95': 0.6959, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:43:52,907 - ProtoNetProjectionMetricPlusSolver - INFO   - Testing stats [  37 /   50]: {'loss': 1.1266, 'fs_loss': 1.1266, 'Top1Acc': 55.5867, 'Top5Acc': 100.0, 'Top1Acc_std': 5.6608, 'Top1Acc_cnf95': 0.7017, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:43:52,908 - ProtoNetProjectionMetricPlusSolver - INFO   - Training epoch [  38 /   50, lr=0.001000]:
+2021-04-23 14:44:24,298 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Training stats [  38 /   50]: {'loss': 2.6699, 'fs_loss': 0.9807, 'cc_loss': 3.3783, 'Top1Acc': 61.9053, 'Top5Acc': 100.0}
+2021-04-23 14:44:24,299 - ProtoNetProjectionMetricPlusSolver - INFO   - Save checkpoint @ epoch 38
+2021-04-23 14:44:46,639 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Evaluation stats [  38 /   50]: {'loss': 1.17, 'fs_loss': 1.17, 'Top1Acc': 53.452, 'Top5Acc': 100.0, 'Top1Acc_std': 5.9781, 'Top1Acc_cnf95': 0.741, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:44:46,640 - ProtoNetProjectionMetricPlusSolver - INFO   - Save checkpoint @ epoch 38
+2021-04-23 14:44:46,655 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Best results w.r.t. Top1Acc metric @ epoch 38 - {'loss': 1.17, 'fs_loss': 1.17, 'Top1Acc': 53.452, 'Top5Acc': 100.0, 'Top1Acc_std': 5.9781, 'Top1Acc_cnf95': 0.741, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:45:09,127 - ProtoNetProjectionMetricPlusSolver - INFO   - Testing stats [  38 /   50]: {'loss': 1.1221, 'fs_loss': 1.1221, 'Top1Acc': 56.0587, 'Top5Acc': 100.0, 'Top1Acc_std': 5.7448, 'Top1Acc_cnf95': 0.7121, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:45:09,128 - ProtoNetProjectionMetricPlusSolver - INFO   - Training epoch [  39 /   50, lr=0.001000]:
+2021-04-23 14:45:40,332 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Training stats [  39 /   50]: {'loss': 2.7155, 'fs_loss': 0.9967, 'cc_loss': 3.4378, 'Top1Acc': 61.3387, 'Top5Acc': 100.0}
+2021-04-23 14:45:40,333 - ProtoNetProjectionMetricPlusSolver - INFO   - Save checkpoint @ epoch 39
+2021-04-23 14:46:03,281 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Evaluation stats [  39 /   50]: {'loss': 1.1906, 'fs_loss': 1.1906, 'Top1Acc': 52.8467, 'Top5Acc': 100.0, 'Top1Acc_std': 5.9653, 'Top1Acc_cnf95': 0.7395, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:46:25,452 - ProtoNetProjectionMetricPlusSolver - INFO   - Testing stats [  39 /   50]: {'loss': 1.1146, 'fs_loss': 1.1146, 'Top1Acc': 56.6013, 'Top5Acc': 100.0, 'Top1Acc_std': 5.6303, 'Top1Acc_cnf95': 0.6979, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:46:25,453 - ProtoNetProjectionMetricPlusSolver - INFO   - Training epoch [  40 /   50, lr=0.001000]:
+2021-04-23 14:46:53,613 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Training stats [  40 /   50]: {'loss': 2.7414, 'fs_loss': 1.0104, 'cc_loss': 3.462, 'Top1Acc': 60.6787, 'Top5Acc': 100.0}
+2021-04-23 14:46:53,614 - ProtoNetProjectionMetricPlusSolver - INFO   - Save checkpoint @ epoch 40
+2021-04-23 14:47:14,513 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Evaluation stats [  40 /   50]: {'loss': 1.1754, 'fs_loss': 1.1754, 'Top1Acc': 53.1907, 'Top5Acc': 100.0, 'Top1Acc_std': 5.9073, 'Top1Acc_cnf95': 0.7323, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:47:34,684 - ProtoNetProjectionMetricPlusSolver - INFO   - Testing stats [  40 /   50]: {'loss': 1.126, 'fs_loss': 1.126, 'Top1Acc': 55.6307, 'Top5Acc': 100.0, 'Top1Acc_std': 5.5392, 'Top1Acc_cnf95': 0.6866, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:47:34,685 - ProtoNetProjectionMetricPlusSolver - INFO   - Training epoch [  41 /   50, lr=0.000100]:
+2021-04-23 14:48:02,704 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Training stats [  41 /   50]: {'loss': 2.6632, 'fs_loss': 0.9797, 'cc_loss': 3.3669, 'Top1Acc': 61.776, 'Top5Acc': 100.0}
+2021-04-23 14:48:02,705 - ProtoNetProjectionMetricPlusSolver - INFO   - Save checkpoint @ epoch 41
+2021-04-23 14:48:23,280 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Evaluation stats [  41 /   50]: {'loss': 1.1647, 'fs_loss': 1.1647, 'Top1Acc': 53.6413, 'Top5Acc': 100.0, 'Top1Acc_std': 5.6921, 'Top1Acc_cnf95': 0.7056, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:48:23,281 - ProtoNetProjectionMetricPlusSolver - INFO   - Save checkpoint @ epoch 41
+2021-04-23 14:48:23,294 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Best results w.r.t. Top1Acc metric @ epoch 41 - {'loss': 1.1647, 'fs_loss': 1.1647, 'Top1Acc': 53.6413, 'Top5Acc': 100.0, 'Top1Acc_std': 5.6921, 'Top1Acc_cnf95': 0.7056, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:48:43,770 - ProtoNetProjectionMetricPlusSolver - INFO   - Testing stats [  41 /   50]: {'loss': 1.1016, 'fs_loss': 1.1016, 'Top1Acc': 56.7067, 'Top5Acc': 100.0, 'Top1Acc_std': 5.8073, 'Top1Acc_cnf95': 0.7199, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:48:43,772 - ProtoNetProjectionMetricPlusSolver - INFO   - Training epoch [  42 /   50, lr=0.000100]:
+2021-04-23 14:49:12,925 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Training stats [  42 /   50]: {'loss': 2.7122, 'fs_loss': 0.9953, 'cc_loss': 3.4337, 'Top1Acc': 61.3493, 'Top5Acc': 100.0}
+2021-04-23 14:49:12,926 - ProtoNetProjectionMetricPlusSolver - INFO   - Save checkpoint @ epoch 42
+2021-04-23 14:49:35,458 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Evaluation stats [  42 /   50]: {'loss': 1.1568, 'fs_loss': 1.1568, 'Top1Acc': 53.7613, 'Top5Acc': 100.0, 'Top1Acc_std': 5.6689, 'Top1Acc_cnf95': 0.7027, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:49:35,459 - ProtoNetProjectionMetricPlusSolver - INFO   - Save checkpoint @ epoch 42
+2021-04-23 14:49:35,473 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Best results w.r.t. Top1Acc metric @ epoch 42 - {'loss': 1.1568, 'fs_loss': 1.1568, 'Top1Acc': 53.7613, 'Top5Acc': 100.0, 'Top1Acc_std': 5.6689, 'Top1Acc_cnf95': 0.7027, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:49:58,015 - ProtoNetProjectionMetricPlusSolver - INFO   - Testing stats [  42 /   50]: {'loss': 1.0925, 'fs_loss': 1.0925, 'Top1Acc': 56.9973, 'Top5Acc': 100.0, 'Top1Acc_std': 5.6665, 'Top1Acc_cnf95': 0.7024, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:49:58,016 - ProtoNetProjectionMetricPlusSolver - INFO   - Training epoch [  43 /   50, lr=0.000100]:
+2021-04-23 14:50:29,470 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Training stats [  43 /   50]: {'loss': 2.6528, 'fs_loss': 0.9699, 'cc_loss': 3.3657, 'Top1Acc': 62.4853, 'Top5Acc': 100.0}
+2021-04-23 14:50:29,472 - ProtoNetProjectionMetricPlusSolver - INFO   - Save checkpoint @ epoch 43
+2021-04-23 14:50:54,705 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Evaluation stats [  43 /   50]: {'loss': 1.1587, 'fs_loss': 1.1587, 'Top1Acc': 53.7827, 'Top5Acc': 100.0, 'Top1Acc_std': 5.8182, 'Top1Acc_cnf95': 0.7212, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:50:54,707 - ProtoNetProjectionMetricPlusSolver - INFO   - Save checkpoint @ epoch 43
+2021-04-23 14:50:54,721 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Best results w.r.t. Top1Acc metric @ epoch 43 - {'loss': 1.1587, 'fs_loss': 1.1587, 'Top1Acc': 53.7827, 'Top5Acc': 100.0, 'Top1Acc_std': 5.8182, 'Top1Acc_cnf95': 0.7212, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:51:20,404 - ProtoNetProjectionMetricPlusSolver - INFO   - Testing stats [  43 /   50]: {'loss': 1.0911, 'fs_loss': 1.0911, 'Top1Acc': 57.0387, 'Top5Acc': 100.0, 'Top1Acc_std': 5.7536, 'Top1Acc_cnf95': 0.7132, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:51:20,406 - ProtoNetProjectionMetricPlusSolver - INFO   - Training epoch [  44 /   50, lr=0.000100]:
+2021-04-23 14:51:52,351 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Training stats [  44 /   50]: {'loss': 2.6339, 'fs_loss': 0.9654, 'cc_loss': 3.337, 'Top1Acc': 62.1333, 'Top5Acc': 100.0}
+2021-04-23 14:51:52,352 - ProtoNetProjectionMetricPlusSolver - INFO   - Save checkpoint @ epoch 44
+2021-04-23 14:52:18,186 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Evaluation stats [  44 /   50]: {'loss': 1.1574, 'fs_loss': 1.1574, 'Top1Acc': 53.8027, 'Top5Acc': 100.0, 'Top1Acc_std': 5.8107, 'Top1Acc_cnf95': 0.7203, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:52:18,187 - ProtoNetProjectionMetricPlusSolver - INFO   - Save checkpoint @ epoch 44
+2021-04-23 14:52:18,203 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Best results w.r.t. Top1Acc metric @ epoch 44 - {'loss': 1.1574, 'fs_loss': 1.1574, 'Top1Acc': 53.8027, 'Top5Acc': 100.0, 'Top1Acc_std': 5.8107, 'Top1Acc_cnf95': 0.7203, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:52:44,234 - ProtoNetProjectionMetricPlusSolver - INFO   - Testing stats [  44 /   50]: {'loss': 1.0887, 'fs_loss': 1.0887, 'Top1Acc': 57.208, 'Top5Acc': 100.0, 'Top1Acc_std': 5.8245, 'Top1Acc_cnf95': 0.722, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:52:44,236 - ProtoNetProjectionMetricPlusSolver - INFO   - Training epoch [  45 /   50, lr=0.000100]:
+2021-04-23 14:53:15,870 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Training stats [  45 /   50]: {'loss': 2.6723, 'fs_loss': 0.9768, 'cc_loss': 3.3911, 'Top1Acc': 61.9813, 'Top5Acc': 100.0}
+2021-04-23 14:53:15,871 - ProtoNetProjectionMetricPlusSolver - INFO   - Save checkpoint @ epoch 45
+2021-04-23 14:53:41,905 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Evaluation stats [  45 /   50]: {'loss': 1.1549, 'fs_loss': 1.1549, 'Top1Acc': 53.884, 'Top5Acc': 100.0, 'Top1Acc_std': 5.7976, 'Top1Acc_cnf95': 0.7187, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:53:41,906 - ProtoNetProjectionMetricPlusSolver - INFO   - Save checkpoint @ epoch 45
+2021-04-23 14:53:41,921 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Best results w.r.t. Top1Acc metric @ epoch 45 - {'loss': 1.1549, 'fs_loss': 1.1549, 'Top1Acc': 53.884, 'Top5Acc': 100.0, 'Top1Acc_std': 5.7976, 'Top1Acc_cnf95': 0.7187, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:54:08,369 - ProtoNetProjectionMetricPlusSolver - INFO   - Testing stats [  45 /   50]: {'loss': 1.0887, 'fs_loss': 1.0887, 'Top1Acc': 57.1747, 'Top5Acc': 100.0, 'Top1Acc_std': 5.7315, 'Top1Acc_cnf95': 0.7105, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:54:08,370 - ProtoNetProjectionMetricPlusSolver - INFO   - Training epoch [  46 /   50, lr=0.000100]:
+2021-04-23 14:54:39,745 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Training stats [  46 /   50]: {'loss': 2.6366, 'fs_loss': 0.9775, 'cc_loss': 3.3182, 'Top1Acc': 61.8347, 'Top5Acc': 100.0}
+2021-04-23 14:54:39,746 - ProtoNetProjectionMetricPlusSolver - INFO   - Save checkpoint @ epoch 46
+2021-04-23 14:55:06,638 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Evaluation stats [  46 /   50]: {'loss': 1.1555, 'fs_loss': 1.1555, 'Top1Acc': 53.8427, 'Top5Acc': 100.0, 'Top1Acc_std': 5.8045, 'Top1Acc_cnf95': 0.7195, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:55:32,673 - ProtoNetProjectionMetricPlusSolver - INFO   - Testing stats [  46 /   50]: {'loss': 1.0869, 'fs_loss': 1.0869, 'Top1Acc': 57.1813, 'Top5Acc': 100.0, 'Top1Acc_std': 5.7892, 'Top1Acc_cnf95': 0.7176, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:55:32,674 - ProtoNetProjectionMetricPlusSolver - INFO   - Training epoch [  47 /   50, lr=0.000100]:
+2021-04-23 14:56:04,214 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Training stats [  47 /   50]: {'loss': 2.6572, 'fs_loss': 0.9612, 'cc_loss': 3.392, 'Top1Acc': 62.5147, 'Top5Acc': 100.0}
+2021-04-23 14:56:04,215 - ProtoNetProjectionMetricPlusSolver - INFO   - Save checkpoint @ epoch 47
+2021-04-23 14:56:30,675 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Evaluation stats [  47 /   50]: {'loss': 1.1529, 'fs_loss': 1.1529, 'Top1Acc': 54.092, 'Top5Acc': 100.0, 'Top1Acc_std': 5.7909, 'Top1Acc_cnf95': 0.7178, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:56:30,677 - ProtoNetProjectionMetricPlusSolver - INFO   - Save checkpoint @ epoch 47
+2021-04-23 14:56:30,690 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Best results w.r.t. Top1Acc metric @ epoch 47 - {'loss': 1.1529, 'fs_loss': 1.1529, 'Top1Acc': 54.092, 'Top5Acc': 100.0, 'Top1Acc_std': 5.7909, 'Top1Acc_cnf95': 0.7178, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:56:56,085 - ProtoNetProjectionMetricPlusSolver - INFO   - Testing stats [  47 /   50]: {'loss': 1.089, 'fs_loss': 1.089, 'Top1Acc': 57.14, 'Top5Acc': 100.0, 'Top1Acc_std': 5.7209, 'Top1Acc_cnf95': 0.7092, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:56:56,087 - ProtoNetProjectionMetricPlusSolver - INFO   - Training epoch [  48 /   50, lr=0.000100]:
+2021-04-23 14:57:27,676 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Training stats [  48 /   50]: {'loss': 2.6641, 'fs_loss': 0.9722, 'cc_loss': 3.3839, 'Top1Acc': 61.9693, 'Top5Acc': 100.0}
+2021-04-23 14:57:27,677 - ProtoNetProjectionMetricPlusSolver - INFO   - Save checkpoint @ epoch 48
+2021-04-23 14:57:54,149 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Evaluation stats [  48 /   50]: {'loss': 1.1545, 'fs_loss': 1.1545, 'Top1Acc': 53.9533, 'Top5Acc': 100.0, 'Top1Acc_std': 5.8041, 'Top1Acc_cnf95': 0.7195, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:58:19,950 - ProtoNetProjectionMetricPlusSolver - INFO   - Testing stats [  48 /   50]: {'loss': 1.0882, 'fs_loss': 1.0882, 'Top1Acc': 57.3373, 'Top5Acc': 100.0, 'Top1Acc_std': 5.7192, 'Top1Acc_cnf95': 0.709, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:58:19,951 - ProtoNetProjectionMetricPlusSolver - INFO   - Training epoch [  49 /   50, lr=0.000100]:
+2021-04-23 14:58:51,814 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Training stats [  49 /   50]: {'loss': 2.6559, 'fs_loss': 0.9694, 'cc_loss': 3.3731, 'Top1Acc': 62.2267, 'Top5Acc': 100.0}
+2021-04-23 14:58:51,816 - ProtoNetProjectionMetricPlusSolver - INFO   - Save checkpoint @ epoch 49
+2021-04-23 14:59:18,737 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Evaluation stats [  49 /   50]: {'loss': 1.1498, 'fs_loss': 1.1498, 'Top1Acc': 54.0293, 'Top5Acc': 100.0, 'Top1Acc_std': 5.9173, 'Top1Acc_cnf95': 0.7335, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:59:44,773 - ProtoNetProjectionMetricPlusSolver - INFO   - Testing stats [  49 /   50]: {'loss': 1.0872, 'fs_loss': 1.0872, 'Top1Acc': 57.2733, 'Top5Acc': 100.0, 'Top1Acc_std': 5.7056, 'Top1Acc_cnf95': 0.7073, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 14:59:44,774 - ProtoNetProjectionMetricPlusSolver - INFO   - Training epoch [  50 /   50, lr=0.000100]:
+2021-04-23 15:00:16,553 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Training stats [  50 /   50]: {'loss': 2.6152, 'fs_loss': 0.956, 'cc_loss': 3.3184, 'Top1Acc': 62.6947, 'Top5Acc': 100.0}
+2021-04-23 15:00:16,554 - ProtoNetProjectionMetricPlusSolver - INFO   - Save checkpoint @ epoch 50
+2021-04-23 15:00:42,528 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Evaluation stats [  50 /   50]: {'loss': 1.1539, 'fs_loss': 1.1539, 'Top1Acc': 53.9467, 'Top5Acc': 100.0, 'Top1Acc_std': 5.7671, 'Top1Acc_cnf95': 0.7149, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 15:01:08,516 - ProtoNetProjectionMetricPlusSolver - INFO   - Testing stats [  50 /   50]: {'loss': 1.0888, 'fs_loss': 1.0888, 'Top1Acc': 57.2587, 'Top5Acc': 100.0, 'Top1Acc_std': 5.8122, 'Top1Acc_cnf95': 0.7205, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}
+2021-04-23 15:01:08,517 - ProtoNetProjectionMetricPlusSolver - INFO   - ==> Best results w.r.t. Top1Acc metric @ epoch 47 - {'loss': 1.1529, 'fs_loss': 1.1529, 'Top1Acc': 54.092, 'Top5Acc': 100.0, 'Top1Acc_std': 5.7909, 'Top1Acc_cnf95': 0.7178, 'Top5Acc_std': 0.0, 'Top5Acc_cnf95': 0.0}

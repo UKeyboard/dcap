@@ -5,7 +5,7 @@ from dataset import FewShotEpisodeMeta
 # set expriment env
 is_apply_final_activation = True
 is_biased_classifier = True
-is_meta_fintuning = False
+is_meta_fintuning = True
 is_dense_pretrained = False
 is_dense_pretrained_w_softlabel = False and is_dense_pretrained
 is_augtrain_plus = False
@@ -13,7 +13,22 @@ is_transductive_bn = False
 is_cosine_solver = False
 batch_size = 4
 conv_out_dim = 64
-max_num_epochs = 20 if is_meta_fintuning else 100
+pretrained_models = [
+[
+# dense pre-trained models
+None, # dense pretrained without final activation
+'experiments/basic_64w_mini/basic_64w_mini_conv64_none_none_dense_hardlabel_wAC_wBias_woTBN_b256_e100_ckpt_epoch89.best', # dense pretrained with final activation
+],[
+# gap pre-trained models
+None, # gap pretrained without final activation
+'experiments/basic_64w_mini/basic_64w_mini_conv64_none_none_avg_hardlabel_wAC_wBias_woTBN_b256_e100_ckpt_epoch87.best', # gap pretrained with final activation
+]
+]
+if is_dense_pretrained:
+    pretrained_model = pretrained_models[0][1] if is_apply_final_activation else pretrained_models[0][0]
+else:
+    pretrained_model = pretrained_models[1][1] if is_apply_final_activation else pretrained_models[1][0]
+pretrained_model = pretrained_model if is_meta_fintuning else None
 #
 experiment_uuid = '_'.join([
     'dense' if is_dense_pretrained else 'avg',
@@ -22,23 +37,14 @@ experiment_uuid = '_'.join([
     'wBias' if is_biased_classifier else 'woBias',
     'wTBN' if is_transductive_bn else 'woTBN',
 ])
-pretrained_models = [
-[
-# dense pre-trained models
-'/path/to/dense-pre-trained-model-woAC.best', # CHANGEME
-'/path/to/dense-pre-trained-model-wAC.best' # CHANGEME
-],[
-# gap pre-trained models
-'/path/to/gap-pre-trained-model-woAC.best', # CHANGEME
-'/path/to/gap-pre-trained-model-wAC.best' # CHANGEME
-]
-]
-if is_dense_pretrained:
-    pretrained_model = pretrained_models[0][1] if is_apply_final_activation else pretrained_models[0][0]
+if pretrained_model is not None:
+    # make sure model has the target structure and is pre-trained as stated.
+    assert experiment_uuid in pretrained_model
+    assert 'basic_64w_mini_conv%d'%conv_out_dim in pretrained_model
 else:
-    pretrained_model = pretrained_models[1][1] if is_apply_final_activation else pretrained_models[1][0]
-pretrained_model = pretrained_model if is_meta_fintuning else None
-if pretrained_model is not None: assert experiment_uuid in pretrained_model
+    is_meta_fintuning = False
+#
+max_num_epochs = 20 if is_meta_fintuning else 100
 
 
 # build configure

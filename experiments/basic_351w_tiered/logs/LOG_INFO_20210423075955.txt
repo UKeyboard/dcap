@@ -1,0 +1,555 @@
+2021-04-23 07:59:55,645 - ClassifierSolver - INFO   - Solver options => {'name': 'basic_351w_tiered_conv64_augplus_multi_avg_hardlabel_wAC_wBias_woTBN_b512_e120', 'max_num_epochs': 120, 'evaluate_step': 1, 'best_metric': 'Top1Acc', 'solver': {'package': 'algorithm.basic', 'module': 'ClassifierSolver', 'min_lr_decay': 0.0005}, 'network': {'package': 'model', 'module': 'ConvNet64_wC', 'param': {'required_input_size': 84, 'num_classes': 351, 'biased': True, 'avgpool': True, 'transductive_bn': False, 'final_activation': Sequential(
+  (0): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (1): LeakyReLU(negative_slope=0.1)
+)}, 'pretrained': None, 'freeze_pretrained': False}, 'optimizer': {'package': 'torch.optim', 'module': 'SGD', 'param': {'lr': 0.1, 'momentum': 0.9, 'weight_decay': 0.0005, 'nesterov': True}}, 'scheduler': {'package': 'torch.optim.lr_scheduler', 'module': 'MultiStepLR', 'param': {'milestones': [36, 72, 96], 'gamma': 0.1, 'last_epoch': -1}}, 'data': {'package': 'dataset', 'module': 'TieredImagenetLMDBHorizontal', 'train': {'phase': 'train', 'transform_name': 'aug_train+', 'factor': 0.9, 'category_pool_name': 'train', 'label_indent': 0, 'batch_size': 512, 'shuffle': True, 'lmdb': '/cloud/hejun/dataset/imagenet/ILSVRC2012_img_train_x96.lmdb'}, 'val': {'phase': 'test', 'transform_name': 'basic', 'factor': 0.9, 'category_pool_name': 'train', 'label_indent': 0, 'batch_size': 512, 'lmdb': '/cloud/hejun/dataset/imagenet/ILSVRC2012_img_train_x96.lmdb'}, 'test': None}, 'exp_dir': './experiments/basic_351w_tiered', 'checkpoint': 0, 'iscuda': True, 'ngpus': 1, 'tqdm': True, 'debug': False, 'noflog': False, 'nosummary': False, 'local_rank': None}
+2021-04-23 07:59:58,082 - ClassifierSolver - INFO   - Training epoch [   1 /  120]:
+2021-04-23 08:08:12,739 - ClassifierSolver - INFO   - ==> Training stats [   1 /  120]: {'loss': 4.982, 'Top1Acc': 5.9656, 'Top5Acc': 18.0745}
+2021-04-23 08:08:12,739 - ClassifierSolver - INFO   - Save checkpoint @ epoch 1
+2021-04-23 08:08:29,553 - ClassifierSolver - INFO   - ==> Evaluation stats [   1 /  120]: {'loss': 4.5372, 'Top1Acc': 9.5903, 'Top5Acc': 26.0641, 'Top1Acc_std': 7.012, 'Top1Acc_cnf95': 1.4651, 'Top5Acc_std': 13.686, 'Top5Acc_cnf95': 2.8595}
+2021-04-23 08:08:29,554 - ClassifierSolver - INFO   - Save checkpoint @ epoch 1
+2021-04-23 08:08:29,565 - ClassifierSolver - INFO   - ==> Best results w.r.t. Top1Acc metric @ epoch 1 - {'loss': 4.5372, 'Top1Acc': 9.5903, 'Top5Acc': 26.0641, 'Top1Acc_std': 7.012, 'Top1Acc_cnf95': 1.4651, 'Top5Acc_std': 13.686, 'Top5Acc_cnf95': 2.8595}
+2021-04-23 08:08:29,566 - ClassifierSolver - INFO   - Training epoch [   2 /  120]:
+2021-04-23 08:10:47,840 - ClassifierSolver - INFO   - ==> Training stats [   2 /  120]: {'loss': 4.2334, 'Top1Acc': 13.5703, 'Top5Acc': 33.7055}
+2021-04-23 08:10:47,841 - ClassifierSolver - INFO   - Save checkpoint @ epoch 2
+2021-04-23 08:10:59,647 - ClassifierSolver - INFO   - ==> Evaluation stats [   2 /  120]: {'loss': 4.3924, 'Top1Acc': 11.8874, 'Top5Acc': 31.0954, 'Top1Acc_std': 8.9514, 'Top1Acc_cnf95': 1.8703, 'Top5Acc_std': 14.1632, 'Top5Acc_cnf95': 2.9592}
+2021-04-23 08:10:59,649 - ClassifierSolver - INFO   - Save checkpoint @ epoch 2
+2021-04-23 08:10:59,665 - ClassifierSolver - INFO   - ==> Best results w.r.t. Top1Acc metric @ epoch 2 - {'loss': 4.3924, 'Top1Acc': 11.8874, 'Top5Acc': 31.0954, 'Top1Acc_std': 8.9514, 'Top1Acc_cnf95': 1.8703, 'Top5Acc_std': 14.1632, 'Top5Acc_cnf95': 2.9592}
+2021-04-23 08:10:59,666 - ClassifierSolver - INFO   - Training epoch [   3 /  120]:
+2021-04-23 08:13:17,931 - ClassifierSolver - INFO   - ==> Training stats [   3 /  120]: {'loss': 3.9966, 'Top1Acc': 16.7486, 'Top5Acc': 38.8131}
+2021-04-23 08:13:17,932 - ClassifierSolver - INFO   - Save checkpoint @ epoch 3
+2021-04-23 08:13:29,947 - ClassifierSolver - INFO   - ==> Evaluation stats [   3 /  120]: {'loss': 4.1924, 'Top1Acc': 14.0924, 'Top5Acc': 34.5731, 'Top1Acc_std': 9.6832, 'Top1Acc_cnf95': 2.0232, 'Top5Acc_std': 16.7731, 'Top5Acc_cnf95': 3.5045}
+2021-04-23 08:13:29,949 - ClassifierSolver - INFO   - Save checkpoint @ epoch 3
+2021-04-23 08:13:29,965 - ClassifierSolver - INFO   - ==> Best results w.r.t. Top1Acc metric @ epoch 3 - {'loss': 4.1924, 'Top1Acc': 14.0924, 'Top5Acc': 34.5731, 'Top1Acc_std': 9.6832, 'Top1Acc_cnf95': 2.0232, 'Top5Acc_std': 16.7731, 'Top5Acc_cnf95': 3.5045}
+2021-04-23 08:13:29,965 - ClassifierSolver - INFO   - Training epoch [   4 /  120]:
+2021-04-23 08:15:48,694 - ClassifierSolver - INFO   - ==> Training stats [   4 /  120]: {'loss': 3.8916, 'Top1Acc': 18.3641, 'Top5Acc': 41.2294}
+2021-04-23 08:15:48,695 - ClassifierSolver - INFO   - Save checkpoint @ epoch 4
+2021-04-23 08:16:00,466 - ClassifierSolver - INFO   - ==> Evaluation stats [   4 /  120]: {'loss': 3.966, 'Top1Acc': 16.2442, 'Top5Acc': 38.6304, 'Top1Acc_std': 9.2793, 'Top1Acc_cnf95': 1.9388, 'Top5Acc_std': 14.2078, 'Top5Acc_cnf95': 2.9685}
+2021-04-23 08:16:00,468 - ClassifierSolver - INFO   - Save checkpoint @ epoch 4
+2021-04-23 08:16:00,484 - ClassifierSolver - INFO   - ==> Best results w.r.t. Top1Acc metric @ epoch 4 - {'loss': 3.966, 'Top1Acc': 16.2442, 'Top5Acc': 38.6304, 'Top1Acc_std': 9.2793, 'Top1Acc_cnf95': 1.9388, 'Top5Acc_std': 14.2078, 'Top5Acc_cnf95': 2.9685}
+2021-04-23 08:16:00,485 - ClassifierSolver - INFO   - Training epoch [   5 /  120]:
+2021-04-23 08:18:19,306 - ClassifierSolver - INFO   - ==> Training stats [   5 /  120]: {'loss': 3.8317, 'Top1Acc': 19.1579, 'Top5Acc': 42.5641}
+2021-04-23 08:18:19,307 - ClassifierSolver - INFO   - Save checkpoint @ epoch 5
+2021-04-23 08:18:31,127 - ClassifierSolver - INFO   - ==> Evaluation stats [   5 /  120]: {'loss': 4.1271, 'Top1Acc': 15.3807, 'Top5Acc': 36.3982, 'Top1Acc_std': 9.4759, 'Top1Acc_cnf95': 1.9799, 'Top5Acc_std': 14.2575, 'Top5Acc_cnf95': 2.9789}
+2021-04-23 08:18:31,129 - ClassifierSolver - INFO   - Training epoch [   6 /  120]:
+2021-04-23 08:20:49,597 - ClassifierSolver - INFO   - ==> Training stats [   6 /  120]: {'loss': 3.7892, 'Top1Acc': 19.7525, 'Top5Acc': 43.3987}
+2021-04-23 08:20:49,598 - ClassifierSolver - INFO   - Save checkpoint @ epoch 6
+2021-04-23 08:21:00,982 - ClassifierSolver - INFO   - ==> Evaluation stats [   6 /  120]: {'loss': 3.9368, 'Top1Acc': 17.0598, 'Top5Acc': 39.5986, 'Top1Acc_std': 9.7951, 'Top1Acc_cnf95': 2.0466, 'Top5Acc_std': 14.7393, 'Top5Acc_cnf95': 3.0796}
+2021-04-23 08:21:00,983 - ClassifierSolver - INFO   - Save checkpoint @ epoch 6
+2021-04-23 08:21:00,999 - ClassifierSolver - INFO   - ==> Best results w.r.t. Top1Acc metric @ epoch 6 - {'loss': 3.9368, 'Top1Acc': 17.0598, 'Top5Acc': 39.5986, 'Top1Acc_std': 9.7951, 'Top1Acc_cnf95': 2.0466, 'Top5Acc_std': 14.7393, 'Top5Acc_cnf95': 3.0796}
+2021-04-23 08:21:01,000 - ClassifierSolver - INFO   - Training epoch [   7 /  120]:
+2021-04-23 08:23:19,950 - ClassifierSolver - INFO   - ==> Training stats [   7 /  120]: {'loss': 3.7599, 'Top1Acc': 20.1929, 'Top5Acc': 44.0913}
+2021-04-23 08:23:19,951 - ClassifierSolver - INFO   - Save checkpoint @ epoch 7
+2021-04-23 08:23:31,951 - ClassifierSolver - INFO   - ==> Evaluation stats [   7 /  120]: {'loss': 3.9536, 'Top1Acc': 17.7455, 'Top5Acc': 40.2933, 'Top1Acc_std': 10.3274, 'Top1Acc_cnf95': 2.1578, 'Top5Acc_std': 15.0153, 'Top5Acc_cnf95': 3.1372}
+2021-04-23 08:23:31,952 - ClassifierSolver - INFO   - Save checkpoint @ epoch 7
+2021-04-23 08:23:31,968 - ClassifierSolver - INFO   - ==> Best results w.r.t. Top1Acc metric @ epoch 7 - {'loss': 3.9536, 'Top1Acc': 17.7455, 'Top5Acc': 40.2933, 'Top1Acc_std': 10.3274, 'Top1Acc_cnf95': 2.1578, 'Top5Acc_std': 15.0153, 'Top5Acc_cnf95': 3.1372}
+2021-04-23 08:23:31,968 - ClassifierSolver - INFO   - Training epoch [   8 /  120]:
+2021-04-23 08:25:50,900 - ClassifierSolver - INFO   - ==> Training stats [   8 /  120]: {'loss': 3.7375, 'Top1Acc': 20.5585, 'Top5Acc': 44.5199}
+2021-04-23 08:25:50,901 - ClassifierSolver - INFO   - Save checkpoint @ epoch 8
+2021-04-23 08:26:02,485 - ClassifierSolver - INFO   - ==> Evaluation stats [   8 /  120]: {'loss': 3.9322, 'Top1Acc': 17.5736, 'Top5Acc': 40.3058, 'Top1Acc_std': 10.1996, 'Top1Acc_cnf95': 2.1311, 'Top5Acc_std': 15.2828, 'Top5Acc_cnf95': 3.1931}
+2021-04-23 08:26:02,486 - ClassifierSolver - INFO   - Training epoch [   9 /  120]:
+2021-04-23 08:28:21,536 - ClassifierSolver - INFO   - ==> Training stats [   9 /  120]: {'loss': 3.7157, 'Top1Acc': 20.9647, 'Top5Acc': 44.9721}
+2021-04-23 08:28:21,537 - ClassifierSolver - INFO   - Save checkpoint @ epoch 9
+2021-04-23 08:28:33,605 - ClassifierSolver - INFO   - ==> Evaluation stats [   9 /  120]: {'loss': 3.8378, 'Top1Acc': 18.3315, 'Top5Acc': 41.785, 'Top1Acc_std': 11.166, 'Top1Acc_cnf95': 2.333, 'Top5Acc_std': 16.8415, 'Top5Acc_cnf95': 3.5188}
+2021-04-23 08:28:33,607 - ClassifierSolver - INFO   - Save checkpoint @ epoch 9
+2021-04-23 08:28:33,620 - ClassifierSolver - INFO   - ==> Best results w.r.t. Top1Acc metric @ epoch 9 - {'loss': 3.8378, 'Top1Acc': 18.3315, 'Top5Acc': 41.785, 'Top1Acc_std': 11.166, 'Top1Acc_cnf95': 2.333, 'Top5Acc_std': 16.8415, 'Top5Acc_cnf95': 3.5188}
+2021-04-23 08:28:33,621 - ClassifierSolver - INFO   - Training epoch [  10 /  120]:
+2021-04-23 08:30:52,318 - ClassifierSolver - INFO   - ==> Training stats [  10 /  120]: {'loss': 3.7042, 'Top1Acc': 21.1849, 'Top5Acc': 45.2154}
+2021-04-23 08:30:52,319 - ClassifierSolver - INFO   - Save checkpoint @ epoch 10
+2021-04-23 08:31:03,335 - ClassifierSolver - INFO   - ==> Evaluation stats [  10 /  120]: {'loss': 3.8135, 'Top1Acc': 18.9407, 'Top5Acc': 42.1957, 'Top1Acc_std': 9.2935, 'Top1Acc_cnf95': 1.9417, 'Top5Acc_std': 13.3842, 'Top5Acc_cnf95': 2.7964}
+2021-04-23 08:31:03,336 - ClassifierSolver - INFO   - Save checkpoint @ epoch 10
+2021-04-23 08:31:03,350 - ClassifierSolver - INFO   - ==> Best results w.r.t. Top1Acc metric @ epoch 10 - {'loss': 3.8135, 'Top1Acc': 18.9407, 'Top5Acc': 42.1957, 'Top1Acc_std': 9.2935, 'Top1Acc_cnf95': 1.9417, 'Top5Acc_std': 13.3842, 'Top5Acc_cnf95': 2.7964}
+2021-04-23 08:31:03,351 - ClassifierSolver - INFO   - Training epoch [  11 /  120]:
+2021-04-23 08:33:22,016 - ClassifierSolver - INFO   - ==> Training stats [  11 /  120]: {'loss': 3.6931, 'Top1Acc': 21.2141, 'Top5Acc': 45.4124}
+2021-04-23 08:33:22,018 - ClassifierSolver - INFO   - Save checkpoint @ epoch 11
+2021-04-23 08:33:33,192 - ClassifierSolver - INFO   - ==> Evaluation stats [  11 /  120]: {'loss': 3.8795, 'Top1Acc': 18.579, 'Top5Acc': 41.3196, 'Top1Acc_std': 10.9559, 'Top1Acc_cnf95': 2.2891, 'Top5Acc_std': 16.0769, 'Top5Acc_cnf95': 3.359}
+2021-04-23 08:33:33,194 - ClassifierSolver - INFO   - Training epoch [  12 /  120]:
+2021-04-23 08:35:51,992 - ClassifierSolver - INFO   - ==> Training stats [  12 /  120]: {'loss': 3.688, 'Top1Acc': 21.3436, 'Top5Acc': 45.6434}
+2021-04-23 08:35:51,993 - ClassifierSolver - INFO   - Save checkpoint @ epoch 12
+2021-04-23 08:36:03,065 - ClassifierSolver - INFO   - ==> Evaluation stats [  12 /  120]: {'loss': 3.8982, 'Top1Acc': 18.0673, 'Top5Acc': 41.1857, 'Top1Acc_std': 9.7209, 'Top1Acc_cnf95': 2.0311, 'Top5Acc_std': 14.5012, 'Top5Acc_cnf95': 3.0298}
+2021-04-23 08:36:03,066 - ClassifierSolver - INFO   - Training epoch [  13 /  120]:
+2021-04-23 08:38:21,582 - ClassifierSolver - INFO   - ==> Training stats [  13 /  120]: {'loss': 3.6779, 'Top1Acc': 21.4989, 'Top5Acc': 45.8375}
+2021-04-23 08:38:21,583 - ClassifierSolver - INFO   - Save checkpoint @ epoch 13
+2021-04-23 08:38:32,960 - ClassifierSolver - INFO   - ==> Evaluation stats [  13 /  120]: {'loss': 3.8427, 'Top1Acc': 18.8265, 'Top5Acc': 42.1532, 'Top1Acc_std': 10.2025, 'Top1Acc_cnf95': 2.1317, 'Top5Acc_std': 13.7867, 'Top5Acc_cnf95': 2.8805}
+2021-04-23 08:38:32,961 - ClassifierSolver - INFO   - Training epoch [  14 /  120]:
+2021-04-23 08:40:51,809 - ClassifierSolver - INFO   - ==> Training stats [  14 /  120]: {'loss': 3.6682, 'Top1Acc': 21.6665, 'Top5Acc': 45.9953}
+2021-04-23 08:40:51,811 - ClassifierSolver - INFO   - Save checkpoint @ epoch 14
+2021-04-23 08:41:02,758 - ClassifierSolver - INFO   - ==> Evaluation stats [  14 /  120]: {'loss': 3.8291, 'Top1Acc': 18.8851, 'Top5Acc': 42.2187, 'Top1Acc_std': 10.6428, 'Top1Acc_cnf95': 2.2237, 'Top5Acc_std': 14.5709, 'Top5Acc_cnf95': 3.0444}
+2021-04-23 08:41:02,759 - ClassifierSolver - INFO   - Training epoch [  15 /  120]:
+2021-04-23 08:43:21,333 - ClassifierSolver - INFO   - ==> Training stats [  15 /  120]: {'loss': 3.6642, 'Top1Acc': 21.7504, 'Top5Acc': 46.0621}
+2021-04-23 08:43:21,335 - ClassifierSolver - INFO   - Save checkpoint @ epoch 15
+2021-04-23 08:43:33,084 - ClassifierSolver - INFO   - ==> Evaluation stats [  15 /  120]: {'loss': 3.8563, 'Top1Acc': 18.5934, 'Top5Acc': 42.0833, 'Top1Acc_std': 10.0964, 'Top1Acc_cnf95': 2.1095, 'Top5Acc_std': 14.4903, 'Top5Acc_cnf95': 3.0276}
+2021-04-23 08:43:33,086 - ClassifierSolver - INFO   - Training epoch [  16 /  120]:
+2021-04-23 08:45:51,866 - ClassifierSolver - INFO   - ==> Training stats [  16 /  120]: {'loss': 3.6572, 'Top1Acc': 21.7657, 'Top5Acc': 46.3024}
+2021-04-23 08:45:51,867 - ClassifierSolver - INFO   - Save checkpoint @ epoch 16
+2021-04-23 08:46:03,465 - ClassifierSolver - INFO   - ==> Evaluation stats [  16 /  120]: {'loss': 3.8762, 'Top1Acc': 18.4913, 'Top5Acc': 41.6014, 'Top1Acc_std': 10.3022, 'Top1Acc_cnf95': 2.1525, 'Top5Acc_std': 13.8735, 'Top5Acc_cnf95': 2.8987}
+2021-04-23 08:46:03,466 - ClassifierSolver - INFO   - Training epoch [  17 /  120]:
+2021-04-23 08:48:22,263 - ClassifierSolver - INFO   - ==> Training stats [  17 /  120]: {'loss': 3.6533, 'Top1Acc': 21.8788, 'Top5Acc': 46.4018}
+2021-04-23 08:48:22,264 - ClassifierSolver - INFO   - Save checkpoint @ epoch 17
+2021-04-23 08:48:33,246 - ClassifierSolver - INFO   - ==> Evaluation stats [  17 /  120]: {'loss': 3.7665, 'Top1Acc': 19.5996, 'Top5Acc': 43.7093, 'Top1Acc_std': 10.6294, 'Top1Acc_cnf95': 2.2209, 'Top5Acc_std': 14.5774, 'Top5Acc_cnf95': 3.0457}
+2021-04-23 08:48:33,248 - ClassifierSolver - INFO   - Save checkpoint @ epoch 17
+2021-04-23 08:48:33,261 - ClassifierSolver - INFO   - ==> Best results w.r.t. Top1Acc metric @ epoch 17 - {'loss': 3.7665, 'Top1Acc': 19.5996, 'Top5Acc': 43.7093, 'Top1Acc_std': 10.6294, 'Top1Acc_cnf95': 2.2209, 'Top5Acc_std': 14.5774, 'Top5Acc_cnf95': 3.0457}
+2021-04-23 08:48:33,262 - ClassifierSolver - INFO   - Training epoch [  18 /  120]:
+2021-04-23 08:50:52,353 - ClassifierSolver - INFO   - ==> Training stats [  18 /  120]: {'loss': 3.6494, 'Top1Acc': 21.9497, 'Top5Acc': 46.4257}
+2021-04-23 08:50:52,354 - ClassifierSolver - INFO   - Save checkpoint @ epoch 18
+2021-04-23 08:51:03,125 - ClassifierSolver - INFO   - ==> Evaluation stats [  18 /  120]: {'loss': 3.817, 'Top1Acc': 19.5521, 'Top5Acc': 42.781, 'Top1Acc_std': 11.0625, 'Top1Acc_cnf95': 2.3114, 'Top5Acc_std': 15.6579, 'Top5Acc_cnf95': 3.2715}
+2021-04-23 08:51:03,127 - ClassifierSolver - INFO   - Training epoch [  19 /  120]:
+2021-04-23 08:53:21,897 - ClassifierSolver - INFO   - ==> Training stats [  19 /  120]: {'loss': 3.644, 'Top1Acc': 21.9743, 'Top5Acc': 46.5117}
+2021-04-23 08:53:21,898 - ClassifierSolver - INFO   - Save checkpoint @ epoch 19
+2021-04-23 08:53:33,091 - ClassifierSolver - INFO   - ==> Evaluation stats [  19 /  120]: {'loss': 3.7628, 'Top1Acc': 19.7175, 'Top5Acc': 43.5848, 'Top1Acc_std': 11.8293, 'Top1Acc_cnf95': 2.4716, 'Top5Acc_std': 16.4381, 'Top5Acc_cnf95': 3.4345}
+2021-04-23 08:53:33,092 - ClassifierSolver - INFO   - Save checkpoint @ epoch 19
+2021-04-23 08:53:33,107 - ClassifierSolver - INFO   - ==> Best results w.r.t. Top1Acc metric @ epoch 19 - {'loss': 3.7628, 'Top1Acc': 19.7175, 'Top5Acc': 43.5848, 'Top1Acc_std': 11.8293, 'Top1Acc_cnf95': 2.4716, 'Top5Acc_std': 16.4381, 'Top5Acc_cnf95': 3.4345}
+2021-04-23 08:53:33,107 - ClassifierSolver - INFO   - Training epoch [  20 /  120]:
+2021-04-23 08:55:52,002 - ClassifierSolver - INFO   - ==> Training stats [  20 /  120]: {'loss': 3.6387, 'Top1Acc': 22.0799, 'Top5Acc': 46.6439}
+2021-04-23 08:55:52,003 - ClassifierSolver - INFO   - Save checkpoint @ epoch 20
+2021-04-23 08:56:03,443 - ClassifierSolver - INFO   - ==> Evaluation stats [  20 /  120]: {'loss': 3.7406, 'Top1Acc': 20.533, 'Top5Acc': 44.1855, 'Top1Acc_std': 9.6282, 'Top1Acc_cnf95': 2.0117, 'Top5Acc_std': 12.4753, 'Top5Acc_cnf95': 2.6065}
+2021-04-23 08:56:03,445 - ClassifierSolver - INFO   - Save checkpoint @ epoch 20
+2021-04-23 08:56:03,461 - ClassifierSolver - INFO   - ==> Best results w.r.t. Top1Acc metric @ epoch 20 - {'loss': 3.7406, 'Top1Acc': 20.533, 'Top5Acc': 44.1855, 'Top1Acc_std': 9.6282, 'Top1Acc_cnf95': 2.0117, 'Top5Acc_std': 12.4753, 'Top5Acc_cnf95': 2.6065}
+2021-04-23 08:56:03,462 - ClassifierSolver - INFO   - Training epoch [  21 /  120]:
+2021-04-23 08:58:22,456 - ClassifierSolver - INFO   - ==> Training stats [  21 /  120]: {'loss': 3.6401, 'Top1Acc': 22.0232, 'Top5Acc': 46.5477}
+2021-04-23 08:58:22,457 - ClassifierSolver - INFO   - Save checkpoint @ epoch 21
+2021-04-23 08:58:33,823 - ClassifierSolver - INFO   - ==> Evaluation stats [  21 /  120]: {'loss': 3.8277, 'Top1Acc': 18.9009, 'Top5Acc': 42.8115, 'Top1Acc_std': 9.683, 'Top1Acc_cnf95': 2.0231, 'Top5Acc_std': 13.0753, 'Top5Acc_cnf95': 2.7319}
+2021-04-23 08:58:33,825 - ClassifierSolver - INFO   - Training epoch [  22 /  120]:
+2021-04-23 09:00:52,555 - ClassifierSolver - INFO   - ==> Training stats [  22 /  120]: {'loss': 3.6358, 'Top1Acc': 22.1654, 'Top5Acc': 46.6244}
+2021-04-23 09:00:52,556 - ClassifierSolver - INFO   - Save checkpoint @ epoch 22
+2021-04-23 09:01:04,698 - ClassifierSolver - INFO   - ==> Evaluation stats [  22 /  120]: {'loss': 3.9535, 'Top1Acc': 17.8605, 'Top5Acc': 40.0569, 'Top1Acc_std': 9.9599, 'Top1Acc_cnf95': 2.081, 'Top5Acc_std': 14.5847, 'Top5Acc_cnf95': 3.0473}
+2021-04-23 09:01:04,700 - ClassifierSolver - INFO   - Training epoch [  23 /  120]:
+2021-04-23 09:03:23,557 - ClassifierSolver - INFO   - ==> Training stats [  23 /  120]: {'loss': 3.6362, 'Top1Acc': 22.0852, 'Top5Acc': 46.6764}
+2021-04-23 09:03:23,558 - ClassifierSolver - INFO   - Save checkpoint @ epoch 23
+2021-04-23 09:03:35,374 - ClassifierSolver - INFO   - ==> Evaluation stats [  23 /  120]: {'loss': 3.7831, 'Top1Acc': 19.2658, 'Top5Acc': 43.4249, 'Top1Acc_std': 8.6043, 'Top1Acc_cnf95': 1.7978, 'Top5Acc_std': 11.4943, 'Top5Acc_cnf95': 2.4016}
+2021-04-23 09:03:35,376 - ClassifierSolver - INFO   - Training epoch [  24 /  120]:
+2021-04-23 09:05:54,271 - ClassifierSolver - INFO   - ==> Training stats [  24 /  120]: {'loss': 3.6322, 'Top1Acc': 22.1387, 'Top5Acc': 46.7679}
+2021-04-23 09:05:54,272 - ClassifierSolver - INFO   - Save checkpoint @ epoch 24
+2021-04-23 09:06:05,095 - ClassifierSolver - INFO   - ==> Evaluation stats [  24 /  120]: {'loss': 3.7952, 'Top1Acc': 19.3548, 'Top5Acc': 42.9354, 'Top1Acc_std': 11.1748, 'Top1Acc_cnf95': 2.3348, 'Top5Acc_std': 15.4148, 'Top5Acc_cnf95': 3.2207}
+2021-04-23 09:06:05,096 - ClassifierSolver - INFO   - Training epoch [  25 /  120]:
+2021-04-23 09:08:24,201 - ClassifierSolver - INFO   - ==> Training stats [  25 /  120]: {'loss': 3.633, 'Top1Acc': 22.1869, 'Top5Acc': 46.7976}
+2021-04-23 09:08:24,202 - ClassifierSolver - INFO   - Save checkpoint @ epoch 25
+2021-04-23 09:08:35,595 - ClassifierSolver - INFO   - ==> Evaluation stats [  25 /  120]: {'loss': 3.8448, 'Top1Acc': 18.9198, 'Top5Acc': 42.6472, 'Top1Acc_std': 10.8081, 'Top1Acc_cnf95': 2.2582, 'Top5Acc_std': 15.1008, 'Top5Acc_cnf95': 3.1551}
+2021-04-23 09:08:35,596 - ClassifierSolver - INFO   - Training epoch [  26 /  120]:
+2021-04-23 09:10:54,907 - ClassifierSolver - INFO   - ==> Training stats [  26 /  120]: {'loss': 3.628, 'Top1Acc': 22.2448, 'Top5Acc': 46.9092}
+2021-04-23 09:10:54,908 - ClassifierSolver - INFO   - Save checkpoint @ epoch 26
+2021-04-23 09:11:06,021 - ClassifierSolver - INFO   - ==> Evaluation stats [  26 /  120]: {'loss': 3.7215, 'Top1Acc': 20.1652, 'Top5Acc': 44.2036, 'Top1Acc_std': 10.3723, 'Top1Acc_cnf95': 2.1672, 'Top5Acc_std': 13.3643, 'Top5Acc_cnf95': 2.7923}
+2021-04-23 09:11:06,022 - ClassifierSolver - INFO   - Training epoch [  27 /  120]:
+2021-04-23 09:13:24,683 - ClassifierSolver - INFO   - ==> Training stats [  27 /  120]: {'loss': 3.6286, 'Top1Acc': 22.1759, 'Top5Acc': 46.8235}
+2021-04-23 09:13:24,684 - ClassifierSolver - INFO   - Save checkpoint @ epoch 27
+2021-04-23 09:13:36,535 - ClassifierSolver - INFO   - ==> Evaluation stats [  27 /  120]: {'loss': 3.8345, 'Top1Acc': 18.6755, 'Top5Acc': 42.5562, 'Top1Acc_std': 11.2929, 'Top1Acc_cnf95': 2.3595, 'Top5Acc_std': 16.4407, 'Top5Acc_cnf95': 3.4351}
+2021-04-23 09:13:36,536 - ClassifierSolver - INFO   - Training epoch [  28 /  120]:
+2021-04-23 09:15:55,601 - ClassifierSolver - INFO   - ==> Training stats [  28 /  120]: {'loss': 3.6281, 'Top1Acc': 22.1888, 'Top5Acc': 46.8476}
+2021-04-23 09:15:55,602 - ClassifierSolver - INFO   - Save checkpoint @ epoch 28
+2021-04-23 09:16:07,329 - ClassifierSolver - INFO   - ==> Evaluation stats [  28 /  120]: {'loss': 3.7486, 'Top1Acc': 20.1346, 'Top5Acc': 44.2022, 'Top1Acc_std': 10.9903, 'Top1Acc_cnf95': 2.2963, 'Top5Acc_std': 14.8188, 'Top5Acc_cnf95': 3.0962}
+2021-04-23 09:16:07,330 - ClassifierSolver - INFO   - Training epoch [  29 /  120]:
+2021-04-23 09:18:26,213 - ClassifierSolver - INFO   - ==> Training stats [  29 /  120]: {'loss': 3.6243, 'Top1Acc': 22.2763, 'Top5Acc': 46.9388}
+2021-04-23 09:18:26,215 - ClassifierSolver - INFO   - Save checkpoint @ epoch 29
+2021-04-23 09:18:37,246 - ClassifierSolver - INFO   - ==> Evaluation stats [  29 /  120]: {'loss': 3.7359, 'Top1Acc': 20.4334, 'Top5Acc': 44.404, 'Top1Acc_std': 10.9403, 'Top1Acc_cnf95': 2.2858, 'Top5Acc_std': 15.4471, 'Top5Acc_cnf95': 3.2275}
+2021-04-23 09:18:37,247 - ClassifierSolver - INFO   - Training epoch [  30 /  120]:
+2021-04-23 09:20:59,446 - ClassifierSolver - INFO   - ==> Training stats [  30 /  120]: {'loss': 3.6272, 'Top1Acc': 22.2518, 'Top5Acc': 46.9243}
+2021-04-23 09:20:59,447 - ClassifierSolver - INFO   - Save checkpoint @ epoch 30
+2021-04-23 09:21:10,559 - ClassifierSolver - INFO   - ==> Evaluation stats [  30 /  120]: {'loss': 3.8917, 'Top1Acc': 17.8532, 'Top5Acc': 41.2557, 'Top1Acc_std': 10.7539, 'Top1Acc_cnf95': 2.2469, 'Top5Acc_std': 15.2619, 'Top5Acc_cnf95': 3.1888}
+2021-04-23 09:21:10,560 - ClassifierSolver - INFO   - Training epoch [  31 /  120]:
+2021-04-23 09:23:29,590 - ClassifierSolver - INFO   - ==> Training stats [  31 /  120]: {'loss': 3.626, 'Top1Acc': 22.3235, 'Top5Acc': 46.9442}
+2021-04-23 09:23:29,599 - ClassifierSolver - INFO   - Save checkpoint @ epoch 31
+2021-04-23 09:23:40,760 - ClassifierSolver - INFO   - ==> Evaluation stats [  31 /  120]: {'loss': 3.7852, 'Top1Acc': 19.4818, 'Top5Acc': 42.7718, 'Top1Acc_std': 10.5575, 'Top1Acc_cnf95': 2.2059, 'Top5Acc_std': 15.0607, 'Top5Acc_cnf95': 3.1467}
+2021-04-23 09:23:40,761 - ClassifierSolver - INFO   - Training epoch [  32 /  120]:
+2021-04-23 09:25:59,810 - ClassifierSolver - INFO   - ==> Training stats [  32 /  120]: {'loss': 3.6221, 'Top1Acc': 22.3256, 'Top5Acc': 46.9822}
+2021-04-23 09:25:59,810 - ClassifierSolver - INFO   - Save checkpoint @ epoch 32
+2021-04-23 09:26:10,923 - ClassifierSolver - INFO   - ==> Evaluation stats [  32 /  120]: {'loss': 3.7504, 'Top1Acc': 19.8773, 'Top5Acc': 43.3926, 'Top1Acc_std': 10.1405, 'Top1Acc_cnf95': 2.1187, 'Top5Acc_std': 14.2283, 'Top5Acc_cnf95': 2.9728}
+2021-04-23 09:26:10,925 - ClassifierSolver - INFO   - Training epoch [  33 /  120]:
+2021-04-23 09:28:30,002 - ClassifierSolver - INFO   - ==> Training stats [  33 /  120]: {'loss': 3.6242, 'Top1Acc': 22.328, 'Top5Acc': 46.9806}
+2021-04-23 09:28:30,003 - ClassifierSolver - INFO   - Save checkpoint @ epoch 33
+2021-04-23 09:28:40,925 - ClassifierSolver - INFO   - ==> Evaluation stats [  33 /  120]: {'loss': 3.9117, 'Top1Acc': 18.1175, 'Top5Acc': 41.3616, 'Top1Acc_std': 10.787, 'Top1Acc_cnf95': 2.2538, 'Top5Acc_std': 15.5489, 'Top5Acc_cnf95': 3.2487}
+2021-04-23 09:28:40,926 - ClassifierSolver - INFO   - Training epoch [  34 /  120]:
+2021-04-23 09:30:59,615 - ClassifierSolver - INFO   - ==> Training stats [  34 /  120]: {'loss': 3.6233, 'Top1Acc': 22.3308, 'Top5Acc': 46.9328}
+2021-04-23 09:30:59,617 - ClassifierSolver - INFO   - Save checkpoint @ epoch 34
+2021-04-23 09:31:09,821 - ClassifierSolver - INFO   - ==> Evaluation stats [  34 /  120]: {'loss': 3.8293, 'Top1Acc': 18.7053, 'Top5Acc': 41.9539, 'Top1Acc_std': 11.8715, 'Top1Acc_cnf95': 2.4804, 'Top5Acc_std': 16.6969, 'Top5Acc_cnf95': 3.4886}
+2021-04-23 09:31:09,822 - ClassifierSolver - INFO   - Training epoch [  35 /  120]:
+2021-04-23 09:33:29,005 - ClassifierSolver - INFO   - ==> Training stats [  35 /  120]: {'loss': 3.6223, 'Top1Acc': 22.2779, 'Top5Acc': 46.9162}
+2021-04-23 09:33:29,006 - ClassifierSolver - INFO   - Save checkpoint @ epoch 35
+2021-04-23 09:33:40,183 - ClassifierSolver - INFO   - ==> Evaluation stats [  35 /  120]: {'loss': 3.8525, 'Top1Acc': 19.004, 'Top5Acc': 42.6439, 'Top1Acc_std': 10.2338, 'Top1Acc_cnf95': 2.1382, 'Top5Acc_std': 14.9574, 'Top5Acc_cnf95': 3.1252}
+2021-04-23 09:33:40,184 - ClassifierSolver - INFO   - Training epoch [  36 /  120]:
+2021-04-23 09:35:58,817 - ClassifierSolver - INFO   - ==> Training stats [  36 /  120]: {'loss': 3.6195, 'Top1Acc': 22.3824, 'Top5Acc': 47.0084}
+2021-04-23 09:35:58,818 - ClassifierSolver - INFO   - Save checkpoint @ epoch 36
+2021-04-23 09:36:09,410 - ClassifierSolver - INFO   - ==> Evaluation stats [  36 /  120]: {'loss': 3.9246, 'Top1Acc': 17.9208, 'Top5Acc': 40.2308, 'Top1Acc_std': 9.3718, 'Top1Acc_cnf95': 1.9581, 'Top5Acc_std': 13.2385, 'Top5Acc_cnf95': 2.766}
+2021-04-23 09:36:09,412 - ClassifierSolver - INFO   - Training epoch [  37 /  120]:
+2021-04-23 09:38:28,532 - ClassifierSolver - INFO   - ==> Training stats [  37 /  120]: {'loss': 3.4172, 'Top1Acc': 26.0129, 'Top5Acc': 51.5033}
+2021-04-23 09:38:28,533 - ClassifierSolver - INFO   - Save checkpoint @ epoch 37
+2021-04-23 09:38:39,797 - ClassifierSolver - INFO   - ==> Evaluation stats [  37 /  120]: {'loss': 3.3299, 'Top1Acc': 26.7166, 'Top5Acc': 52.7313, 'Top1Acc_std': 11.7317, 'Top1Acc_cnf95': 2.4512, 'Top5Acc_std': 14.0186, 'Top5Acc_cnf95': 2.929}
+2021-04-23 09:38:39,799 - ClassifierSolver - INFO   - Save checkpoint @ epoch 37
+2021-04-23 09:38:39,814 - ClassifierSolver - INFO   - ==> Best results w.r.t. Top1Acc metric @ epoch 37 - {'loss': 3.3299, 'Top1Acc': 26.7166, 'Top5Acc': 52.7313, 'Top1Acc_std': 11.7317, 'Top1Acc_cnf95': 2.4512, 'Top5Acc_std': 14.0186, 'Top5Acc_cnf95': 2.929}
+2021-04-23 09:38:39,815 - ClassifierSolver - INFO   - Training epoch [  38 /  120]:
+2021-04-23 09:40:59,041 - ClassifierSolver - INFO   - ==> Training stats [  38 /  120]: {'loss': 3.3723, 'Top1Acc': 26.6563, 'Top5Acc': 52.4422}
+2021-04-23 09:40:59,042 - ClassifierSolver - INFO   - Save checkpoint @ epoch 38
+2021-04-23 09:41:10,387 - ClassifierSolver - INFO   - ==> Evaluation stats [  38 /  120]: {'loss': 3.2943, 'Top1Acc': 27.0837, 'Top5Acc': 53.5291, 'Top1Acc_std': 11.1138, 'Top1Acc_cnf95': 2.3221, 'Top5Acc_std': 12.8957, 'Top5Acc_cnf95': 2.6944}
+2021-04-23 09:41:10,388 - ClassifierSolver - INFO   - Save checkpoint @ epoch 38
+2021-04-23 09:41:10,404 - ClassifierSolver - INFO   - ==> Best results w.r.t. Top1Acc metric @ epoch 38 - {'loss': 3.2943, 'Top1Acc': 27.0837, 'Top5Acc': 53.5291, 'Top1Acc_std': 11.1138, 'Top1Acc_cnf95': 2.3221, 'Top5Acc_std': 12.8957, 'Top5Acc_cnf95': 2.6944}
+2021-04-23 09:41:10,405 - ClassifierSolver - INFO   - Training epoch [  39 /  120]:
+2021-04-23 09:43:29,366 - ClassifierSolver - INFO   - ==> Training stats [  39 /  120]: {'loss': 3.3541, 'Top1Acc': 26.8842, 'Top5Acc': 52.7709}
+2021-04-23 09:43:29,367 - ClassifierSolver - INFO   - Save checkpoint @ epoch 39
+2021-04-23 09:43:40,450 - ClassifierSolver - INFO   - ==> Evaluation stats [  39 /  120]: {'loss': 3.2805, 'Top1Acc': 27.2434, 'Top5Acc': 53.6944, 'Top1Acc_std': 11.9134, 'Top1Acc_cnf95': 2.4892, 'Top5Acc_std': 13.7924, 'Top5Acc_cnf95': 2.8817}
+2021-04-23 09:43:40,451 - ClassifierSolver - INFO   - Save checkpoint @ epoch 39
+2021-04-23 09:43:40,464 - ClassifierSolver - INFO   - ==> Best results w.r.t. Top1Acc metric @ epoch 39 - {'loss': 3.2805, 'Top1Acc': 27.2434, 'Top5Acc': 53.6944, 'Top1Acc_std': 11.9134, 'Top1Acc_cnf95': 2.4892, 'Top5Acc_std': 13.7924, 'Top5Acc_cnf95': 2.8817}
+2021-04-23 09:43:40,465 - ClassifierSolver - INFO   - Training epoch [  40 /  120]:
+2021-04-23 09:45:59,142 - ClassifierSolver - INFO   - ==> Training stats [  40 /  120]: {'loss': 3.3411, 'Top1Acc': 27.0877, 'Top5Acc': 52.8913}
+2021-04-23 09:45:59,142 - ClassifierSolver - INFO   - Save checkpoint @ epoch 40
+2021-04-23 09:46:10,059 - ClassifierSolver - INFO   - ==> Evaluation stats [  40 /  120]: {'loss': 3.2866, 'Top1Acc': 26.8972, 'Top5Acc': 53.6523, 'Top1Acc_std': 11.1661, 'Top1Acc_cnf95': 2.333, 'Top5Acc_std': 12.8383, 'Top5Acc_cnf95': 2.6824}
+2021-04-23 09:46:10,060 - ClassifierSolver - INFO   - Training epoch [  41 /  120]:
+2021-04-23 09:48:28,556 - ClassifierSolver - INFO   - ==> Training stats [  41 /  120]: {'loss': 3.3353, 'Top1Acc': 27.1109, 'Top5Acc': 53.1076}
+2021-04-23 09:48:28,557 - ClassifierSolver - INFO   - Save checkpoint @ epoch 41
+2021-04-23 09:48:39,601 - ClassifierSolver - INFO   - ==> Evaluation stats [  41 /  120]: {'loss': 3.2692, 'Top1Acc': 27.3302, 'Top5Acc': 53.9154, 'Top1Acc_std': 12.0322, 'Top1Acc_cnf95': 2.514, 'Top5Acc_std': 13.8123, 'Top5Acc_cnf95': 2.8859}
+2021-04-23 09:48:39,603 - ClassifierSolver - INFO   - Save checkpoint @ epoch 41
+2021-04-23 09:48:39,619 - ClassifierSolver - INFO   - ==> Best results w.r.t. Top1Acc metric @ epoch 41 - {'loss': 3.2692, 'Top1Acc': 27.3302, 'Top5Acc': 53.9154, 'Top1Acc_std': 12.0322, 'Top1Acc_cnf95': 2.514, 'Top5Acc_std': 13.8123, 'Top5Acc_cnf95': 2.8859}
+2021-04-23 09:48:39,620 - ClassifierSolver - INFO   - Training epoch [  42 /  120]:
+2021-04-23 09:50:58,632 - ClassifierSolver - INFO   - ==> Training stats [  42 /  120]: {'loss': 3.3288, 'Top1Acc': 27.2165, 'Top5Acc': 53.1714}
+2021-04-23 09:50:58,633 - ClassifierSolver - INFO   - Save checkpoint @ epoch 42
+2021-04-23 09:51:09,240 - ClassifierSolver - INFO   - ==> Evaluation stats [  42 /  120]: {'loss': 3.2895, 'Top1Acc': 27.0705, 'Top5Acc': 53.5096, 'Top1Acc_std': 11.3454, 'Top1Acc_cnf95': 2.3705, 'Top5Acc_std': 12.7608, 'Top5Acc_cnf95': 2.6662}
+2021-04-23 09:51:09,242 - ClassifierSolver - INFO   - Training epoch [  43 /  120]:
+2021-04-23 09:53:28,207 - ClassifierSolver - INFO   - ==> Training stats [  43 /  120]: {'loss': 3.3265, 'Top1Acc': 27.2967, 'Top5Acc': 53.2054}
+2021-04-23 09:53:28,209 - ClassifierSolver - INFO   - Save checkpoint @ epoch 43
+2021-04-23 09:53:39,479 - ClassifierSolver - INFO   - ==> Evaluation stats [  43 /  120]: {'loss': 3.2857, 'Top1Acc': 27.3589, 'Top5Acc': 53.6866, 'Top1Acc_std': 11.568, 'Top1Acc_cnf95': 2.417, 'Top5Acc_std': 13.5413, 'Top5Acc_cnf95': 2.8293}
+2021-04-23 09:53:39,481 - ClassifierSolver - INFO   - Save checkpoint @ epoch 43
+2021-04-23 09:53:39,494 - ClassifierSolver - INFO   - ==> Best results w.r.t. Top1Acc metric @ epoch 43 - {'loss': 3.2857, 'Top1Acc': 27.3589, 'Top5Acc': 53.6866, 'Top1Acc_std': 11.568, 'Top1Acc_cnf95': 2.417, 'Top5Acc_std': 13.5413, 'Top5Acc_cnf95': 2.8293}
+2021-04-23 09:53:39,495 - ClassifierSolver - INFO   - Training epoch [  44 /  120]:
+2021-04-23 09:55:58,302 - ClassifierSolver - INFO   - ==> Training stats [  44 /  120]: {'loss': 3.3255, 'Top1Acc': 27.4365, 'Top5Acc': 53.1803}
+2021-04-23 09:55:58,303 - ClassifierSolver - INFO   - Save checkpoint @ epoch 44
+2021-04-23 09:56:09,112 - ClassifierSolver - INFO   - ==> Evaluation stats [  44 /  120]: {'loss': 3.2689, 'Top1Acc': 27.3091, 'Top5Acc': 54.0187, 'Top1Acc_std': 11.702, 'Top1Acc_cnf95': 2.445, 'Top5Acc_std': 13.8171, 'Top5Acc_cnf95': 2.8869}
+2021-04-23 09:56:09,114 - ClassifierSolver - INFO   - Training epoch [  45 /  120]:
+2021-04-23 09:58:28,040 - ClassifierSolver - INFO   - ==> Training stats [  45 /  120]: {'loss': 3.3257, 'Top1Acc': 27.3405, 'Top5Acc': 53.2128}
+2021-04-23 09:58:28,041 - ClassifierSolver - INFO   - Save checkpoint @ epoch 45
+2021-04-23 09:58:38,892 - ClassifierSolver - INFO   - ==> Evaluation stats [  45 /  120]: {'loss': 3.2685, 'Top1Acc': 27.4408, 'Top5Acc': 54.2081, 'Top1Acc_std': 10.9863, 'Top1Acc_cnf95': 2.2954, 'Top5Acc_std': 12.6845, 'Top5Acc_cnf95': 2.6503}
+2021-04-23 09:58:38,893 - ClassifierSolver - INFO   - Save checkpoint @ epoch 45
+2021-04-23 09:58:38,909 - ClassifierSolver - INFO   - ==> Best results w.r.t. Top1Acc metric @ epoch 45 - {'loss': 3.2685, 'Top1Acc': 27.4408, 'Top5Acc': 54.2081, 'Top1Acc_std': 10.9863, 'Top1Acc_cnf95': 2.2954, 'Top5Acc_std': 12.6845, 'Top5Acc_cnf95': 2.6503}
+2021-04-23 09:58:38,910 - ClassifierSolver - INFO   - Training epoch [  46 /  120]:
+2021-04-23 10:00:57,682 - ClassifierSolver - INFO   - ==> Training stats [  46 /  120]: {'loss': 3.3171, 'Top1Acc': 27.4931, 'Top5Acc': 53.3717}
+2021-04-23 10:00:57,683 - ClassifierSolver - INFO   - Save checkpoint @ epoch 46
+2021-04-23 10:01:08,722 - ClassifierSolver - INFO   - ==> Evaluation stats [  46 /  120]: {'loss': 3.2992, 'Top1Acc': 26.9019, 'Top5Acc': 53.2585, 'Top1Acc_std': 11.3645, 'Top1Acc_cnf95': 2.3745, 'Top5Acc_std': 13.6654, 'Top5Acc_cnf95': 2.8552}
+2021-04-23 10:01:08,724 - ClassifierSolver - INFO   - Training epoch [  47 /  120]:
+2021-04-23 10:03:27,639 - ClassifierSolver - INFO   - ==> Training stats [  47 /  120]: {'loss': 3.323, 'Top1Acc': 27.3935, 'Top5Acc': 53.2685}
+2021-04-23 10:03:27,640 - ClassifierSolver - INFO   - Save checkpoint @ epoch 47
+2021-04-23 10:03:38,743 - ClassifierSolver - INFO   - ==> Evaluation stats [  47 /  120]: {'loss': 3.2863, 'Top1Acc': 27.1947, 'Top5Acc': 53.6269, 'Top1Acc_std': 11.9056, 'Top1Acc_cnf95': 2.4875, 'Top5Acc_std': 13.9194, 'Top5Acc_cnf95': 2.9083}
+2021-04-23 10:03:38,744 - ClassifierSolver - INFO   - Training epoch [  48 /  120]:
+2021-04-23 10:05:57,829 - ClassifierSolver - INFO   - ==> Training stats [  48 /  120]: {'loss': 3.3222, 'Top1Acc': 27.4112, 'Top5Acc': 53.3825}
+2021-04-23 10:05:57,830 - ClassifierSolver - INFO   - Save checkpoint @ epoch 48
+2021-04-23 10:06:09,107 - ClassifierSolver - INFO   - ==> Evaluation stats [  48 /  120]: {'loss': 3.2992, 'Top1Acc': 26.9017, 'Top5Acc': 53.1909, 'Top1Acc_std': 11.7898, 'Top1Acc_cnf95': 2.4633, 'Top5Acc_std': 13.8873, 'Top5Acc_cnf95': 2.9016}
+2021-04-23 10:06:09,108 - ClassifierSolver - INFO   - Training epoch [  49 /  120]:
+2021-04-23 10:08:28,248 - ClassifierSolver - INFO   - ==> Training stats [  49 /  120]: {'loss': 3.324, 'Top1Acc': 27.3631, 'Top5Acc': 53.2276}
+2021-04-23 10:08:28,249 - ClassifierSolver - INFO   - Save checkpoint @ epoch 49
+2021-04-23 10:08:39,333 - ClassifierSolver - INFO   - ==> Evaluation stats [  49 /  120]: {'loss': 3.291, 'Top1Acc': 27.007, 'Top5Acc': 53.4582, 'Top1Acc_std': 11.5807, 'Top1Acc_cnf95': 2.4196, 'Top5Acc_std': 13.7659, 'Top5Acc_cnf95': 2.8762}
+2021-04-23 10:08:39,334 - ClassifierSolver - INFO   - Training epoch [  50 /  120]:
+2021-04-23 10:10:58,541 - ClassifierSolver - INFO   - ==> Training stats [  50 /  120]: {'loss': 3.3193, 'Top1Acc': 27.3586, 'Top5Acc': 53.2778}
+2021-04-23 10:10:58,542 - ClassifierSolver - INFO   - Save checkpoint @ epoch 50
+2021-04-23 10:11:09,989 - ClassifierSolver - INFO   - ==> Evaluation stats [  50 /  120]: {'loss': 3.2812, 'Top1Acc': 27.2054, 'Top5Acc': 53.6084, 'Top1Acc_std': 11.2118, 'Top1Acc_cnf95': 2.3426, 'Top5Acc_std': 12.7469, 'Top5Acc_cnf95': 2.6633}
+2021-04-23 10:11:09,990 - ClassifierSolver - INFO   - Training epoch [  51 /  120]:
+2021-04-23 10:13:29,067 - ClassifierSolver - INFO   - ==> Training stats [  51 /  120]: {'loss': 3.321, 'Top1Acc': 27.3166, 'Top5Acc': 53.3626}
+2021-04-23 10:13:29,068 - ClassifierSolver - INFO   - Save checkpoint @ epoch 51
+2021-04-23 10:13:40,113 - ClassifierSolver - INFO   - ==> Evaluation stats [  51 /  120]: {'loss': 3.3438, 'Top1Acc': 26.6233, 'Top5Acc': 52.2292, 'Top1Acc_std': 12.0686, 'Top1Acc_cnf95': 2.5216, 'Top5Acc_std': 14.2807, 'Top5Acc_cnf95': 2.9838}
+2021-04-23 10:13:40,115 - ClassifierSolver - INFO   - Training epoch [  52 /  120]:
+2021-04-23 10:15:58,884 - ClassifierSolver - INFO   - ==> Training stats [  52 /  120]: {'loss': 3.3203, 'Top1Acc': 27.347, 'Top5Acc': 53.3297}
+2021-04-23 10:15:58,885 - ClassifierSolver - INFO   - Save checkpoint @ epoch 52
+2021-04-23 10:16:10,787 - ClassifierSolver - INFO   - ==> Evaluation stats [  52 /  120]: {'loss': 3.2495, 'Top1Acc': 27.4988, 'Top5Acc': 54.2432, 'Top1Acc_std': 11.2388, 'Top1Acc_cnf95': 2.3482, 'Top5Acc_std': 12.9156, 'Top5Acc_cnf95': 2.6985}
+2021-04-23 10:16:10,789 - ClassifierSolver - INFO   - Save checkpoint @ epoch 52
+2021-04-23 10:16:10,804 - ClassifierSolver - INFO   - ==> Best results w.r.t. Top1Acc metric @ epoch 52 - {'loss': 3.2495, 'Top1Acc': 27.4988, 'Top5Acc': 54.2432, 'Top1Acc_std': 11.2388, 'Top1Acc_cnf95': 2.3482, 'Top5Acc_std': 12.9156, 'Top5Acc_cnf95': 2.6985}
+2021-04-23 10:16:10,805 - ClassifierSolver - INFO   - Training epoch [  53 /  120]:
+2021-04-23 10:18:29,650 - ClassifierSolver - INFO   - ==> Training stats [  53 /  120]: {'loss': 3.3181, 'Top1Acc': 27.4033, 'Top5Acc': 53.3516}
+2021-04-23 10:18:29,651 - ClassifierSolver - INFO   - Save checkpoint @ epoch 53
+2021-04-23 10:18:41,291 - ClassifierSolver - INFO   - ==> Evaluation stats [  53 /  120]: {'loss': 3.3188, 'Top1Acc': 26.5866, 'Top5Acc': 52.9792, 'Top1Acc_std': 10.9917, 'Top1Acc_cnf95': 2.2966, 'Top5Acc_std': 12.9632, 'Top5Acc_cnf95': 2.7085}
+2021-04-23 10:18:41,292 - ClassifierSolver - INFO   - Training epoch [  54 /  120]:
+2021-04-23 10:21:00,331 - ClassifierSolver - INFO   - ==> Training stats [  54 /  120]: {'loss': 3.3181, 'Top1Acc': 27.4962, 'Top5Acc': 53.3999}
+2021-04-23 10:21:00,332 - ClassifierSolver - INFO   - Save checkpoint @ epoch 54
+2021-04-23 10:21:12,319 - ClassifierSolver - INFO   - ==> Evaluation stats [  54 /  120]: {'loss': 3.2912, 'Top1Acc': 27.1812, 'Top5Acc': 53.6157, 'Top1Acc_std': 11.3283, 'Top1Acc_cnf95': 2.3669, 'Top5Acc_std': 12.8375, 'Top5Acc_cnf95': 2.6822}
+2021-04-23 10:21:12,320 - ClassifierSolver - INFO   - Training epoch [  55 /  120]:
+2021-04-23 10:23:31,189 - ClassifierSolver - INFO   - ==> Training stats [  55 /  120]: {'loss': 3.3227, 'Top1Acc': 27.4419, 'Top5Acc': 53.3041}
+2021-04-23 10:23:31,190 - ClassifierSolver - INFO   - Save checkpoint @ epoch 55
+2021-04-23 10:23:42,749 - ClassifierSolver - INFO   - ==> Evaluation stats [  55 /  120]: {'loss': 3.2726, 'Top1Acc': 27.4554, 'Top5Acc': 53.7378, 'Top1Acc_std': 10.7475, 'Top1Acc_cnf95': 2.2456, 'Top5Acc_std': 12.3704, 'Top5Acc_cnf95': 2.5846}
+2021-04-23 10:23:42,750 - ClassifierSolver - INFO   - Training epoch [  56 /  120]:
+2021-04-23 10:26:01,952 - ClassifierSolver - INFO   - ==> Training stats [  56 /  120]: {'loss': 3.321, 'Top1Acc': 27.3878, 'Top5Acc': 53.2716}
+2021-04-23 10:26:01,953 - ClassifierSolver - INFO   - Save checkpoint @ epoch 56
+2021-04-23 10:26:13,096 - ClassifierSolver - INFO   - ==> Evaluation stats [  56 /  120]: {'loss': 3.3193, 'Top1Acc': 26.4201, 'Top5Acc': 52.6055, 'Top1Acc_std': 11.7416, 'Top1Acc_cnf95': 2.4533, 'Top5Acc_std': 13.6342, 'Top5Acc_cnf95': 2.8487}
+2021-04-23 10:26:13,097 - ClassifierSolver - INFO   - Training epoch [  57 /  120]:
+2021-04-23 10:28:31,738 - ClassifierSolver - INFO   - ==> Training stats [  57 /  120]: {'loss': 3.3203, 'Top1Acc': 27.3301, 'Top5Acc': 53.3023}
+2021-04-23 10:28:31,739 - ClassifierSolver - INFO   - Save checkpoint @ epoch 57
+2021-04-23 10:28:43,219 - ClassifierSolver - INFO   - ==> Evaluation stats [  57 /  120]: {'loss': 3.348, 'Top1Acc': 26.3166, 'Top5Acc': 52.5888, 'Top1Acc_std': 11.6099, 'Top1Acc_cnf95': 2.4257, 'Top5Acc_std': 13.2975, 'Top5Acc_cnf95': 2.7783}
+2021-04-23 10:28:43,221 - ClassifierSolver - INFO   - Training epoch [  58 /  120]:
+2021-04-23 10:31:02,075 - ClassifierSolver - INFO   - ==> Training stats [  58 /  120]: {'loss': 3.3198, 'Top1Acc': 27.399, 'Top5Acc': 53.3393}
+2021-04-23 10:31:02,076 - ClassifierSolver - INFO   - Save checkpoint @ epoch 58
+2021-04-23 10:31:13,376 - ClassifierSolver - INFO   - ==> Evaluation stats [  58 /  120]: {'loss': 3.2758, 'Top1Acc': 27.2214, 'Top5Acc': 53.9345, 'Top1Acc_std': 11.7825, 'Top1Acc_cnf95': 2.4618, 'Top5Acc_std': 13.4624, 'Top5Acc_cnf95': 2.8128}
+2021-04-23 10:31:13,377 - ClassifierSolver - INFO   - Training epoch [  59 /  120]:
+2021-04-23 10:33:32,567 - ClassifierSolver - INFO   - ==> Training stats [  59 /  120]: {'loss': 3.3185, 'Top1Acc': 27.4953, 'Top5Acc': 53.4091}
+2021-04-23 10:33:32,569 - ClassifierSolver - INFO   - Save checkpoint @ epoch 59
+2021-04-23 10:33:44,015 - ClassifierSolver - INFO   - ==> Evaluation stats [  59 /  120]: {'loss': 3.314, 'Top1Acc': 26.469, 'Top5Acc': 52.9055, 'Top1Acc_std': 11.535, 'Top1Acc_cnf95': 2.4101, 'Top5Acc_std': 13.9592, 'Top5Acc_cnf95': 2.9166}
+2021-04-23 10:33:44,017 - ClassifierSolver - INFO   - Training epoch [  60 /  120]:
+2021-04-23 10:36:03,012 - ClassifierSolver - INFO   - ==> Training stats [  60 /  120]: {'loss': 3.3174, 'Top1Acc': 27.3777, 'Top5Acc': 53.3583}
+2021-04-23 10:36:03,013 - ClassifierSolver - INFO   - Save checkpoint @ epoch 60
+2021-04-23 10:36:13,963 - ClassifierSolver - INFO   - ==> Evaluation stats [  60 /  120]: {'loss': 3.2497, 'Top1Acc': 27.5429, 'Top5Acc': 54.2548, 'Top1Acc_std': 11.2219, 'Top1Acc_cnf95': 2.3447, 'Top5Acc_std': 12.6516, 'Top5Acc_cnf95': 2.6434}
+2021-04-23 10:36:13,965 - ClassifierSolver - INFO   - Save checkpoint @ epoch 60
+2021-04-23 10:36:13,979 - ClassifierSolver - INFO   - ==> Best results w.r.t. Top1Acc metric @ epoch 60 - {'loss': 3.2497, 'Top1Acc': 27.5429, 'Top5Acc': 54.2548, 'Top1Acc_std': 11.2219, 'Top1Acc_cnf95': 2.3447, 'Top5Acc_std': 12.6516, 'Top5Acc_cnf95': 2.6434}
+2021-04-23 10:36:13,980 - ClassifierSolver - INFO   - Training epoch [  61 /  120]:
+2021-04-23 10:38:32,855 - ClassifierSolver - INFO   - ==> Training stats [  61 /  120]: {'loss': 3.3186, 'Top1Acc': 27.3827, 'Top5Acc': 53.4006}
+2021-04-23 10:38:32,857 - ClassifierSolver - INFO   - Save checkpoint @ epoch 61
+2021-04-23 10:38:43,932 - ClassifierSolver - INFO   - ==> Evaluation stats [  61 /  120]: {'loss': 3.2748, 'Top1Acc': 27.2346, 'Top5Acc': 53.9519, 'Top1Acc_std': 11.6275, 'Top1Acc_cnf95': 2.4294, 'Top5Acc_std': 13.1509, 'Top5Acc_cnf95': 2.7477}
+2021-04-23 10:38:43,934 - ClassifierSolver - INFO   - Training epoch [  62 /  120]:
+2021-04-23 10:41:03,106 - ClassifierSolver - INFO   - ==> Training stats [  62 /  120]: {'loss': 3.3203, 'Top1Acc': 27.3364, 'Top5Acc': 53.4027}
+2021-04-23 10:41:03,107 - ClassifierSolver - INFO   - Save checkpoint @ epoch 62
+2021-04-23 10:41:14,733 - ClassifierSolver - INFO   - ==> Evaluation stats [  62 /  120]: {'loss': 3.2523, 'Top1Acc': 27.3821, 'Top5Acc': 54.2015, 'Top1Acc_std': 11.35, 'Top1Acc_cnf95': 2.3714, 'Top5Acc_std': 12.9316, 'Top5Acc_cnf95': 2.7019}
+2021-04-23 10:41:14,735 - ClassifierSolver - INFO   - Training epoch [  63 /  120]:
+2021-04-23 10:43:33,690 - ClassifierSolver - INFO   - ==> Training stats [  63 /  120]: {'loss': 3.3184, 'Top1Acc': 27.3094, 'Top5Acc': 53.3037}
+2021-04-23 10:43:33,691 - ClassifierSolver - INFO   - Save checkpoint @ epoch 63
+2021-04-23 10:43:44,892 - ClassifierSolver - INFO   - ==> Evaluation stats [  63 /  120]: {'loss': 3.3074, 'Top1Acc': 26.8751, 'Top5Acc': 53.0977, 'Top1Acc_std': 11.3022, 'Top1Acc_cnf95': 2.3614, 'Top5Acc_std': 13.4333, 'Top5Acc_cnf95': 2.8067}
+2021-04-23 10:43:44,894 - ClassifierSolver - INFO   - Training epoch [  64 /  120]:
+2021-04-23 10:46:04,113 - ClassifierSolver - INFO   - ==> Training stats [  64 /  120]: {'loss': 3.3192, 'Top1Acc': 27.4014, 'Top5Acc': 53.39}
+2021-04-23 10:46:04,115 - ClassifierSolver - INFO   - Save checkpoint @ epoch 64
+2021-04-23 10:46:14,902 - ClassifierSolver - INFO   - ==> Evaluation stats [  64 /  120]: {'loss': 3.3057, 'Top1Acc': 26.786, 'Top5Acc': 52.9963, 'Top1Acc_std': 10.747, 'Top1Acc_cnf95': 2.2454, 'Top5Acc_std': 12.2573, 'Top5Acc_cnf95': 2.561}
+2021-04-23 10:46:14,903 - ClassifierSolver - INFO   - Training epoch [  65 /  120]:
+2021-04-23 10:48:34,184 - ClassifierSolver - INFO   - ==> Training stats [  65 /  120]: {'loss': 3.318, 'Top1Acc': 27.416, 'Top5Acc': 53.3491}
+2021-04-23 10:48:34,185 - ClassifierSolver - INFO   - Save checkpoint @ epoch 65
+2021-04-23 10:48:45,127 - ClassifierSolver - INFO   - ==> Evaluation stats [  65 /  120]: {'loss': 3.2952, 'Top1Acc': 26.8227, 'Top5Acc': 53.2492, 'Top1Acc_std': 11.1284, 'Top1Acc_cnf95': 2.3251, 'Top5Acc_std': 12.2751, 'Top5Acc_cnf95': 2.5647}
+2021-04-23 10:48:45,129 - ClassifierSolver - INFO   - Training epoch [  66 /  120]:
+2021-04-23 10:51:04,462 - ClassifierSolver - INFO   - ==> Training stats [  66 /  120]: {'loss': 3.3136, 'Top1Acc': 27.4704, 'Top5Acc': 53.4365}
+2021-04-23 10:51:04,463 - ClassifierSolver - INFO   - Save checkpoint @ epoch 66
+2021-04-23 10:51:16,055 - ClassifierSolver - INFO   - ==> Evaluation stats [  66 /  120]: {'loss': 3.3079, 'Top1Acc': 26.46, 'Top5Acc': 53.0308, 'Top1Acc_std': 11.4237, 'Top1Acc_cnf95': 2.3868, 'Top5Acc_std': 13.6138, 'Top5Acc_cnf95': 2.8444}
+2021-04-23 10:51:16,056 - ClassifierSolver - INFO   - Training epoch [  67 /  120]:
+2021-04-23 10:53:35,054 - ClassifierSolver - INFO   - ==> Training stats [  67 /  120]: {'loss': 3.3159, 'Top1Acc': 27.4643, 'Top5Acc': 53.4461}
+2021-04-23 10:53:35,055 - ClassifierSolver - INFO   - Save checkpoint @ epoch 67
+2021-04-23 10:53:46,485 - ClassifierSolver - INFO   - ==> Evaluation stats [  67 /  120]: {'loss': 3.3137, 'Top1Acc': 26.5634, 'Top5Acc': 52.776, 'Top1Acc_std': 11.3698, 'Top1Acc_cnf95': 2.3756, 'Top5Acc_std': 13.2206, 'Top5Acc_cnf95': 2.7623}
+2021-04-23 10:53:46,487 - ClassifierSolver - INFO   - Training epoch [  68 /  120]:
+2021-04-23 10:56:05,693 - ClassifierSolver - INFO   - ==> Training stats [  68 /  120]: {'loss': 3.3184, 'Top1Acc': 27.4195, 'Top5Acc': 53.3717}
+2021-04-23 10:56:05,694 - ClassifierSolver - INFO   - Save checkpoint @ epoch 68
+2021-04-23 10:56:16,754 - ClassifierSolver - INFO   - ==> Evaluation stats [  68 /  120]: {'loss': 3.2867, 'Top1Acc': 27.16, 'Top5Acc': 53.568, 'Top1Acc_std': 11.8016, 'Top1Acc_cnf95': 2.4658, 'Top5Acc_std': 13.5463, 'Top5Acc_cnf95': 2.8303}
+2021-04-23 10:56:16,756 - ClassifierSolver - INFO   - Training epoch [  69 /  120]:
+2021-04-23 10:58:35,904 - ClassifierSolver - INFO   - ==> Training stats [  69 /  120]: {'loss': 3.3161, 'Top1Acc': 27.4816, 'Top5Acc': 53.3461}
+2021-04-23 10:58:35,905 - ClassifierSolver - INFO   - Save checkpoint @ epoch 69
+2021-04-23 10:58:47,290 - ClassifierSolver - INFO   - ==> Evaluation stats [  69 /  120]: {'loss': 3.328, 'Top1Acc': 26.4237, 'Top5Acc': 52.8096, 'Top1Acc_std': 12.0328, 'Top1Acc_cnf95': 2.5141, 'Top5Acc_std': 14.1886, 'Top5Acc_cnf95': 2.9645}
+2021-04-23 10:58:47,291 - ClassifierSolver - INFO   - Training epoch [  70 /  120]:
+2021-04-23 11:01:06,148 - ClassifierSolver - INFO   - ==> Training stats [  70 /  120]: {'loss': 3.3151, 'Top1Acc': 27.4918, 'Top5Acc': 53.3908}
+2021-04-23 11:01:06,150 - ClassifierSolver - INFO   - Save checkpoint @ epoch 70
+2021-04-23 11:01:17,710 - ClassifierSolver - INFO   - ==> Evaluation stats [  70 /  120]: {'loss': 3.2701, 'Top1Acc': 26.9151, 'Top5Acc': 53.9091, 'Top1Acc_std': 11.7386, 'Top1Acc_cnf95': 2.4526, 'Top5Acc_std': 14.2081, 'Top5Acc_cnf95': 2.9686}
+2021-04-23 11:01:17,711 - ClassifierSolver - INFO   - Training epoch [  71 /  120]:
+2021-04-23 11:03:46,493 - ClassifierSolver - INFO   - ==> Training stats [  71 /  120]: {'loss': 3.3157, 'Top1Acc': 27.4998, 'Top5Acc': 53.4979}
+2021-04-23 11:03:46,494 - ClassifierSolver - INFO   - Save checkpoint @ epoch 71
+2021-04-23 11:03:58,445 - ClassifierSolver - INFO   - ==> Evaluation stats [  71 /  120]: {'loss': 3.2887, 'Top1Acc': 26.8897, 'Top5Acc': 53.4229, 'Top1Acc_std': 11.3473, 'Top1Acc_cnf95': 2.3709, 'Top5Acc_std': 12.6393, 'Top5Acc_cnf95': 2.6408}
+2021-04-23 11:03:58,446 - ClassifierSolver - INFO   - Training epoch [  72 /  120]:
+2021-04-23 11:06:33,987 - ClassifierSolver - INFO   - ==> Training stats [  72 /  120]: {'loss': 3.3101, 'Top1Acc': 27.6326, 'Top5Acc': 53.4943}
+2021-04-23 11:06:33,988 - ClassifierSolver - INFO   - Save checkpoint @ epoch 72
+2021-04-23 11:06:46,380 - ClassifierSolver - INFO   - ==> Evaluation stats [  72 /  120]: {'loss': 3.2978, 'Top1Acc': 26.6488, 'Top5Acc': 53.1499, 'Top1Acc_std': 11.8927, 'Top1Acc_cnf95': 2.4848, 'Top5Acc_std': 14.1115, 'Top5Acc_cnf95': 2.9484}
+2021-04-23 11:06:46,381 - ClassifierSolver - INFO   - Training epoch [  73 /  120]:
+2021-04-23 11:09:21,869 - ClassifierSolver - INFO   - ==> Training stats [  73 /  120]: {'loss': 3.2353, 'Top1Acc': 28.891, 'Top5Acc': 55.2229}
+2021-04-23 11:09:21,870 - ClassifierSolver - INFO   - Save checkpoint @ epoch 73
+2021-04-23 11:09:34,182 - ClassifierSolver - INFO   - ==> Evaluation stats [  73 /  120]: {'loss': 3.1479, 'Top1Acc': 29.5105, 'Top5Acc': 56.5266, 'Top1Acc_std': 11.7795, 'Top1Acc_cnf95': 2.4612, 'Top5Acc_std': 13.1922, 'Top5Acc_cnf95': 2.7563}
+2021-04-23 11:09:34,184 - ClassifierSolver - INFO   - Save checkpoint @ epoch 73
+2021-04-23 11:09:34,199 - ClassifierSolver - INFO   - ==> Best results w.r.t. Top1Acc metric @ epoch 73 - {'loss': 3.1479, 'Top1Acc': 29.5105, 'Top5Acc': 56.5266, 'Top1Acc_std': 11.7795, 'Top1Acc_cnf95': 2.4612, 'Top5Acc_std': 13.1922, 'Top5Acc_cnf95': 2.7563}
+2021-04-23 11:09:34,200 - ClassifierSolver - INFO   - Training epoch [  74 /  120]:
+2021-04-23 11:12:09,749 - ClassifierSolver - INFO   - ==> Training stats [  74 /  120]: {'loss': 3.2215, 'Top1Acc': 29.1063, 'Top5Acc': 55.4436}
+2021-04-23 11:12:09,750 - ClassifierSolver - INFO   - Save checkpoint @ epoch 74
+2021-04-23 11:12:22,231 - ClassifierSolver - INFO   - ==> Evaluation stats [  74 /  120]: {'loss': 3.1579, 'Top1Acc': 29.575, 'Top5Acc': 56.2769, 'Top1Acc_std': 11.8684, 'Top1Acc_cnf95': 2.4797, 'Top5Acc_std': 13.0593, 'Top5Acc_cnf95': 2.7286}
+2021-04-23 11:12:22,232 - ClassifierSolver - INFO   - Save checkpoint @ epoch 74
+2021-04-23 11:12:22,246 - ClassifierSolver - INFO   - ==> Best results w.r.t. Top1Acc metric @ epoch 74 - {'loss': 3.1579, 'Top1Acc': 29.575, 'Top5Acc': 56.2769, 'Top1Acc_std': 11.8684, 'Top1Acc_cnf95': 2.4797, 'Top5Acc_std': 13.0593, 'Top5Acc_cnf95': 2.7286}
+2021-04-23 11:12:22,246 - ClassifierSolver - INFO   - Training epoch [  75 /  120]:
+2021-04-23 11:14:57,939 - ClassifierSolver - INFO   - ==> Training stats [  75 /  120]: {'loss': 3.2174, 'Top1Acc': 29.2248, 'Top5Acc': 55.4798}
+2021-04-23 11:14:57,940 - ClassifierSolver - INFO   - Save checkpoint @ epoch 75
+2021-04-23 11:15:10,476 - ClassifierSolver - INFO   - ==> Evaluation stats [  75 /  120]: {'loss': 3.1305, 'Top1Acc': 29.6226, 'Top5Acc': 56.7586, 'Top1Acc_std': 11.7905, 'Top1Acc_cnf95': 2.4635, 'Top5Acc_std': 12.9867, 'Top5Acc_cnf95': 2.7134}
+2021-04-23 11:15:10,477 - ClassifierSolver - INFO   - Save checkpoint @ epoch 75
+2021-04-23 11:15:10,491 - ClassifierSolver - INFO   - ==> Best results w.r.t. Top1Acc metric @ epoch 75 - {'loss': 3.1305, 'Top1Acc': 29.6226, 'Top5Acc': 56.7586, 'Top1Acc_std': 11.7905, 'Top1Acc_cnf95': 2.4635, 'Top5Acc_std': 12.9867, 'Top5Acc_cnf95': 2.7134}
+2021-04-23 11:15:10,492 - ClassifierSolver - INFO   - Training epoch [  76 /  120]:
+2021-04-23 11:17:45,914 - ClassifierSolver - INFO   - ==> Training stats [  76 /  120]: {'loss': 3.213, 'Top1Acc': 29.2903, 'Top5Acc': 55.5992}
+2021-04-23 11:17:45,915 - ClassifierSolver - INFO   - Save checkpoint @ epoch 76
+2021-04-23 11:17:58,045 - ClassifierSolver - INFO   - ==> Evaluation stats [  76 /  120]: {'loss': 3.1324, 'Top1Acc': 29.8024, 'Top5Acc': 56.775, 'Top1Acc_std': 11.7909, 'Top1Acc_cnf95': 2.4635, 'Top5Acc_std': 12.8074, 'Top5Acc_cnf95': 2.6759}
+2021-04-23 11:17:58,046 - ClassifierSolver - INFO   - Save checkpoint @ epoch 76
+2021-04-23 11:17:58,061 - ClassifierSolver - INFO   - ==> Best results w.r.t. Top1Acc metric @ epoch 76 - {'loss': 3.1324, 'Top1Acc': 29.8024, 'Top5Acc': 56.775, 'Top1Acc_std': 11.7909, 'Top1Acc_cnf95': 2.4635, 'Top5Acc_std': 12.8074, 'Top5Acc_cnf95': 2.6759}
+2021-04-23 11:17:58,062 - ClassifierSolver - INFO   - Training epoch [  77 /  120]:
+2021-04-23 11:20:33,658 - ClassifierSolver - INFO   - ==> Training stats [  77 /  120]: {'loss': 3.2131, 'Top1Acc': 29.317, 'Top5Acc': 55.6064}
+2021-04-23 11:20:33,659 - ClassifierSolver - INFO   - Save checkpoint @ epoch 77
+2021-04-23 11:20:46,448 - ClassifierSolver - INFO   - ==> Evaluation stats [  77 /  120]: {'loss': 3.1307, 'Top1Acc': 29.8268, 'Top5Acc': 56.8174, 'Top1Acc_std': 11.9429, 'Top1Acc_cnf95': 2.4953, 'Top5Acc_std': 13.0782, 'Top5Acc_cnf95': 2.7325}
+2021-04-23 11:20:46,449 - ClassifierSolver - INFO   - Save checkpoint @ epoch 77
+2021-04-23 11:20:46,465 - ClassifierSolver - INFO   - ==> Best results w.r.t. Top1Acc metric @ epoch 77 - {'loss': 3.1307, 'Top1Acc': 29.8268, 'Top5Acc': 56.8174, 'Top1Acc_std': 11.9429, 'Top1Acc_cnf95': 2.4953, 'Top5Acc_std': 13.0782, 'Top5Acc_cnf95': 2.7325}
+2021-04-23 11:20:46,466 - ClassifierSolver - INFO   - Training epoch [  78 /  120]:
+2021-04-23 11:23:22,057 - ClassifierSolver - INFO   - ==> Training stats [  78 /  120]: {'loss': 3.2086, 'Top1Acc': 29.3389, 'Top5Acc': 55.5717}
+2021-04-23 11:23:22,059 - ClassifierSolver - INFO   - Save checkpoint @ epoch 78
+2021-04-23 11:23:34,856 - ClassifierSolver - INFO   - ==> Evaluation stats [  78 /  120]: {'loss': 3.1294, 'Top1Acc': 29.9833, 'Top5Acc': 56.8916, 'Top1Acc_std': 11.6522, 'Top1Acc_cnf95': 2.4346, 'Top5Acc_std': 12.7364, 'Top5Acc_cnf95': 2.6611}
+2021-04-23 11:23:34,858 - ClassifierSolver - INFO   - Save checkpoint @ epoch 78
+2021-04-23 11:23:34,872 - ClassifierSolver - INFO   - ==> Best results w.r.t. Top1Acc metric @ epoch 78 - {'loss': 3.1294, 'Top1Acc': 29.9833, 'Top5Acc': 56.8916, 'Top1Acc_std': 11.6522, 'Top1Acc_cnf95': 2.4346, 'Top5Acc_std': 12.7364, 'Top5Acc_cnf95': 2.6611}
+2021-04-23 11:23:34,873 - ClassifierSolver - INFO   - Training epoch [  79 /  120]:
+2021-04-23 11:26:10,587 - ClassifierSolver - INFO   - ==> Training stats [  79 /  120]: {'loss': 3.2072, 'Top1Acc': 29.2969, 'Top5Acc': 55.7031}
+2021-04-23 11:26:10,588 - ClassifierSolver - INFO   - Save checkpoint @ epoch 79
+2021-04-23 11:26:22,922 - ClassifierSolver - INFO   - ==> Evaluation stats [  79 /  120]: {'loss': 3.1357, 'Top1Acc': 29.7315, 'Top5Acc': 56.7044, 'Top1Acc_std': 11.9203, 'Top1Acc_cnf95': 2.4906, 'Top5Acc_std': 12.9794, 'Top5Acc_cnf95': 2.7119}
+2021-04-23 11:26:22,923 - ClassifierSolver - INFO   - Training epoch [  80 /  120]:
+2021-04-23 11:28:58,590 - ClassifierSolver - INFO   - ==> Training stats [  80 /  120]: {'loss': 3.2067, 'Top1Acc': 29.3907, 'Top5Acc': 55.7468}
+2021-04-23 11:28:58,591 - ClassifierSolver - INFO   - Save checkpoint @ epoch 80
+2021-04-23 11:29:10,767 - ClassifierSolver - INFO   - ==> Evaluation stats [  80 /  120]: {'loss': 3.1207, 'Top1Acc': 30.0077, 'Top5Acc': 57.0691, 'Top1Acc_std': 11.5754, 'Top1Acc_cnf95': 2.4185, 'Top5Acc_std': 12.6448, 'Top5Acc_cnf95': 2.642}
+2021-04-23 11:29:10,768 - ClassifierSolver - INFO   - Save checkpoint @ epoch 80
+2021-04-23 11:29:10,785 - ClassifierSolver - INFO   - ==> Best results w.r.t. Top1Acc metric @ epoch 80 - {'loss': 3.1207, 'Top1Acc': 30.0077, 'Top5Acc': 57.0691, 'Top1Acc_std': 11.5754, 'Top1Acc_cnf95': 2.4185, 'Top5Acc_std': 12.6448, 'Top5Acc_cnf95': 2.642}
+2021-04-23 11:29:10,785 - ClassifierSolver - INFO   - Training epoch [  81 /  120]:
+2021-04-23 11:31:46,428 - ClassifierSolver - INFO   - ==> Training stats [  81 /  120]: {'loss': 3.2067, 'Top1Acc': 29.4012, 'Top5Acc': 55.7119}
+2021-04-23 11:31:46,429 - ClassifierSolver - INFO   - Save checkpoint @ epoch 81
+2021-04-23 11:31:59,128 - ClassifierSolver - INFO   - ==> Evaluation stats [  81 /  120]: {'loss': 3.1325, 'Top1Acc': 29.5627, 'Top5Acc': 56.723, 'Top1Acc_std': 11.6413, 'Top1Acc_cnf95': 2.4323, 'Top5Acc_std': 13.0044, 'Top5Acc_cnf95': 2.7171}
+2021-04-23 11:31:59,129 - ClassifierSolver - INFO   - Training epoch [  82 /  120]:
+2021-04-23 11:34:34,575 - ClassifierSolver - INFO   - ==> Training stats [  82 /  120]: {'loss': 3.2041, 'Top1Acc': 29.4169, 'Top5Acc': 55.6602}
+2021-04-23 11:34:34,577 - ClassifierSolver - INFO   - Save checkpoint @ epoch 82
+2021-04-23 11:34:47,512 - ClassifierSolver - INFO   - ==> Evaluation stats [  82 /  120]: {'loss': 3.1289, 'Top1Acc': 29.9212, 'Top5Acc': 56.8141, 'Top1Acc_std': 11.7616, 'Top1Acc_cnf95': 2.4574, 'Top5Acc_std': 12.7797, 'Top5Acc_cnf95': 2.6701}
+2021-04-23 11:34:47,514 - ClassifierSolver - INFO   - Training epoch [  83 /  120]:
+2021-04-23 11:37:23,267 - ClassifierSolver - INFO   - ==> Training stats [  83 /  120]: {'loss': 3.2043, 'Top1Acc': 29.4342, 'Top5Acc': 55.7891}
+2021-04-23 11:37:23,267 - ClassifierSolver - INFO   - Save checkpoint @ epoch 83
+2021-04-23 11:37:35,703 - ClassifierSolver - INFO   - ==> Evaluation stats [  83 /  120]: {'loss': 3.1469, 'Top1Acc': 29.758, 'Top5Acc': 56.6075, 'Top1Acc_std': 11.8284, 'Top1Acc_cnf95': 2.4714, 'Top5Acc_std': 12.9329, 'Top5Acc_cnf95': 2.7022}
+2021-04-23 11:37:35,704 - ClassifierSolver - INFO   - Training epoch [  84 /  120]:
+2021-04-23 11:40:11,137 - ClassifierSolver - INFO   - ==> Training stats [  84 /  120]: {'loss': 3.2027, 'Top1Acc': 29.4459, 'Top5Acc': 55.7452}
+2021-04-23 11:40:11,139 - ClassifierSolver - INFO   - Save checkpoint @ epoch 84
+2021-04-23 11:40:23,610 - ClassifierSolver - INFO   - ==> Evaluation stats [  84 /  120]: {'loss': 3.1221, 'Top1Acc': 30.1064, 'Top5Acc': 57.0036, 'Top1Acc_std': 11.6841, 'Top1Acc_cnf95': 2.4412, 'Top5Acc_std': 12.9656, 'Top5Acc_cnf95': 2.709}
+2021-04-23 11:40:23,612 - ClassifierSolver - INFO   - Save checkpoint @ epoch 84
+2021-04-23 11:40:23,628 - ClassifierSolver - INFO   - ==> Best results w.r.t. Top1Acc metric @ epoch 84 - {'loss': 3.1221, 'Top1Acc': 30.1064, 'Top5Acc': 57.0036, 'Top1Acc_std': 11.6841, 'Top1Acc_cnf95': 2.4412, 'Top5Acc_std': 12.9656, 'Top5Acc_cnf95': 2.709}
+2021-04-23 11:40:23,629 - ClassifierSolver - INFO   - Training epoch [  85 /  120]:
+2021-04-23 11:42:59,136 - ClassifierSolver - INFO   - ==> Training stats [  85 /  120]: {'loss': 3.2017, 'Top1Acc': 29.4013, 'Top5Acc': 55.8163}
+2021-04-23 11:42:59,137 - ClassifierSolver - INFO   - Save checkpoint @ epoch 85
+2021-04-23 11:43:11,777 - ClassifierSolver - INFO   - ==> Evaluation stats [  85 /  120]: {'loss': 3.1226, 'Top1Acc': 29.93, 'Top5Acc': 56.9105, 'Top1Acc_std': 11.8191, 'Top1Acc_cnf95': 2.4694, 'Top5Acc_std': 13.0837, 'Top5Acc_cnf95': 2.7337}
+2021-04-23 11:43:11,778 - ClassifierSolver - INFO   - Training epoch [  86 /  120]:
+2021-04-23 11:45:47,283 - ClassifierSolver - INFO   - ==> Training stats [  86 /  120]: {'loss': 3.2004, 'Top1Acc': 29.4555, 'Top5Acc': 55.8532}
+2021-04-23 11:45:47,284 - ClassifierSolver - INFO   - Save checkpoint @ epoch 86
+2021-04-23 11:45:59,439 - ClassifierSolver - INFO   - ==> Evaluation stats [  86 /  120]: {'loss': 3.1379, 'Top1Acc': 29.7013, 'Top5Acc': 56.7084, 'Top1Acc_std': 11.8089, 'Top1Acc_cnf95': 2.4673, 'Top5Acc_std': 12.8346, 'Top5Acc_cnf95': 2.6816}
+2021-04-23 11:45:59,440 - ClassifierSolver - INFO   - Training epoch [  87 /  120]:
+2021-04-23 11:48:35,048 - ClassifierSolver - INFO   - ==> Training stats [  87 /  120]: {'loss': 3.2, 'Top1Acc': 29.458, 'Top5Acc': 55.7893}
+2021-04-23 11:48:35,049 - ClassifierSolver - INFO   - Save checkpoint @ epoch 87
+2021-04-23 11:48:47,454 - ClassifierSolver - INFO   - ==> Evaluation stats [  87 /  120]: {'loss': 3.1124, 'Top1Acc': 30.1198, 'Top5Acc': 57.1279, 'Top1Acc_std': 11.9614, 'Top1Acc_cnf95': 2.4992, 'Top5Acc_std': 13.0305, 'Top5Acc_cnf95': 2.7225}
+2021-04-23 11:48:47,456 - ClassifierSolver - INFO   - Save checkpoint @ epoch 87
+2021-04-23 11:48:47,471 - ClassifierSolver - INFO   - ==> Best results w.r.t. Top1Acc metric @ epoch 87 - {'loss': 3.1124, 'Top1Acc': 30.1198, 'Top5Acc': 57.1279, 'Top1Acc_std': 11.9614, 'Top1Acc_cnf95': 2.4992, 'Top5Acc_std': 13.0305, 'Top5Acc_cnf95': 2.7225}
+2021-04-23 11:48:47,472 - ClassifierSolver - INFO   - Training epoch [  88 /  120]:
+2021-04-23 11:51:23,411 - ClassifierSolver - INFO   - ==> Training stats [  88 /  120]: {'loss': 3.1996, 'Top1Acc': 29.4067, 'Top5Acc': 55.7881}
+2021-04-23 11:51:23,413 - ClassifierSolver - INFO   - Save checkpoint @ epoch 88
+2021-04-23 11:51:36,066 - ClassifierSolver - INFO   - ==> Evaluation stats [  88 /  120]: {'loss': 3.1222, 'Top1Acc': 29.8578, 'Top5Acc': 56.8439, 'Top1Acc_std': 11.8981, 'Top1Acc_cnf95': 2.4859, 'Top5Acc_std': 12.9675, 'Top5Acc_cnf95': 2.7094}
+2021-04-23 11:51:36,067 - ClassifierSolver - INFO   - Training epoch [  89 /  120]:
+2021-04-23 11:54:11,636 - ClassifierSolver - INFO   - ==> Training stats [  89 /  120]: {'loss': 3.1997, 'Top1Acc': 29.4679, 'Top5Acc': 55.7615}
+2021-04-23 11:54:11,638 - ClassifierSolver - INFO   - Save checkpoint @ epoch 89
+2021-04-23 11:54:23,985 - ClassifierSolver - INFO   - ==> Evaluation stats [  89 /  120]: {'loss': 3.111, 'Top1Acc': 30.1309, 'Top5Acc': 57.1014, 'Top1Acc_std': 11.6073, 'Top1Acc_cnf95': 2.4252, 'Top5Acc_std': 12.9889, 'Top5Acc_cnf95': 2.7138}
+2021-04-23 11:54:23,986 - ClassifierSolver - INFO   - Save checkpoint @ epoch 89
+2021-04-23 11:54:24,000 - ClassifierSolver - INFO   - ==> Best results w.r.t. Top1Acc metric @ epoch 89 - {'loss': 3.111, 'Top1Acc': 30.1309, 'Top5Acc': 57.1014, 'Top1Acc_std': 11.6073, 'Top1Acc_cnf95': 2.4252, 'Top5Acc_std': 12.9889, 'Top5Acc_cnf95': 2.7138}
+2021-04-23 11:54:24,001 - ClassifierSolver - INFO   - Training epoch [  90 /  120]:
+2021-04-23 11:56:59,613 - ClassifierSolver - INFO   - ==> Training stats [  90 /  120]: {'loss': 3.1969, 'Top1Acc': 29.487, 'Top5Acc': 55.8905}
+2021-04-23 11:56:59,613 - ClassifierSolver - INFO   - Save checkpoint @ epoch 90
+2021-04-23 11:57:12,073 - ClassifierSolver - INFO   - ==> Evaluation stats [  90 /  120]: {'loss': 3.1313, 'Top1Acc': 29.8434, 'Top5Acc': 56.6884, 'Top1Acc_std': 11.2143, 'Top1Acc_cnf95': 2.3431, 'Top5Acc_std': 12.3012, 'Top5Acc_cnf95': 2.5702}
+2021-04-23 11:57:12,074 - ClassifierSolver - INFO   - Training epoch [  91 /  120]:
+2021-04-23 11:59:47,718 - ClassifierSolver - INFO   - ==> Training stats [  91 /  120]: {'loss': 3.1964, 'Top1Acc': 29.5144, 'Top5Acc': 55.8828}
+2021-04-23 11:59:47,719 - ClassifierSolver - INFO   - Save checkpoint @ epoch 91
+2021-04-23 11:59:59,671 - ClassifierSolver - INFO   - ==> Evaluation stats [  91 /  120]: {'loss': 3.1394, 'Top1Acc': 29.8701, 'Top5Acc': 56.5812, 'Top1Acc_std': 11.8425, 'Top1Acc_cnf95': 2.4743, 'Top5Acc_std': 13.2041, 'Top5Acc_cnf95': 2.7588}
+2021-04-23 11:59:59,672 - ClassifierSolver - INFO   - Training epoch [  92 /  120]:
+2021-04-23 12:02:35,328 - ClassifierSolver - INFO   - ==> Training stats [  92 /  120]: {'loss': 3.196, 'Top1Acc': 29.4601, 'Top5Acc': 55.8823}
+2021-04-23 12:02:35,329 - ClassifierSolver - INFO   - Save checkpoint @ epoch 92
+2021-04-23 12:02:47,566 - ClassifierSolver - INFO   - ==> Evaluation stats [  92 /  120]: {'loss': 3.1191, 'Top1Acc': 30.0011, 'Top5Acc': 56.9593, 'Top1Acc_std': 11.8141, 'Top1Acc_cnf95': 2.4684, 'Top5Acc_std': 12.843, 'Top5Acc_cnf95': 2.6834}
+2021-04-23 12:02:47,568 - ClassifierSolver - INFO   - Training epoch [  93 /  120]:
+2021-04-23 12:05:23,388 - ClassifierSolver - INFO   - ==> Training stats [  93 /  120]: {'loss': 3.1963, 'Top1Acc': 29.569, 'Top5Acc': 55.9092}
+2021-04-23 12:05:23,388 - ClassifierSolver - INFO   - Save checkpoint @ epoch 93
+2021-04-23 12:05:35,990 - ClassifierSolver - INFO   - ==> Evaluation stats [  93 /  120]: {'loss': 3.1212, 'Top1Acc': 30.011, 'Top5Acc': 56.8106, 'Top1Acc_std': 11.6144, 'Top1Acc_cnf95': 2.4267, 'Top5Acc_std': 12.6763, 'Top5Acc_cnf95': 2.6485}
+2021-04-23 12:05:35,992 - ClassifierSolver - INFO   - Training epoch [  94 /  120]:
+2021-04-23 12:08:11,558 - ClassifierSolver - INFO   - ==> Training stats [  94 /  120]: {'loss': 3.1954, 'Top1Acc': 29.5607, 'Top5Acc': 55.9116}
+2021-04-23 12:08:11,559 - ClassifierSolver - INFO   - Save checkpoint @ epoch 94
+2021-04-23 12:08:23,801 - ClassifierSolver - INFO   - ==> Evaluation stats [  94 /  120]: {'loss': 3.1145, 'Top1Acc': 30.011, 'Top5Acc': 57.1344, 'Top1Acc_std': 11.8023, 'Top1Acc_cnf95': 2.4659, 'Top5Acc_std': 12.914, 'Top5Acc_cnf95': 2.6982}
+2021-04-23 12:08:23,802 - ClassifierSolver - INFO   - Training epoch [  95 /  120]:
+2021-04-23 12:10:59,616 - ClassifierSolver - INFO   - ==> Training stats [  95 /  120]: {'loss': 3.1965, 'Top1Acc': 29.4976, 'Top5Acc': 55.8014}
+2021-04-23 12:10:59,617 - ClassifierSolver - INFO   - Save checkpoint @ epoch 95
+2021-04-23 12:11:11,764 - ClassifierSolver - INFO   - ==> Evaluation stats [  95 /  120]: {'loss': 3.0998, 'Top1Acc': 30.2951, 'Top5Acc': 57.2901, 'Top1Acc_std': 11.7782, 'Top1Acc_cnf95': 2.4609, 'Top5Acc_std': 12.8829, 'Top5Acc_cnf95': 2.6917}
+2021-04-23 12:11:11,766 - ClassifierSolver - INFO   - Save checkpoint @ epoch 95
+2021-04-23 12:11:11,782 - ClassifierSolver - INFO   - ==> Best results w.r.t. Top1Acc metric @ epoch 95 - {'loss': 3.0998, 'Top1Acc': 30.2951, 'Top5Acc': 57.2901, 'Top1Acc_std': 11.7782, 'Top1Acc_cnf95': 2.4609, 'Top5Acc_std': 12.8829, 'Top5Acc_cnf95': 2.6917}
+2021-04-23 12:11:11,783 - ClassifierSolver - INFO   - Training epoch [  96 /  120]:
+2021-04-23 12:13:47,567 - ClassifierSolver - INFO   - ==> Training stats [  96 /  120]: {'loss': 3.1958, 'Top1Acc': 29.5042, 'Top5Acc': 55.8688}
+2021-04-23 12:13:47,568 - ClassifierSolver - INFO   - Save checkpoint @ epoch 96
+2021-04-23 12:14:00,052 - ClassifierSolver - INFO   - ==> Evaluation stats [  96 /  120]: {'loss': 3.1248, 'Top1Acc': 29.9878, 'Top5Acc': 57.0049, 'Top1Acc_std': 11.7331, 'Top1Acc_cnf95': 2.4515, 'Top5Acc_std': 12.9043, 'Top5Acc_cnf95': 2.6962}
+2021-04-23 12:14:00,053 - ClassifierSolver - INFO   - Training epoch [  97 /  120]:
+2021-04-23 12:16:35,775 - ClassifierSolver - INFO   - ==> Training stats [  97 /  120]: {'loss': 3.1812, 'Top1Acc': 29.8134, 'Top5Acc': 56.1976}
+2021-04-23 12:16:35,776 - ClassifierSolver - INFO   - Save checkpoint @ epoch 97
+2021-04-23 12:16:48,300 - ClassifierSolver - INFO   - ==> Evaluation stats [  97 /  120]: {'loss': 3.0963, 'Top1Acc': 30.335, 'Top5Acc': 57.4243, 'Top1Acc_std': 11.7494, 'Top1Acc_cnf95': 2.4549, 'Top5Acc_std': 12.8011, 'Top5Acc_cnf95': 2.6746}
+2021-04-23 12:16:48,301 - ClassifierSolver - INFO   - Save checkpoint @ epoch 97
+2021-04-23 12:16:48,315 - ClassifierSolver - INFO   - ==> Best results w.r.t. Top1Acc metric @ epoch 97 - {'loss': 3.0963, 'Top1Acc': 30.335, 'Top5Acc': 57.4243, 'Top1Acc_std': 11.7494, 'Top1Acc_cnf95': 2.4549, 'Top5Acc_std': 12.8011, 'Top5Acc_cnf95': 2.6746}
+2021-04-23 12:16:48,316 - ClassifierSolver - INFO   - Training epoch [  98 /  120]:
+2021-04-23 12:19:23,929 - ClassifierSolver - INFO   - ==> Training stats [  98 /  120]: {'loss': 3.176, 'Top1Acc': 29.9247, 'Top5Acc': 56.3357}
+2021-04-23 12:19:23,931 - ClassifierSolver - INFO   - Save checkpoint @ epoch 98
+2021-04-23 12:19:36,141 - ClassifierSolver - INFO   - ==> Evaluation stats [  98 /  120]: {'loss': 3.098, 'Top1Acc': 30.3649, 'Top5Acc': 57.4143, 'Top1Acc_std': 11.6586, 'Top1Acc_cnf95': 2.4359, 'Top5Acc_std': 12.7652, 'Top5Acc_cnf95': 2.6671}
+2021-04-23 12:19:36,142 - ClassifierSolver - INFO   - Save checkpoint @ epoch 98
+2021-04-23 12:19:36,162 - ClassifierSolver - INFO   - ==> Best results w.r.t. Top1Acc metric @ epoch 98 - {'loss': 3.098, 'Top1Acc': 30.3649, 'Top5Acc': 57.4143, 'Top1Acc_std': 11.6586, 'Top1Acc_cnf95': 2.4359, 'Top5Acc_std': 12.7652, 'Top5Acc_cnf95': 2.6671}
+2021-04-23 12:19:36,163 - ClassifierSolver - INFO   - Training epoch [  99 /  120]:
+2021-04-23 12:22:11,949 - ClassifierSolver - INFO   - ==> Training stats [  99 /  120]: {'loss': 3.1789, 'Top1Acc': 29.8608, 'Top5Acc': 56.1786}
+2021-04-23 12:22:11,950 - ClassifierSolver - INFO   - Save checkpoint @ epoch 99
+2021-04-23 12:22:24,762 - ClassifierSolver - INFO   - ==> Evaluation stats [  99 /  120]: {'loss': 3.0916, 'Top1Acc': 30.5514, 'Top5Acc': 57.573, 'Top1Acc_std': 11.7679, 'Top1Acc_cnf95': 2.4587, 'Top5Acc_std': 12.8255, 'Top5Acc_cnf95': 2.6797}
+2021-04-23 12:22:24,763 - ClassifierSolver - INFO   - Save checkpoint @ epoch 99
+2021-04-23 12:22:24,778 - ClassifierSolver - INFO   - ==> Best results w.r.t. Top1Acc metric @ epoch 99 - {'loss': 3.0916, 'Top1Acc': 30.5514, 'Top5Acc': 57.573, 'Top1Acc_std': 11.7679, 'Top1Acc_cnf95': 2.4587, 'Top5Acc_std': 12.8255, 'Top5Acc_cnf95': 2.6797}
+2021-04-23 12:22:24,778 - ClassifierSolver - INFO   - Training epoch [ 100 /  120]:
+2021-04-23 12:25:00,367 - ClassifierSolver - INFO   - ==> Training stats [ 100 /  120]: {'loss': 3.1774, 'Top1Acc': 29.8681, 'Top5Acc': 56.3042}
+2021-04-23 12:25:00,368 - ClassifierSolver - INFO   - Save checkpoint @ epoch 100
+2021-04-23 12:25:13,132 - ClassifierSolver - INFO   - ==> Evaluation stats [ 100 /  120]: {'loss': 3.0982, 'Top1Acc': 30.4116, 'Top5Acc': 57.3943, 'Top1Acc_std': 11.7524, 'Top1Acc_cnf95': 2.4555, 'Top5Acc_std': 12.874, 'Top5Acc_cnf95': 2.6899}
+2021-04-23 12:25:13,134 - ClassifierSolver - INFO   - Training epoch [ 101 /  120]:
+2021-04-23 12:27:48,791 - ClassifierSolver - INFO   - ==> Training stats [ 101 /  120]: {'loss': 3.1747, 'Top1Acc': 29.9253, 'Top5Acc': 56.372}
+2021-04-23 12:27:48,793 - ClassifierSolver - INFO   - Save checkpoint @ epoch 101
+2021-04-23 12:28:01,219 - ClassifierSolver - INFO   - ==> Evaluation stats [ 101 /  120]: {'loss': 3.096, 'Top1Acc': 30.4183, 'Top5Acc': 57.3832, 'Top1Acc_std': 11.6761, 'Top1Acc_cnf95': 2.4396, 'Top5Acc_std': 12.7604, 'Top5Acc_cnf95': 2.6661}
+2021-04-23 12:28:01,221 - ClassifierSolver - INFO   - Training epoch [ 102 /  120]:
+2021-04-23 12:30:36,937 - ClassifierSolver - INFO   - ==> Training stats [ 102 /  120]: {'loss': 3.1762, 'Top1Acc': 29.8218, 'Top5Acc': 56.3442}
+2021-04-23 12:30:36,938 - ClassifierSolver - INFO   - Save checkpoint @ epoch 102
+2021-04-23 12:30:49,349 - ClassifierSolver - INFO   - ==> Evaluation stats [ 102 /  120]: {'loss': 3.0925, 'Top1Acc': 30.4815, 'Top5Acc': 57.4864, 'Top1Acc_std': 11.7744, 'Top1Acc_cnf95': 2.4601, 'Top5Acc_std': 12.8174, 'Top5Acc_cnf95': 2.678}
+2021-04-23 12:30:49,350 - ClassifierSolver - INFO   - Training epoch [ 103 /  120]:
+2021-04-23 12:33:25,004 - ClassifierSolver - INFO   - ==> Training stats [ 103 /  120]: {'loss': 3.1776, 'Top1Acc': 29.8732, 'Top5Acc': 56.2081}
+2021-04-23 12:33:25,005 - ClassifierSolver - INFO   - Save checkpoint @ epoch 103
+2021-04-23 12:33:37,726 - ClassifierSolver - INFO   - ==> Evaluation stats [ 103 /  120]: {'loss': 3.0942, 'Top1Acc': 30.4727, 'Top5Acc': 57.4797, 'Top1Acc_std': 11.7658, 'Top1Acc_cnf95': 2.4583, 'Top5Acc_std': 12.8449, 'Top5Acc_cnf95': 2.6838}
+2021-04-23 12:33:37,727 - ClassifierSolver - INFO   - Training epoch [ 104 /  120]:
+2021-04-23 12:36:13,371 - ClassifierSolver - INFO   - ==> Training stats [ 104 /  120]: {'loss': 3.176, 'Top1Acc': 29.9206, 'Top5Acc': 56.2756}
+2021-04-23 12:36:13,372 - ClassifierSolver - INFO   - Save checkpoint @ epoch 104
+2021-04-23 12:36:25,054 - ClassifierSolver - INFO   - ==> Evaluation stats [ 104 /  120]: {'loss': 3.0947, 'Top1Acc': 30.5236, 'Top5Acc': 57.5385, 'Top1Acc_std': 11.7884, 'Top1Acc_cnf95': 2.463, 'Top5Acc_std': 12.7967, 'Top5Acc_cnf95': 2.6737}
+2021-04-23 12:36:25,056 - ClassifierSolver - INFO   - Training epoch [ 105 /  120]:
+2021-04-23 12:38:42,885 - ClassifierSolver - INFO   - ==> Training stats [ 105 /  120]: {'loss': 3.1761, 'Top1Acc': 29.7838, 'Top5Acc': 56.3008}
+2021-04-23 12:38:42,885 - ClassifierSolver - INFO   - Save checkpoint @ epoch 105
+2021-04-23 12:38:54,117 - ClassifierSolver - INFO   - ==> Evaluation stats [ 105 /  120]: {'loss': 3.0895, 'Top1Acc': 30.6003, 'Top5Acc': 57.6184, 'Top1Acc_std': 11.7348, 'Top1Acc_cnf95': 2.4518, 'Top5Acc_std': 12.7114, 'Top5Acc_cnf95': 2.6559}
+2021-04-23 12:38:54,119 - ClassifierSolver - INFO   - Save checkpoint @ epoch 105
+2021-04-23 12:38:54,134 - ClassifierSolver - INFO   - ==> Best results w.r.t. Top1Acc metric @ epoch 105 - {'loss': 3.0895, 'Top1Acc': 30.6003, 'Top5Acc': 57.6184, 'Top1Acc_std': 11.7348, 'Top1Acc_cnf95': 2.4518, 'Top5Acc_std': 12.7114, 'Top5Acc_cnf95': 2.6559}
+2021-04-23 12:38:54,135 - ClassifierSolver - INFO   - Training epoch [ 106 /  120]:
+2021-04-23 12:41:12,465 - ClassifierSolver - INFO   - ==> Training stats [ 106 /  120]: {'loss': 3.1736, 'Top1Acc': 29.8748, 'Top5Acc': 56.4017}
+2021-04-23 12:41:12,466 - ClassifierSolver - INFO   - Save checkpoint @ epoch 106
+2021-04-23 12:41:23,576 - ClassifierSolver - INFO   - ==> Evaluation stats [ 106 /  120]: {'loss': 3.0922, 'Top1Acc': 30.5802, 'Top5Acc': 57.513, 'Top1Acc_std': 11.7153, 'Top1Acc_cnf95': 2.4478, 'Top5Acc_std': 12.8006, 'Top5Acc_cnf95': 2.6745}
+2021-04-23 12:41:23,577 - ClassifierSolver - INFO   - Training epoch [ 107 /  120]:
+2021-04-23 12:43:42,179 - ClassifierSolver - INFO   - ==> Training stats [ 107 /  120]: {'loss': 3.1733, 'Top1Acc': 29.8444, 'Top5Acc': 56.3318}
+2021-04-23 12:43:42,180 - ClassifierSolver - INFO   - Save checkpoint @ epoch 107
+2021-04-23 12:43:52,889 - ClassifierSolver - INFO   - ==> Evaluation stats [ 107 /  120]: {'loss': 3.0911, 'Top1Acc': 30.4781, 'Top5Acc': 57.5387, 'Top1Acc_std': 11.6556, 'Top1Acc_cnf95': 2.4353, 'Top5Acc_std': 13.0035, 'Top5Acc_cnf95': 2.7169}
+2021-04-23 12:43:52,890 - ClassifierSolver - INFO   - Training epoch [ 108 /  120]:
+2021-04-23 12:46:11,368 - ClassifierSolver - INFO   - ==> Training stats [ 108 /  120]: {'loss': 3.1767, 'Top1Acc': 29.8647, 'Top5Acc': 56.2658}
+2021-04-23 12:46:11,369 - ClassifierSolver - INFO   - Save checkpoint @ epoch 108
+2021-04-23 12:46:22,522 - ClassifierSolver - INFO   - ==> Evaluation stats [ 108 /  120]: {'loss': 3.0923, 'Top1Acc': 30.5237, 'Top5Acc': 57.5453, 'Top1Acc_std': 11.6908, 'Top1Acc_cnf95': 2.4426, 'Top5Acc_std': 12.8599, 'Top5Acc_cnf95': 2.6869}
+2021-04-23 12:46:22,523 - ClassifierSolver - INFO   - Training epoch [ 109 /  120]:
+2021-04-23 12:48:41,326 - ClassifierSolver - INFO   - ==> Training stats [ 109 /  120]: {'loss': 3.1777, 'Top1Acc': 29.8402, 'Top5Acc': 56.258}
+2021-04-23 12:48:41,327 - ClassifierSolver - INFO   - Save checkpoint @ epoch 109
+2021-04-23 12:48:52,046 - ClassifierSolver - INFO   - ==> Evaluation stats [ 109 /  120]: {'loss': 3.0908, 'Top1Acc': 30.4937, 'Top5Acc': 57.5542, 'Top1Acc_std': 11.6869, 'Top1Acc_cnf95': 2.4418, 'Top5Acc_std': 12.7309, 'Top5Acc_cnf95': 2.6599}
+2021-04-23 12:48:52,047 - ClassifierSolver - INFO   - Training epoch [ 110 /  120]:
+2021-04-23 12:51:10,789 - ClassifierSolver - INFO   - ==> Training stats [ 110 /  120]: {'loss': 3.1722, 'Top1Acc': 29.9112, 'Top5Acc': 56.3712}
+2021-04-23 12:51:10,790 - ClassifierSolver - INFO   - Save checkpoint @ epoch 110
+2021-04-23 12:51:21,796 - ClassifierSolver - INFO   - ==> Evaluation stats [ 110 /  120]: {'loss': 3.095, 'Top1Acc': 30.4782, 'Top5Acc': 57.3822, 'Top1Acc_std': 11.6805, 'Top1Acc_cnf95': 2.4405, 'Top5Acc_std': 12.8424, 'Top5Acc_cnf95': 2.6832}
+2021-04-23 12:51:21,797 - ClassifierSolver - INFO   - Training epoch [ 111 /  120]:
+2021-04-23 12:53:40,242 - ClassifierSolver - INFO   - ==> Training stats [ 111 /  120]: {'loss': 3.177, 'Top1Acc': 29.8069, 'Top5Acc': 56.2412}
+2021-04-23 12:53:40,243 - ClassifierSolver - INFO   - Save checkpoint @ epoch 111
+2021-04-23 12:53:51,222 - ClassifierSolver - INFO   - ==> Evaluation stats [ 111 /  120]: {'loss': 3.0926, 'Top1Acc': 30.4703, 'Top5Acc': 57.4664, 'Top1Acc_std': 11.7322, 'Top1Acc_cnf95': 2.4513, 'Top5Acc_std': 12.7571, 'Top5Acc_cnf95': 2.6654}
+2021-04-23 12:53:51,224 - ClassifierSolver - INFO   - Training epoch [ 112 /  120]:
+2021-04-23 12:56:09,966 - ClassifierSolver - INFO   - ==> Training stats [ 112 /  120]: {'loss': 3.1733, 'Top1Acc': 29.9015, 'Top5Acc': 56.3738}
+2021-04-23 12:56:09,980 - ClassifierSolver - INFO   - Save checkpoint @ epoch 112
+2021-04-23 12:56:21,196 - ClassifierSolver - INFO   - ==> Evaluation stats [ 112 /  120]: {'loss': 3.0936, 'Top1Acc': 30.5181, 'Top5Acc': 57.5164, 'Top1Acc_std': 11.692, 'Top1Acc_cnf95': 2.4429, 'Top5Acc_std': 12.749, 'Top5Acc_cnf95': 2.6637}
+2021-04-23 12:56:21,197 - ClassifierSolver - INFO   - Training epoch [ 113 /  120]:
+2021-04-23 12:58:40,256 - ClassifierSolver - INFO   - ==> Training stats [ 113 /  120]: {'loss': 3.1742, 'Top1Acc': 29.9708, 'Top5Acc': 56.3697}
+2021-04-23 12:58:40,257 - ClassifierSolver - INFO   - Save checkpoint @ epoch 113
+2021-04-23 12:58:51,219 - ClassifierSolver - INFO   - ==> Evaluation stats [ 113 /  120]: {'loss': 3.093, 'Top1Acc': 30.527, 'Top5Acc': 57.4664, 'Top1Acc_std': 11.773, 'Top1Acc_cnf95': 2.4598, 'Top5Acc_std': 12.8861, 'Top5Acc_cnf95': 2.6924}
+2021-04-23 12:58:51,221 - ClassifierSolver - INFO   - Training epoch [ 114 /  120]:
+2021-04-23 13:01:10,120 - ClassifierSolver - INFO   - ==> Training stats [ 114 /  120]: {'loss': 3.1725, 'Top1Acc': 29.9062, 'Top5Acc': 56.3142}
+2021-04-23 13:01:10,122 - ClassifierSolver - INFO   - Save checkpoint @ epoch 114
+2021-04-23 13:01:20,998 - ClassifierSolver - INFO   - ==> Evaluation stats [ 114 /  120]: {'loss': 3.0975, 'Top1Acc': 30.5171, 'Top5Acc': 57.4465, 'Top1Acc_std': 11.7661, 'Top1Acc_cnf95': 2.4584, 'Top5Acc_std': 12.8667, 'Top5Acc_cnf95': 2.6883}
+2021-04-23 13:01:20,999 - ClassifierSolver - INFO   - Training epoch [ 115 /  120]:
+2021-04-23 13:03:39,968 - ClassifierSolver - INFO   - ==> Training stats [ 115 /  120]: {'loss': 3.1751, 'Top1Acc': 29.8767, 'Top5Acc': 56.369}
+2021-04-23 13:03:39,969 - ClassifierSolver - INFO   - Save checkpoint @ epoch 115
+2021-04-23 13:03:51,234 - ClassifierSolver - INFO   - ==> Evaluation stats [ 115 /  120]: {'loss': 3.0897, 'Top1Acc': 30.6157, 'Top5Acc': 57.6141, 'Top1Acc_std': 11.7352, 'Top1Acc_cnf95': 2.4519, 'Top5Acc_std': 12.8211, 'Top5Acc_cnf95': 2.6788}
+2021-04-23 13:03:51,235 - ClassifierSolver - INFO   - Save checkpoint @ epoch 115
+2021-04-23 13:03:51,251 - ClassifierSolver - INFO   - ==> Best results w.r.t. Top1Acc metric @ epoch 115 - {'loss': 3.0897, 'Top1Acc': 30.6157, 'Top5Acc': 57.6141, 'Top1Acc_std': 11.7352, 'Top1Acc_cnf95': 2.4519, 'Top5Acc_std': 12.8211, 'Top5Acc_cnf95': 2.6788}
+2021-04-23 13:03:51,252 - ClassifierSolver - INFO   - Training epoch [ 116 /  120]:
+2021-04-23 13:06:09,861 - ClassifierSolver - INFO   - ==> Training stats [ 116 /  120]: {'loss': 3.1731, 'Top1Acc': 29.9542, 'Top5Acc': 56.3023}
+2021-04-23 13:06:09,862 - ClassifierSolver - INFO   - Save checkpoint @ epoch 116
+2021-04-23 13:06:21,283 - ClassifierSolver - INFO   - ==> Evaluation stats [ 116 /  120]: {'loss': 3.092, 'Top1Acc': 30.5968, 'Top5Acc': 57.5153, 'Top1Acc_std': 11.7573, 'Top1Acc_cnf95': 2.4565, 'Top5Acc_std': 12.8676, 'Top5Acc_cnf95': 2.6885}
+2021-04-23 13:06:21,285 - ClassifierSolver - INFO   - Training epoch [ 117 /  120]:
+2021-04-23 13:08:40,108 - ClassifierSolver - INFO   - ==> Training stats [ 117 /  120]: {'loss': 3.1747, 'Top1Acc': 29.9107, 'Top5Acc': 56.2905}
+2021-04-23 13:08:40,109 - ClassifierSolver - INFO   - Save checkpoint @ epoch 117
+2021-04-23 13:08:51,205 - ClassifierSolver - INFO   - ==> Evaluation stats [ 117 /  120]: {'loss': 3.0928, 'Top1Acc': 30.5059, 'Top5Acc': 57.482, 'Top1Acc_std': 11.6819, 'Top1Acc_cnf95': 2.4408, 'Top5Acc_std': 12.7702, 'Top5Acc_cnf95': 2.6682}
+2021-04-23 13:08:51,206 - ClassifierSolver - INFO   - Training epoch [ 118 /  120]:
+2021-04-23 13:11:10,080 - ClassifierSolver - INFO   - ==> Training stats [ 118 /  120]: {'loss': 3.1734, 'Top1Acc': 29.9258, 'Top5Acc': 56.4127}
+2021-04-23 13:11:10,080 - ClassifierSolver - INFO   - Save checkpoint @ epoch 118
+2021-04-23 13:11:21,115 - ClassifierSolver - INFO   - ==> Evaluation stats [ 118 /  120]: {'loss': 3.095, 'Top1Acc': 30.4394, 'Top5Acc': 57.4886, 'Top1Acc_std': 11.7565, 'Top1Acc_cnf95': 2.4564, 'Top5Acc_std': 12.9245, 'Top5Acc_cnf95': 2.7004}
+2021-04-23 13:11:21,116 - ClassifierSolver - INFO   - Training epoch [ 119 /  120]:
+2021-04-23 13:13:40,016 - ClassifierSolver - INFO   - ==> Training stats [ 119 /  120]: {'loss': 3.1733, 'Top1Acc': 29.9307, 'Top5Acc': 56.2984}
+2021-04-23 13:13:40,017 - ClassifierSolver - INFO   - Save checkpoint @ epoch 119
+2021-04-23 13:13:51,240 - ClassifierSolver - INFO   - ==> Evaluation stats [ 119 /  120]: {'loss': 3.0923, 'Top1Acc': 30.5648, 'Top5Acc': 57.4697, 'Top1Acc_std': 11.6754, 'Top1Acc_cnf95': 2.4394, 'Top5Acc_std': 12.868, 'Top5Acc_cnf95': 2.6886}
+2021-04-23 13:13:51,241 - ClassifierSolver - INFO   - Training epoch [ 120 /  120]:
+2021-04-23 13:16:09,735 - ClassifierSolver - INFO   - ==> Training stats [ 120 /  120]: {'loss': 3.1742, 'Top1Acc': 29.9205, 'Top5Acc': 56.3279}
+2021-04-23 13:16:09,738 - ClassifierSolver - INFO   - Save checkpoint @ epoch 120
+2021-04-23 13:16:21,222 - ClassifierSolver - INFO   - ==> Evaluation stats [ 120 /  120]: {'loss': 3.093, 'Top1Acc': 30.5081, 'Top5Acc': 57.4576, 'Top1Acc_std': 11.729, 'Top1Acc_cnf95': 2.4506, 'Top5Acc_std': 12.8852, 'Top5Acc_cnf95': 2.6922}
+2021-04-23 13:16:21,225 - ClassifierSolver - INFO   - ==> Best results w.r.t. Top1Acc metric @ epoch 115 - {'loss': 3.0897, 'Top1Acc': 30.6157, 'Top5Acc': 57.6141, 'Top1Acc_std': 11.7352, 'Top1Acc_cnf95': 2.4519, 'Top5Acc_std': 12.8211, 'Top5Acc_cnf95': 2.6788}

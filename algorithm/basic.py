@@ -29,7 +29,7 @@ class BasicSolver(Solver):
 
 class ClassifierSolver(BasicSolver):
     def get_trainable_parameters(self):
-        parameters = filter(lambda p: p.requires_grad, self.model.parameters())
+        parameters = filter(lambda p: p.requires_grad, self._model.parameters())
         return parameters
         
     def train_on_batch(self, batch):
@@ -103,7 +103,7 @@ class DenseClassifierSoftlabelSolver(ClassifierSolver):
         self.model.insert(
             'submodule_adp',
             nn.Sequential(
-                nn.Conv2d(2*m, 8, kernel_size=1, padding=0, stride=1),
+                nn.Conv2d(2*m, 8, kernel_size=3, padding=1, stride=1),
                 nn.LeakyReLU(0.1),
                 nn.Conv2d(8, 1, kernel_size=1, padding=0, stride=1),
             )

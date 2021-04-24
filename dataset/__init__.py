@@ -148,6 +148,7 @@ def __transform_helper():
     'aug_train+')
 def __transform_helper():
     return ttf.Compose([
+        ttf.Resize((84,84)),
         ttf.RandomResizedCrop((84,84), scale=(0.2, 1.0)),
         ttf.RandomHorizontalFlip(),
         ttf.ToTensor(),
@@ -196,6 +197,7 @@ def __transform_helper():
     'aug_train+')
 def __transform_helper():
     return ttf.Compose([
+        ttf.Resize((84,84)),
         ttf.RandomResizedCrop((84,84), scale=(0.2, 1.0)),
         ttf.RandomHorizontalFlip(),
         ttf.ToTensor(),
@@ -240,7 +242,31 @@ def __transform_helper():
     ], 'basic')
 def __transform_helper():
     return ttf.Compose([
-        ttf.Resize((32,32)),
+        ttf.Resize((84,84)),
+        ttf.ToTensor(),
+        ttf.Normalize(**CIFAR_MEAN_STD)
+    ]), __label_remapping
+
+@_register_transform([
+    'CIFARFS100',
+    'CIFARFC100',
+    ], 'basic-')
+def __transform_helper():
+    return ttf.Compose([
+        ttf.Resize((84,84)),
+        ttf.ToTensor(),
+        ttf.Normalize(**UNIFORM_MEAN_STD)
+    ]), __label_remapping
+
+@_register_transform([
+    'CIFARFS100',
+    'CIFARFC100',
+    ], 'aug_train+')
+def __transform_helper():
+    return ttf.Compose([
+        ttf.Resize((84,84)),
+        ttf.RandomResizedCrop((84,84), scale=(0.2, 1.0)),
+        ttf.RandomHorizontalFlip(),
         ttf.ToTensor(),
         ttf.Normalize(**CIFAR_MEAN_STD)
     ]), __label_remapping
@@ -251,7 +277,7 @@ def __transform_helper():
     ], 'aug_train')
 def __transform_helper():
     return ttf.Compose([
-        ttf.Resize((32,32)),
+        ttf.Resize((84,84)),
         ttf.RandomHorizontalFlip(),
         ttf.ToTensor(),
         ttf.Normalize(**CIFAR_MEAN_STD)
@@ -260,14 +286,13 @@ def __transform_helper():
 @_register_transform([
     'CIFARFS100',
     'CIFARFC100',
-    ], 'aug_train+')
+    ], 'aug_train-')
 def __transform_helper():
     return ttf.Compose([
-        ttf.Resize((32,32)),
-        ttf.RandomCrop(32, padding=4),
+        ttf.Resize((84,84)),
         ttf.RandomHorizontalFlip(),
         ttf.ToTensor(),
-        ttf.Normalize(**CIFAR_MEAN_STD)
+        ttf.Normalize(**UNIFORM_MEAN_STD)
     ]), __label_remapping
 
 @_register_transform([
@@ -276,7 +301,31 @@ def __transform_helper():
     ], 'basic')
 def __transform_helper():
     return ttf.Compose([
-        ttf.Resize((32,32)),
+        ttf.Resize((84,84)),
+        ttf.ToTensor(),
+        ttf.Normalize(**CIFAR_MEAN_STD)
+    ]), identity
+
+@_register_transform([
+    'CIFARFS100Horizontal',
+    'CIFARFC100Horizontal',
+    ], 'basic-')
+def __transform_helper():
+    return ttf.Compose([
+        ttf.Resize((84,84)),
+        ttf.ToTensor(),
+        ttf.Normalize(**UNIFORM_MEAN_STD)
+    ]), identity
+
+@_register_transform([
+    'CIFARFS100Horizontal',
+    'CIFARFC100Horizontal',
+    ], 'aug_train+')
+def __transform_helper():
+    return ttf.Compose([
+        ttf.Resize((84,84)),
+        ttf.RandomResizedCrop((84,84), scale=(0.2, 1.0)),
+        ttf.RandomHorizontalFlip(),
         ttf.ToTensor(),
         ttf.Normalize(**CIFAR_MEAN_STD)
     ]), identity
@@ -287,7 +336,7 @@ def __transform_helper():
     ], 'aug_train')
 def __transform_helper():
     return ttf.Compose([
-        ttf.Resize((32,32)),
+        ttf.Resize((84,84)),
         ttf.RandomHorizontalFlip(),
         ttf.ToTensor(),
         ttf.Normalize(**CIFAR_MEAN_STD)
@@ -296,14 +345,13 @@ def __transform_helper():
 @_register_transform([
     'CIFARFS100Horizontal',
     'CIFARFC100Horizontal',
-    ], 'aug_train+')
+    ], 'aug_train-')
 def __transform_helper():
     return ttf.Compose([
-        ttf.Resize((32,32)),
-        ttf.RandomCrop(32, padding=4),
+        ttf.Resize((84,84)),
         ttf.RandomHorizontalFlip(),
         ttf.ToTensor(),
-        ttf.Normalize(**CIFAR_MEAN_STD)
+        ttf.Normalize(**UNIFORM_MEAN_STD)
     ]), identity
 
 def default_collate_fn(batch, transform_fn_x, transform_fn_y):

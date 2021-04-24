@@ -24,7 +24,7 @@ class FewShotSolver(Solver):
         #return self.tensors['images'], self.tensors['labels0'], self.tensors['labels1']
 
     def get_trainable_parameters(self):
-        parameters = filter(lambda p: p.requires_grad, self.model.parameters())
+        parameters = filter(lambda p: p.requires_grad, self._model.parameters())
         return parameters
 
     def get_logits(self):
