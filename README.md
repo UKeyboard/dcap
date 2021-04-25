@@ -2,7 +2,6 @@
 This repository contains the code to reproduce the few-shot classification experiments carried out in
 [Revisiting Deep Local Descriptor for Improved Few-Shot Classification](https://arxiv.org/abs/2103.16009).
 
-<br>
 
 ### Dependencies 
 - python >= 3.7
@@ -16,15 +15,12 @@ This repository contains the code to reproduce the few-shot classification exper
 - pickle
 - matplotlib
 
-<br>
 
 ### Hardware Requirements
 -  linux server with at least two NVIDIA 1080Ti GPU cards
 - 16GB RAM
 - 320GB storage (for holding ILSVRC-12 dataset)
 
-
-<br>
 
 ### Supported Datasets
 | Dataset | Description |
@@ -35,7 +31,6 @@ This repository contains the code to reproduce the few-shot classification exper
 | CIFAR-FS | The CIFAR-FS dataset is a derivative of the original [CIFAR-100](https://www.cs.toronto.edu/~kriz/cifar.html) dataset by randomly splitting 100 classes into 64, 16 and 20 classes for meta-training, meta-validation, and meta-testing with each class contains 600 images. |
 | FC100 | The FC100 dataset also contains all 100 classes from CIFAR-100 where the classes are first are grouped into 20 high-level classes and then further divided into 60 classes from 12 high-level classes for meta-training, 20 classes from 4 high-level classes for meta-validation and 20 classes from 4 high-level classes for meta-testing, in a similar high-level split way to tieredImagNet. |
 
-<br>
 
 ### Prepare Datasets
 
@@ -64,7 +59,6 @@ The CIFAR-FS and FC100 are based on [CIFAR100](https://www.cs.toronto.edu/~kriz/
 
 For CIFAR100, we use `torchvision.datasets.cifar.CIFAR100`. The module will download CIFAR100 dataset for us.
 
-<br>
 
 ### Usuage
 
@@ -76,7 +70,6 @@ To train and test DCAP on the TieredImagenet dataset:
 4. For *5-way 1-shot* meta-training, meta-evaluation and meta-testing: `python --config resnet12_dcap_plus_5w1s_tiered --gpu 0 --tqdm`.
 5. For *5-way 5-shot* meta-training, meta-evaluation and meta-testing: `python --config resnet12_dcap_plus_5w5s_tiered --gpu 0 --tqdm`.
 
-<br>
 
 ### Others
 By default, both training and testing will write summaries in `experiment/[NAME]/visuals` and logs in `experiment/[NAME]/logs/LOG_INFO_[TIME].txt`.
@@ -87,12 +80,10 @@ To disable summaries, set the `--nosummary` option.
 
 You can also set the `--noflog` option to print logs in the terminal only.
 
-<br>
 
 ### Contact
 To ask questions or report issues, please open an issue on the issues tracker.
 
-<br>
 
 ### Citation
 If you use this code, please cite our [DCAP](https://arxiv.org/abs/2103.16009) paper:
