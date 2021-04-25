@@ -72,7 +72,7 @@ The CIFAR-FS and FC100 are based on [CIFAR100](https://www.cs.toronto.edu/~kriz/
 
 For CIFAR100, we use `torchvision.datasets.cifar.CIFAR100`. The module will download CIFAR100 dataset for us.
 
-
+<br>
 
 ### How to use the datasets?
 For each dataset, we present two Dataloaders --- one for standard classification and the other for few-shot learning. 
@@ -106,7 +106,7 @@ dataloader = MiniImagenetFS(
 )
 ```
 
-In the example, we create a dataloader that randomly samples 1,000 batches of 5-way 1-shot few-shot tasks from the meta-training split of MiniImagenet. Each batch contains 4 tasks. In other words, the dataloader sample 4,000 few-shot tasks per epoch. 
+In the example, we create a dataloader that randomly samples 1,000 batches of 5-way 1-shot few-shot tasks from the meta-training split of MiniImagenet. Each batch contains 4 tasks. In other words, the dataloader samples 4,000 few-shot tasks per epoch. 
 
 It is recommended to use `for` loop when working with large number of few-shot tasks, say 200k:
 ```python
@@ -197,16 +197,27 @@ dataloaderTest = MiniImagenetLMDBHorizontal(
 )
 ```
 
-In order to use `ILSVRC2012_img_train.lmdb`, you have to build it manually. To this end, please the [instructions](#prepare-mini-tiered) and prepare ImageNet first, then run the following script:
+<br>
+
+In order to use `ILSVRC2012_img_train.lmdb`, you have to build it manually. To this end, please follow the [instructions](#prepare-mini-tiered) and prepare ImageNet first, then run the following script:
 ```shell
-python scripts/prepare_imagenet_lmdb.py -f /path/to/imagenet/ISLVRC2012/train -o /path/to/imagenet/ISLVRC2012/ILSVRC2012_img_train.lmdb -S 200000000000
+python scripts/prepare_imagenet_lmdb.py \
+    -f /path/to/imagenet/ISLVRC2012/train \
+    -o /path/to/imagenet/ISLVRC2012/ILSVRC2012_img_train.lmdb \
+    -S 200000000000
 ``` 
 
 After building `ILSVRC2012_img_train.lmdb`, you can additionally run:
 ```shell
-python scripts/downsample_lmdb_database.py -f /path/to/imagenet/ISLVRC2012/ILSVRC2012_img_train.lmdb -o /path/to/imagenet/ISLVRC2012/ILSVRC2012_img_train_x96.lmdb -s 96 -S 63000000000
+python scripts/downsample_lmdb_database.py \
+    -f /path/to/imagenet/ISLVRC2012/ILSVRC2012_img_train.lmdb \
+    -o /path/to/imagenet/ISLVRC2012/ILSVRC2012_img_train_x96.lmdb \
+    -s 96 \
+    -S 63000000000
 ```
-to build a smaller lmdb database for easy transferability and fast reading. It will downsample every image in the input databse specified by `-f` option by resizing the short edge to the target size. Note the `-S` option must change properly to hold the resultant smaller database.
+to build a smaller lmdb database for easy transferability and fast reading. The script will downsample every image in the input databse specified by `-f` option by resizing the short edge to the target size. 
+
+Note the `-S` option must change properly to hold the resultant smaller database.
 
 #### To use TieredImagenet dataset
 
@@ -348,10 +359,16 @@ dataloader = CUB200LMDBHorizontal(
 
 For CUB-200-2011, similarly you have to build the lmdb databse manually if you're planing to use it.
 ```shell
-python scripts/prepare_cub200_lmdb.py -f /path/to/CUB_200_2011.tgz -o /path/to/CUB_200_2011_woSeg.lmdb -j 1 -S 2073741824
+python scripts/prepare_cub200_lmdb.py \
+    -f /path/to/CUB_200_2011.tgz \
+    -o /path/to/CUB_200_2011_woSeg.lmdb \
+    -j 1 \
+    -S 2073741824
 ```
 
-Note the `_woSeg` suffix in the name of the output file. The suffix indicates that we donot use segmentation annotations, i.e. segmentation annotations are not availiable in the lmdb database. For more information, we refer the reader to `scripts/prepare_cub200_lmdb.py`.
+Note the `_woSeg` suffix in the name of the output file. The suffix indicates that we donot use segmentation annotations, i.e. segmentation annotations are not availiable in the lmdb database. 
+
+For more information, we refer the reader to `scripts/prepare_cub200_lmdb.py`.
 
 
 #### To use CIFAR-FS and FC100 dataset
@@ -422,8 +439,12 @@ dataloader = CIFARFC100Horizontal(
 )
 ```
 
+<br>
+
 In all the examples, we mainly illustrate how to obtain the meta-training data for few-shot learning or the training data for standard classification. We assume the reader can quickly figure out how to extend the usage to other situations like meta-validation, meta-testing, etc.
 
+
+<br>
 
 ### Training
 
@@ -443,14 +464,20 @@ Run the script to kick off training:
 python trainval.py --config basic_protonet_plus_5w1s_tiered --gpu 0 
 ```
 
-The script `trainval.py` will try to find `basic_protonet_plus_5w1s_tiered.py` in directory `config` and load configures in file to set the experiment context. 
+The script `trainval.py` will try to find `basic_protonet_plus_5w1s_tiered.py` in the `config` directory and load configures in file to set the experiment context. 
 
 The option `--gpu 0` indicates to use the GPU card indexed by number 0. 
 
 We use [`DistributedDataParallel`](https://pytorch.org/docs/stable/generated/torch.nn.parallel.DistributedDataParallel.html#torch.nn.parallel.DistributedDataParallel) for multi-GPU training. Here is an example of using three GPUs on the same server for training.
 
 ```shell
-python -m torch.distributed.launch --nproc_per_node=3 --nnodes=1 --node_rank=0 --config basic_protonet_plus_5w1s_tiered --gpu 0 1 3
+python -m torch.distributed.launch \
+    --nproc_per_node=3 \
+    --nnodes=1 \
+    --node_rank=0 \
+    trainval.py \
+    --config basic_protonet_plus_5w1s_tiered \
+    --gpu 0 1 3
 ```
 
 If the batch size is set to 4 in the configure file, the true batch size is 4 x 3 when using three GPUs.
@@ -464,7 +491,7 @@ By default, the model is evaluated on the validation set during training. Set `c
 
 ### Testing
 
-If the testing dataset is set in the configure file, the model is also evaluated on the testing set after each evaluation on the validation set.
+If the testing dataset is set in the configure file, the model is also evaluated on the testing set after every evaluation on the validation set.
 
 For example:
 
@@ -516,18 +543,21 @@ config["data"] = dict(
 
 Set `test = None` to disable model evaluation on the testing set during training in which case you have to manually start a testing session after training.
 
-For manually testing, set the testing dataset first and then run
+For testing on your own, set the testing dataset first and then run
 ```python
-python test.py --config basic_protonet_plus_5w1s_tiered --gpu 0 --checkpoint [CHECKPOINT]
+python test.py \
+    --config basic_protonet_plus_5w1s_tiered \
+    --gpu 0 \
+    --checkpoint [CHECKPOINT]
 ```
 
 ### Others
 By default, both training and testing will write summaries in `experiment/[NAME]/visuals` and logs in `experiment/[NAME]/logs/LOG_INFO_[TIME].txt`.
 
-You can run `tensorboard --logdir experiment/[NAME]/visuals --port [PORT]` to visualize summaries.
+You can run `tensorboard --logdir experiment/[NAME]/visuals --port [PORT]` to visualize summaries in a browser.
 
-To disable summaries, set `--nosummary` option. 
+To disable summaries, set the `--nosummary` option. 
 
-You can also set `--noflog` to print logs in the terminal only.
+You can also set the `--noflog` option to print logs in the terminal only.
 
-For better experience, we recommend to set the `--tqdm` option which will display progress bar during training and testing.
+For better experience, we recommend to set the `--tqdm` option, which will display progress bar during training and testing.
