@@ -74,7 +74,7 @@ To train and test DCAP on the TieredImagenet dataset:
 2. Run `python -m torch.distributed.launch --nproc_per_node=2  --nnodes=1 --node_rank=0 trainval.py --config resnet12_351w_tiered --gpu 0 1` to kick off the pre-training.
 3. Edit `config/resnet12_dcap_plus_5w1s_tiered.py` and `config/resnet12_dcap_plus_5w5s_tiered.py` to set pre-trained model properly.
 4. For *5-way 1-shot* meta-training, meta-evaluation and meta-testing: `python --config resnet12_dcap_plus_5w1s_tiered --gpu 0 --tqdm`.
-5. For *5-way 1-shot* meta-training, meta-evaluation and meta-testing: `python --config resnet12_dcap_plus_5w5s_tiered --gpu 0 --tqdm`.
+5. For *5-way 5-shot* meta-training, meta-evaluation and meta-testing: `python --config resnet12_dcap_plus_5w5s_tiered --gpu 0 --tqdm`.
 
 <br>
 
