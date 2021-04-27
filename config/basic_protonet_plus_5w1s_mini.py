@@ -8,6 +8,7 @@ is_biased_classifier = True
 is_meta_fintuning = True
 is_dense_pretrained = False
 is_dense_pretrained_w_softlabel = False and is_dense_pretrained
+is_dense = False # If true, use dense classification as auxilary task
 is_augtrain_plus = False
 is_transductive_bn = False
 is_cosine_solver = False
@@ -61,6 +62,7 @@ config["name"] = '_'.join([
     # 'wTBN' if is_transductive_bn else 'woTBN',
     #
     experiment_uuid,
+    'wDC' if is_dense else 'woDC',
     'wFT' if is_meta_fintuning else 'woFT',
     'cosine' if is_cosine_solver else 'project',
     'b%d'%batch_size,
@@ -75,7 +77,7 @@ config["episode_test_meta"] = FewShotEpisodeMeta(5,1,10 if batch_size>4 else 15,
 # solver
 config["solver"] = dict(
     package = "algorithm.fewshot",
-    module = "ProtoNetCosineMetricPlusSolver" if is_cosine_solver else "ProtoNetProjectionMetricPlusSolver",
+    module = ("ProtoNet%sMetricPlusPlusSolver" if is_dense else "ProtoNet%sMetricPlusSolver") % ("Cosine" if is_cosine_solver else "Projection"),
     min_lr_decay = 1e-4,
     vanilla_classifier_balance_weight = 0.5,
     fewshot_classifier_balance_weight = 1.0,
@@ -84,12 +86,12 @@ config["solver"] = dict(
 # model
 config['network'] = dict(
     package = "model",
-    module = "ConvNet%d_wCplus"%conv_out_dim,
+    module = ("ConvNet%d_wDCplus" if is_dense else "ConvNet%d_wCplus")%conv_out_dim,
     param = dict(
         required_input_size = 84,
         num_classes=64, 
         biased=is_biased_classifier,
-        avgpool = True,
+        avgpool = not is_dense,
         transductive_bn=is_transductive_bn,
         final_activation=nn.Sequential(
             nn.BatchNorm2d(conv_out_dim, track_running_stats=not is_transductive_bn),
