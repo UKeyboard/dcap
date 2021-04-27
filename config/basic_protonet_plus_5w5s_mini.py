@@ -44,6 +44,13 @@ if pretrained_model is not None:
     assert 'basic_64w_mini_conv%d'%conv_out_dim in pretrained_model
 else:
     is_meta_fintuning = False
+    experiment_uuid = '_'.join([
+        'none',
+        'hardlabel',
+        'wAC' if is_apply_final_activation else 'woAC',
+        'wBias' if is_biased_classifier else 'woBias',
+        'wTBN' if is_transductive_bn else 'woTBN',
+    ])
 #
 max_num_epochs = 20 if is_meta_fintuning else 100
 
